@@ -56,19 +56,52 @@
     .tip-box { background: #fffbeb; padding: 16px; border-radius: 12px; }
     .tip-box h3 { font-size: 0.875rem; margin-bottom: 8px; }
     .tip-box li { font-size: 0.875rem; color: #374151; margin-left: 16px; margin-bottom: 4px; }
-    .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .rate-badge { font-size: 0.75rem; background: #f3f4f6; padding: 4px 10px; border-radius: 20px; }
+    .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .rate-badge { font-size: 0.75rem; background: #f3f4f6; padding: 6px 12px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .rate-badge:hover { background: #e5e7eb; }
+    .rate-input { width: 50px; padding: 4px 6px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.75rem; text-align: center; }
     .budget-cat { font-weight: 500; color: #374151; margin: 16px 0 8px; }
-    .budget-row { display: flex; justify-content: space-between; padding: 10px 0 10px 16px; border-bottom: 1px solid #f9fafb; font-size: 0.875rem; }
-    .budget-item { flex: 1; color: #4b5563; }
-    .budget-chf { width: 70px; text-align: right; }
-    .budget-twd { width: 90px; text-align: right; color: #9ca3af; }
+    .budget-row { display: flex; align-items: center; padding: 10px 0 10px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.875rem; gap: 8px; }
+    .budget-row:hover { background: #f9fafb; }
+    .budget-item { flex: 1; color: #4b5563; min-width: 0; }
+    .budget-item-name { word-break: break-word; }
+    .budget-item-note { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
+    .budget-chf { width: 65px; text-align: right; flex-shrink: 0; }
+    .budget-twd { width: 80px; text-align: right; color: #9ca3af; flex-shrink: 0; }
+    .budget-actions { display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; }
+    .budget-row:hover .budget-actions { opacity: 1; }
+    .btn-icon { width: 28px; height: 28px; border: none; background: none; cursor: pointer; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
+    .btn-icon:hover { background: #e5e7eb; }
+    .btn-icon.edit { color: #3b82f6; }
+    .btn-icon.delete { color: #ef4444; }
     .budget-total { border-top: 2px solid #fecaca; padding-top: 16px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; }
     .budget-total-label { font-weight: 600; }
     .budget-total-value { text-align: right; }
     .budget-total-chf { font-size: 1.25rem; font-weight: 700; color: #dc2626; }
     .budget-total-twd { font-size: 0.875rem; color: #6b7280; }
     .info-box { background: #eff6ff; padding: 16px; border-radius: 12px; font-size: 0.875rem; color: #1e40af; margin-top: 16px; }
+    .add-btn { width: 100%; padding: 14px; background: #3b82f6; color: #fff; border: none; border-radius: 12px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .add-btn:hover { background: #2563eb; }
+    .add-btn.purple { background: #8b5cf6; }
+    .add-btn.purple:hover { background: #7c3aed; }
+    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
+    .modal.hidden { display: none; }
+    .modal-content { background: #fff; border-radius: 16px; padding: 20px; width: 100%; max-width: 400px; max-height: 90vh; overflow-y: auto; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .modal-title { font-weight: 600; font-size: 1.125rem; }
+    .modal-close { width: 32px; height: 32px; border: none; background: #f3f4f6; border-radius: 8px; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: #e5e7eb; }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 0.75rem; color: #6b7280; margin-bottom: 6px; }
+    .form-input, .form-select { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.875rem; }
+    .form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    .form-hint { font-size: 0.75rem; color: #9ca3af; margin-top: 4px; }
+    .form-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; }
+    .form-btn.primary { background: #22c55e; color: #fff; }
+    .form-btn.primary:hover { background: #16a34a; }
+    .form-btn.primary:disabled { background: #d1d5db; cursor: not-allowed; }
+    .form-btn.secondary { background: #e5e7eb; color: #374151; margin-top: 8px; }
+    .form-btn.secondary:hover { background: #d1d5db; }
     .packing-header { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: sticky; top: 52px; z-index: 50; margin-bottom: 16px; }
     .packing-title { display: flex; justify-content: space-between; align-items: center; }
     .packing-count { font-size: 1.125rem; font-weight: 700; }
@@ -77,8 +110,11 @@
     .packing-subtitle { font-size: 0.75rem; color: #6b7280; }
     .progress-bar { height: 12px; background: #e5e7eb; border-radius: 6px; margin-top: 12px; overflow: hidden; }
     .progress-fill { height: 100%; background: #22c55e; transition: width 0.3s; }
+    .packing-btns { display: flex; gap: 8px; margin-bottom: 16px; }
+    .packing-btns .add-btn { flex: 1; margin: 0; padding: 10px; font-size: 0.8rem; }
     .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
     .cat-title { font-weight: 600; }
+    .cat-actions { display: flex; align-items: center; gap: 8px; }
     .cat-count { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; background: #f3f4f6; }
     .cat-count.done { background: #dcfce7; color: #16a34a; }
     .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
@@ -86,12 +122,19 @@
     .check-item.checked { background: #f0fdf4; }
     .checkbox { width: 24px; height: 24px; border: 2px solid #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
     .check-item.checked .checkbox { background: #22c55e; border-color: #22c55e; color: #fff; }
-    .check-label { font-size: 0.875rem; color: #374151; }
+    .check-label { font-size: 0.875rem; color: #374151; flex: 1; }
     .check-item.checked .check-label { color: #9ca3af; text-decoration: line-through; }
+    .check-actions { display: flex; gap: 2px; opacity: 0; transition: opacity 0.2s; }
+    .check-item:hover .check-actions { opacity: 1; }
     .reset-btn { width: 100%; padding: 14px; background: #e5e7eb; color: #4b5563; border: none; border-radius: 12px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 16px; }
     .reset-btn:hover { background: #d1d5db; }
     .footer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e7eb; padding: 12px; text-align: center; font-size: 0.75rem; color: #6b7280; }
     .hidden { display: none !important; }
+    @media (max-width: 400px) {
+      .budget-twd { display: none; }
+      .budget-actions { opacity: 1; }
+      .check-actions { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -120,10 +163,20 @@
     <div id="packing-tab" class="hidden"></div>
   </div>
 
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title">新增</span>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
   <div class="footer">🇨🇭 瑞士之旅 2026 ｜情人節快樂 ❤️</div>
 
   <script>
-    const DATA = {
+    const DEFAULT_DATA = {
       itinerary: [
         { date: '2/7 (六)', title: 'Eva抵達蘇黎世', icon: '✈️', loc: '蘇黎世', schedule: [
           { t: '12:00', a: '✈️ 從英國出發', d: '1h45m' }, { t: '15:00', a: '抵達蘇黎世機場', d: '-' },
@@ -218,19 +271,27 @@
         tips: ['右側座位看高架橋最佳', '建議預訂車上午餐', '餐車有可開窗戶拍照', '提前2-3個月預訂']
       },
       budget: [
-        { cat: '🚂 交通', items: [
-          { n: 'Eva 英國↔瑞士機票', c: 180 }, { n: 'Swiss Travel Pass 8天 x3', c: 1347 },
-          { n: '冰川列車訂位費 x3', c: 147 }, { n: '少女峰鐵路 x3 (75折)', c: 510 },
-          { n: 'Gornergrat 鐵路 x3 (50折)', c: 270 }, { n: '家人 日內瓦→蘇黎世', c: 174 },
-          { n: '家人 德國康斯坦茨來回', c: 100 }
+        { cat: 'transport', label: '🚂 交通', items: [
+          { n: 'Eva 英國↔瑞士機票', c: 180, note: '' },
+          { n: 'Swiss Travel Pass 8天 x3', c: 1347, note: '' },
+          { n: '冰川列車訂位費 x3', c: 147, note: '' },
+          { n: '少女峰鐵路 x3 (75折)', c: 510, note: '' },
+          { n: 'Gornergrat 鐵路 x3 (50折)', c: 270, note: '' },
+          { n: '家人 日內瓦→蘇黎世', c: 174, note: '' },
+          { n: '家人 德國康斯坦茨來回', c: 100, note: '' }
         ]},
-        { cat: '🏨 住宿', items: [
-          { n: '蘇黎世 3晚', c: 600 }, { n: '琉森 1晚', c: 180 }, { n: '格林德瓦 2晚', c: 500 },
-          { n: '聖莫里茲 1晚', c: 300 }, { n: '采爾馬特 2晚', c: 500 }, { n: '日內瓦 2晚', c: 360 },
-          { n: '蘇黎世 1晚 (家人)', c: 200 }
+        { cat: 'hotel', label: '🏨 住宿', items: [
+          { n: '蘇黎世 3晚', c: 600, note: '' },
+          { n: '琉森 1晚', c: 180, note: '' },
+          { n: '格林德瓦 2晚', c: 500, note: '' },
+          { n: '聖莫里茲 1晚', c: 300, note: '' },
+          { n: '采爾馬特 2晚', c: 500, note: '' },
+          { n: '日內瓦 2晚', c: 360, note: '' },
+          { n: '蘇黎世 1晚 (家人)', c: 200, note: '' }
         ]},
-        { cat: '🎫 活動', items: [
-          { n: '列支敦士登蓋章+品酒', c: 60 }, { n: '冰川列車午餐 x3', c: 150 }
+        { cat: 'activity', label: '🎫 活動', items: [
+          { n: '列支敦士登蓋章+品酒', c: 60, note: '' },
+          { n: '冰川列車午餐 x3', c: 150, note: '' }
         ]}
       ],
       packing: {
@@ -244,11 +305,25 @@
       }
     };
 
-    const RATE = 36;
-    let checked = JSON.parse(localStorage.getItem('swissChecked') || '{}');
-    let openDays = {};
+    // State
+    let state = {
+      rate: 36,
+      budget: JSON.parse(localStorage.getItem('swissBudget')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
+      packing: JSON.parse(localStorage.getItem('swissPacking')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
+      checked: JSON.parse(localStorage.getItem('swissChecked')) || {},
+      openDays: {}
+    };
 
-    function saveChecked() { localStorage.setItem('swissChecked', JSON.stringify(checked)); }
+    function save() {
+      localStorage.setItem('swissBudget', JSON.stringify(state.budget));
+      localStorage.setItem('swissPacking', JSON.stringify(state.packing));
+      localStorage.setItem('swissChecked', JSON.stringify(state.checked));
+      localStorage.setItem('swissRate', state.rate);
+    }
+
+    // Load rate
+    const savedRate = localStorage.getItem('swissRate');
+    if (savedRate) state.rate = parseFloat(savedRate);
 
     function genMapUrl(points) {
       if (!points || points.length === 0) return '';
@@ -258,10 +333,21 @@
       return `https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${d}${w ? `&waypoints=${w}` : ''}&travelmode=transit`;
     }
 
+    function openModal(title, bodyHtml) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-body').innerHTML = bodyHtml;
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    // Itinerary
     function renderItinerary() {
       const el = document.getElementById('itinerary-tab');
       el.innerHTML = '<p style="font-size:0.875rem;color:#6b7280;margin-bottom:12px;">點擊展開查看詳細行程</p>' +
-        DATA.itinerary.map((day, i) => `
+        DEFAULT_DATA.itinerary.map((day, i) => `
           <div class="card ${day.hl ? 'highlight' : ''} ${day.fam ? 'family' : ''}">
             <button class="day-header" onclick="toggleDay(${i})">
               <div class="day-left">
@@ -298,11 +384,12 @@
     }
 
     function toggleDay(i) {
-      openDays[i] = !openDays[i];
-      document.getElementById(`content-${i}`).classList.toggle('open', openDays[i]);
-      document.getElementById(`arrow-${i}`).textContent = openDays[i] ? '▲' : '▼';
+      state.openDays[i] = !state.openDays[i];
+      document.getElementById(`content-${i}`).classList.toggle('open', state.openDays[i]);
+      document.getElementById(`arrow-${i}`).textContent = state.openDays[i] ? '▲' : '▼';
     }
 
+    // Glacier
     function renderGlacier() {
       const el = document.getElementById('glacier-tab');
       el.innerHTML = `
@@ -313,36 +400,46 @@
         </div>
         <div class="card" style="padding:16px;">
           <div class="section-title">🏔️ 路線亮點</div>
-          ${DATA.glacier.route.map(r => `<div class="route-item"><div class="route-dot"></div><span>${r}</span></div>`).join('')}
+          ${DEFAULT_DATA.glacier.route.map(r => `<div class="route-item"><div class="route-dot"></div><span>${r}</span></div>`).join('')}
         </div>
         <div class="card" style="padding:16px;">
           <div class="section-title">💰 票價（持 Swiss Travel Pass）</div>
-          <div class="price-row recommended"><span>2等車廂（推薦）</span><span class="price-value green">CHF 49 ≈ NT$1,764</span></div>
-          <div class="price-row normal"><span>1等車廂</span><span class="price-value">CHF 69 ≈ NT$2,484</span></div>
+          <div class="price-row recommended"><span>2等車廂（推薦）</span><span class="price-value green">CHF 49 ≈ NT$${Math.round(49 * state.rate).toLocaleString()}</span></div>
+          <div class="price-row normal"><span>1等車廂</span><span class="price-value">CHF 69 ≈ NT$${Math.round(69 * state.rate).toLocaleString()}</span></div>
         </div>
         <div class="tip-box">
           <h3>💡 小提醒</h3>
-          <ul>${DATA.glacier.tips.map(t => `<li>${t}</li>`).join('')}</ul>
+          <ul>${DEFAULT_DATA.glacier.tips.map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
       `;
     }
 
+    // Budget
     function renderBudget() {
-      const total = DATA.budget.reduce((s, g) => s + g.items.reduce((ss, i) => ss + i.c, 0), 0);
+      const total = state.budget.reduce((s, g) => s + g.items.reduce((ss, i) => ss + i.c, 0), 0);
       const el = document.getElementById('budget-tab');
       el.innerHTML = `
         <div class="card" style="padding:16px;">
           <div class="budget-header">
             <h2 style="font-weight:600;font-size:1.125rem;">💰 預算總覽</h2>
-            <span class="rate-badge">1 CHF = ${RATE} TWD</span>
+            <div class="rate-badge" onclick="editRate()">
+              ⚙️ 1 CHF = <span id="rate-display">${state.rate}</span> TWD
+            </div>
           </div>
-          ${DATA.budget.map(g => `
-            <div class="budget-cat">${g.cat}</div>
-            ${g.items.map(i => `
+          ${state.budget.map((g, gi) => `
+            <div class="budget-cat">${g.label}</div>
+            ${g.items.map((item, ii) => `
               <div class="budget-row">
-                <span class="budget-item">${i.n}</span>
-                <span class="budget-chf">CHF ${i.c}</span>
-                <span class="budget-twd">NT$ ${(i.c * RATE).toLocaleString()}</span>
+                <div class="budget-item">
+                  <div class="budget-item-name">${item.n}</div>
+                  ${item.note ? `<div class="budget-item-note">💬 ${item.note}</div>` : ''}
+                </div>
+                <span class="budget-chf">CHF ${item.c}</span>
+                <span class="budget-twd">NT$ ${Math.round(item.c * state.rate).toLocaleString()}</span>
+                <div class="budget-actions">
+                  <button class="btn-icon edit" onclick="editBudgetItem(${gi}, ${ii})">✏️</button>
+                  <button class="btn-icon delete" onclick="deleteBudgetItem(${gi}, ${ii})">🗑️</button>
+                </div>
               </div>
             `).join('')}
           `).join('')}
@@ -350,17 +447,139 @@
             <span class="budget-total-label">預估總計</span>
             <div class="budget-total-value">
               <div class="budget-total-chf">CHF ${total.toLocaleString()}</div>
-              <div class="budget-total-twd">≈ NT$ ${(total * RATE).toLocaleString()}</div>
+              <div class="budget-total-twd">≈ NT$ ${Math.round(total * state.rate).toLocaleString()}</div>
             </div>
           </div>
         </div>
-        <div class="info-box">💡 不含餐費（約 CHF 50-80/天/人）及購物</div>
+        <button class="add-btn" onclick="addBudgetItem()">➕ 新增預算項目</button>
+        <div class="info-box">💡 不含餐費（約 CHF 50-80/天/人）及購物<br>👆 點擊項目右側按鈕可編輯或刪除</div>
       `;
     }
 
+    function editRate() {
+      openModal('⚙️ 設定匯率', `
+        <div class="form-group">
+          <label class="form-label">1 CHF = ? TWD</label>
+          <input type="number" id="rate-input" class="form-input" value="${state.rate}" step="0.1">
+          <div class="form-hint">目前匯率約 35-37</div>
+        </div>
+        <button class="form-btn primary" onclick="saveRate()">儲存</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+    }
+
+    function saveRate() {
+      const val = parseFloat(document.getElementById('rate-input').value);
+      if (val > 0) {
+        state.rate = val;
+        save();
+        renderBudget();
+        renderGlacier();
+        closeModal();
+      }
+    }
+
+    function addBudgetItem() {
+      openModal('➕ 新增預算項目', `
+        <div class="form-group">
+          <label class="form-label">類別</label>
+          <select id="budget-cat" class="form-select">
+            ${state.budget.map((g, i) => `<option value="${i}">${g.label}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">項目名稱</label>
+          <input type="text" id="budget-name" class="form-input" placeholder="例：紀念品">
+        </div>
+        <div class="form-group">
+          <label class="form-label">金額 (CHF)</label>
+          <input type="number" id="budget-amount" class="form-input" placeholder="例：50">
+          <div class="form-hint" id="budget-twd-hint"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">備註（選填）</label>
+          <input type="text" id="budget-note" class="form-input" placeholder="例：給家人的禮物">
+        </div>
+        <button class="form-btn primary" onclick="saveBudgetItem()">確認新增</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+      document.getElementById('budget-amount').addEventListener('input', function() {
+        const val = parseFloat(this.value) || 0;
+        document.getElementById('budget-twd-hint').textContent = val ? `≈ NT$ ${Math.round(val * state.rate).toLocaleString()}` : '';
+      });
+    }
+
+    function saveBudgetItem() {
+      const cat = parseInt(document.getElementById('budget-cat').value);
+      const name = document.getElementById('budget-name').value.trim();
+      const amount = parseFloat(document.getElementById('budget-amount').value);
+      const note = document.getElementById('budget-note').value.trim();
+      if (!name || !amount) return alert('請填寫名稱和金額');
+      state.budget[cat].items.push({ n: name, c: amount, note: note });
+      save();
+      renderBudget();
+      closeModal();
+    }
+
+    function editBudgetItem(gi, ii) {
+      const item = state.budget[gi].items[ii];
+      openModal('✏️ 編輯項目', `
+        <div class="form-group">
+          <label class="form-label">類別</label>
+          <select id="budget-cat" class="form-select">
+            ${state.budget.map((g, i) => `<option value="${i}" ${i === gi ? 'selected' : ''}>${g.label}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">項目名稱</label>
+          <input type="text" id="budget-name" class="form-input" value="${item.n}">
+        </div>
+        <div class="form-group">
+          <label class="form-label">金額 (CHF)</label>
+          <input type="number" id="budget-amount" class="form-input" value="${item.c}">
+          <div class="form-hint" id="budget-twd-hint">≈ NT$ ${Math.round(item.c * state.rate).toLocaleString()}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">備註（選填）</label>
+          <input type="text" id="budget-note" class="form-input" value="${item.note || ''}">
+        </div>
+        <button class="form-btn primary" onclick="updateBudgetItem(${gi}, ${ii})">儲存變更</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+      document.getElementById('budget-amount').addEventListener('input', function() {
+        const val = parseFloat(this.value) || 0;
+        document.getElementById('budget-twd-hint').textContent = val ? `≈ NT$ ${Math.round(val * state.rate).toLocaleString()}` : '';
+      });
+    }
+
+    function updateBudgetItem(oldGi, ii) {
+      const newGi = parseInt(document.getElementById('budget-cat').value);
+      const name = document.getElementById('budget-name').value.trim();
+      const amount = parseFloat(document.getElementById('budget-amount').value);
+      const note = document.getElementById('budget-note').value.trim();
+      if (!name || !amount) return alert('請填寫名稱和金額');
+      
+      // Remove from old category
+      state.budget[oldGi].items.splice(ii, 1);
+      // Add to new category
+      state.budget[newGi].items.push({ n: name, c: amount, note: note });
+      save();
+      renderBudget();
+      closeModal();
+    }
+
+    function deleteBudgetItem(gi, ii) {
+      if (confirm('確定刪除此項目？')) {
+        state.budget[gi].items.splice(ii, 1);
+        save();
+        renderBudget();
+      }
+    }
+
+    // Packing
     function renderPacking() {
-      const all = Object.values(DATA.packing).flat();
-      const done = all.filter(i => checked[i]).length;
+      const all = Object.values(state.packing).flat();
+      const done = all.filter(i => state.checked[i]).length;
       const el = document.getElementById('packing-tab');
       el.innerHTML = `
         <div class="packing-header">
@@ -373,20 +592,31 @@
           </div>
           <div class="progress-bar"><div class="progress-fill" style="width:${all.length ? (done/all.length)*100 : 0}%"></div></div>
         </div>
-        ${Object.entries(DATA.packing).map(([cat, items]) => {
-          const catDone = items.filter(i => checked[i]).length;
+        <div class="packing-btns">
+          <button class="add-btn" onclick="addPackingItem()">➕ 新增物品</button>
+          <button class="add-btn purple" onclick="addPackingCategory()">📁 新增分類</button>
+        </div>
+        ${Object.entries(state.packing).map(([cat, items]) => {
+          const catDone = items.filter(i => state.checked[i]).length;
           return `
             <div class="card" style="padding:16px;">
               <div class="cat-header">
                 <span class="cat-title">${cat}</span>
-                <span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span>
-              </div>
-              ${items.map(item => `
-                <div class="check-item ${checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\'")}')">
-                  <div class="checkbox">${checked[item] ? '✓' : ''}</div>
-                  <span class="check-label">${item}</span>
+                <div class="cat-actions">
+                  <span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span>
+                  <button class="btn-icon delete" onclick="deletePackingCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button>
                 </div>
-              `).join('')}
+              </div>
+              ${items.length ? items.map((item, idx) => `
+                <div class="check-item ${state.checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\'")}')">
+                  <div class="checkbox">${state.checked[item] ? '✓' : ''}</div>
+                  <span class="check-label">${item}</span>
+                  <div class="check-actions" onclick="event.stopPropagation()">
+                    <button class="btn-icon edit" onclick="editPackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">✏️</button>
+                    <button class="btn-icon delete" onclick="deletePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">🗑️</button>
+                  </div>
+                </div>
+              `).join('') : '<p style="font-size:0.875rem;color:#9ca3af;text-align:center;padding:12px;">尚無物品</p>'}
             </div>
           `;
         }).join('')}
@@ -395,17 +625,116 @@
     }
 
     function toggleCheck(item) {
-      checked[item] = !checked[item];
-      saveChecked();
+      state.checked[item] = !state.checked[item];
+      save();
       renderPacking();
     }
 
     function resetChecked() {
-      checked = {};
-      saveChecked();
-      renderPacking();
+      if (confirm('確定要重置所有勾選？')) {
+        state.checked = {};
+        save();
+        renderPacking();
+      }
     }
 
+    function addPackingItem() {
+      const cats = Object.keys(state.packing);
+      openModal('➕ 新增物品', `
+        <div class="form-group">
+          <label class="form-label">分類</label>
+          <select id="packing-cat" class="form-select">
+            ${cats.map(c => `<option value="${c}">${c}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">物品名稱</label>
+          <input type="text" id="packing-name" class="form-input" placeholder="例：護照套">
+        </div>
+        <button class="form-btn primary" onclick="savePackingItem()">確認新增</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+    }
+
+    function savePackingItem() {
+      const cat = document.getElementById('packing-cat').value;
+      const name = document.getElementById('packing-name').value.trim();
+      if (!name) return alert('請填寫物品名稱');
+      state.packing[cat].push(name);
+      save();
+      renderPacking();
+      closeModal();
+    }
+
+    function editPackingItem(cat, idx) {
+      const item = state.packing[cat][idx];
+      openModal('✏️ 編輯物品', `
+        <div class="form-group">
+          <label class="form-label">物品名稱</label>
+          <input type="text" id="packing-name" class="form-input" value="${item}">
+        </div>
+        <button class="form-btn primary" onclick="updatePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">儲存變更</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+    }
+
+    function updatePackingItem(cat, idx) {
+      const oldName = state.packing[cat][idx];
+      const newName = document.getElementById('packing-name').value.trim();
+      if (!newName) return alert('請填寫物品名稱');
+      state.packing[cat][idx] = newName;
+      // Update checked state
+      if (state.checked[oldName]) {
+        delete state.checked[oldName];
+        state.checked[newName] = true;
+      }
+      save();
+      renderPacking();
+      closeModal();
+    }
+
+    function deletePackingItem(cat, idx) {
+      if (confirm('確定刪除此物品？')) {
+        const item = state.packing[cat][idx];
+        state.packing[cat].splice(idx, 1);
+        delete state.checked[item];
+        save();
+        renderPacking();
+      }
+    }
+
+    function addPackingCategory() {
+      openModal('📁 新增分類', `
+        <div class="form-group">
+          <label class="form-label">分類名稱（可加 emoji）</label>
+          <input type="text" id="cat-name" class="form-input" placeholder="例：🎁 伴手禮">
+        </div>
+        <button class="form-btn primary" onclick="savePackingCategory()">確認新增</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+    }
+
+    function savePackingCategory() {
+      let name = document.getElementById('cat-name').value.trim();
+      if (!name) return alert('請填寫分類名稱');
+      if (!name.match(/^[\u{1F300}-\u{1F9FF}]/u)) name = '🎒 ' + name;
+      if (state.packing[name]) return alert('此分類已存在');
+      state.packing[name] = [];
+      save();
+      renderPacking();
+      closeModal();
+    }
+
+    function deletePackingCategory(cat) {
+      if (confirm(`確定刪除「${cat}」分類及所有物品？`)) {
+        state.packing[cat].forEach(item => delete state.checked[item]);
+        delete state.packing[cat];
+        save();
+        renderPacking();
+      }
+    }
+
+    // Tab switching
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
@@ -418,6 +747,12 @@
       tab.addEventListener('click', () => switchTab(tab.dataset.tab));
     });
 
+    // Close modal on background click
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Init
     renderItinerary();
     renderGlacier();
     renderBudget();
