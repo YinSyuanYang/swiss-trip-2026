@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>🇨🇭 瑞士之旅 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇨🇭</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; background: linear-gradient(to bottom, #fef2f2, #fff); min-height: 100vh; }
+    .header { background: linear-gradient(to right, #dc2626, #b91c1c); color: #fff; padding: 20px; border-radius: 0 0 24px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .header h1 { font-size: 1.25rem; display: flex; align-items: center; gap: 8px; }
+    .header p { color: #fecaca; font-size: 0.875rem; margin-top: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; }
+    .tabs { display: flex; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .tab { flex: 1; padding: 12px 8px; border: none; background: none; cursor: pointer; font-size: 0.75rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s; }
+    .tab.active { color: #dc2626; border-bottom: 2px solid #dc2626; }
+    .tab-icon { font-size: 1.25rem; }
+    .content { padding: 16px; padding-bottom: 80px; max-width: 500px; margin: 0 auto; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 12px; overflow: hidden; }
+    .card.highlight { box-shadow: 0 0 0 2px #ef4444, 0 2px 8px rgba(0,0,0,0.08); }
+    .card.family { background: #fffbeb; }
+    .day-header { width: 100%; padding: 16px; display: flex; align-items: center; justify-content: space-between; border: none; background: none; cursor: pointer; text-align: left; }
+    .day-header:hover { background: #f9fafb; }
+    .day-left { display: flex; align-items: center; gap: 12px; }
+    .day-icon { font-size: 1.75rem; }
+    .day-date { font-size: 0.75rem; color: #6b7280; }
+    .day-title { font-weight: 600; color: #1f2937; }
+    .day-loc { font-size: 0.75rem; color: #dc2626; }
+    .day-right { display: flex; align-items: center; gap: 8px; }
+    .badge { font-size: 0.625rem; padding: 2px 8px; border-radius: 20px; }
+    .badge-family { background: #fde68a; color: #92400e; }
+    .badge-highlight { background: #fee2e2; color: #dc2626; }
+    .arrow { color: #9ca3af; font-size: 0.875rem; }
+    .day-content { padding: 0 16px 16px; border-top: 1px solid #f3f4f6; display: none; }
+    .day-content.open { display: block; }
+    .hotel-box { margin-top: 12px; padding: 12px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.875rem; }
+    .schedule { margin-top: 12px; }
+    .schedule-item { display: flex; gap: 12px; padding: 8px 0; font-size: 0.875rem; }
+    .schedule-time { width: 48px; color: #dc2626; font-family: monospace; font-weight: 500; flex-shrink: 0; }
+    .schedule-activity { flex: 1; color: #374151; }
+    .schedule-duration { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
+    .map-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: #16a34a; color: #fff; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 16px; text-decoration: none; }
+    .map-btn:hover { background: #15803d; }
+    .section-title { font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .route-item { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 0.875rem; }
+    .route-dot { width: 12px; height: 12px; background: #ef4444; border-radius: 50%; }
+    .price-row { display: flex; justify-content: space-between; padding: 10px 12px; font-size: 0.875rem; border-radius: 8px; margin-bottom: 8px; }
+    .price-row.recommended { background: #f0fdf4; }
+    .price-row.normal { background: #f9fafb; }
+    .price-value { font-weight: 600; }
+    .price-value.green { color: #16a34a; }
+    .tip-box { background: #fffbeb; padding: 16px; border-radius: 12px; }
+    .tip-box h3 { font-size: 0.875rem; margin-bottom: 8px; }
+    .tip-box li { font-size: 0.875rem; color: #374151; margin-left: 16px; margin-bottom: 4px; }
+    .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .rate-badge { font-size: 0.75rem; background: #f3f4f6; padding: 4px 10px; border-radius: 20px; }
+    .budget-cat { font-weight: 500; color: #374151; margin: 16px 0 8px; }
+    .budget-row { display: flex; justify-content: space-between; padding: 10px 0 10px 16px; border-bottom: 1px solid #f9fafb; font-size: 0.875rem; }
+    .budget-item { flex: 1; color: #4b5563; }
+    .budget-chf { width: 70px; text-align: right; }
+    .budget-twd { width: 90px; text-align: right; color: #9ca3af; }
+    .budget-total { border-top: 2px solid #fecaca; padding-top: 16px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; }
+    .budget-total-label { font-weight: 600; }
+    .budget-total-value { text-align: right; }
+    .budget-total-chf { font-size: 1.25rem; font-weight: 700; color: #dc2626; }
+    .budget-total-twd { font-size: 0.875rem; color: #6b7280; }
+    .info-box { background: #eff6ff; padding: 16px; border-radius: 12px; font-size: 0.875rem; color: #1e40af; margin-top: 16px; }
+    .packing-header { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: sticky; top: 52px; z-index: 50; margin-bottom: 16px; }
+    .packing-title { display: flex; justify-content: space-between; align-items: center; }
+    .packing-count { font-size: 1.125rem; font-weight: 700; }
+    .packing-count.done { color: #16a34a; }
+    .packing-count.pending { color: #dc2626; }
+    .packing-subtitle { font-size: 0.75rem; color: #6b7280; }
+    .progress-bar { height: 12px; background: #e5e7eb; border-radius: 6px; margin-top: 12px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #22c55e; transition: width 0.3s; }
+    .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .cat-title { font-weight: 600; }
+    .cat-count { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; background: #f3f4f6; }
+    .cat-count.done { background: #dcfce7; color: #16a34a; }
+    .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+    .check-item:hover { background: #f9fafb; }
+    .check-item.checked { background: #f0fdf4; }
+    .checkbox { width: 24px; height: 24px; border: 2px solid #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+    .check-item.checked .checkbox { background: #22c55e; border-color: #22c55e; color: #fff; }
+    .check-label { font-size: 0.875rem; color: #374151; }
+    .check-item.checked .check-label { color: #9ca3af; text-decoration: line-through; }
+    .reset-btn { width: 100%; padding: 14px; background: #e5e7eb; color: #4b5563; border: none; border-radius: 12px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 16px; }
+    .reset-btn:hover { background: #d1d5db; }
+    .footer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e7eb; padding: 12px; text-align: center; font-size: 0.75rem; color: #6b7280; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1><span>🇨🇭</span> 瑞士之旅 2026</h1>
+    <p>2/7 - 2/20 ｜14天</p>
+    <div class="tags">
+      <span class="tag">少女峰</span>
+      <span class="tag">馬特洪峰</span>
+      <span class="tag">冰川列車</span>
+      <span class="tag">列支敦士登</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="itinerary"><span class="tab-icon">📅</span>行程</button>
+    <button class="tab" data-tab="glacier"><span class="tab-icon">🚂</span>冰川列車</button>
+    <button class="tab" data-tab="budget"><span class="tab-icon">💰</span>預算</button>
+    <button class="tab" data-tab="packing"><span class="tab-icon">🧳</span>打包</button>
+  </div>
+
+  <div class="content">
+    <div id="itinerary-tab"></div>
+    <div id="glacier-tab" class="hidden"></div>
+    <div id="budget-tab" class="hidden"></div>
+    <div id="packing-tab" class="hidden"></div>
+  </div>
+
+  <div class="footer">🇨🇭 瑞士之旅 2026 ｜情人節快樂 ❤️</div>
+
+  <script>
+    const DATA = {
+      itinerary: [
+        { date: '2/7 (六)', title: 'Eva抵達蘇黎世', icon: '✈️', loc: '蘇黎世', schedule: [
+          { t: '12:00', a: '✈️ 從英國出發', d: '1h45m' }, { t: '15:00', a: '抵達蘇黎世機場', d: '-' },
+          { t: '15:30', a: '搭火車至市區', d: '15m' }, { t: '16:00', a: '入住酒店', d: '1h' },
+          { t: '17:00', a: '班霍夫大街購物', d: '1.5h' }, { t: '18:30', a: '大教堂 Grossmünster', d: '30m' },
+          { t: '19:00', a: '林登霍夫山丘', d: '30m' }, { t: '20:00', a: '老城晚餐', d: '1.5h' }
+        ], map: ['Zurich Airport', 'Zurich HB', 'Bahnhofstrasse Zurich', 'Grossmunster Zurich'] },
+        { date: '2/8 (日)', title: '家人抵達・會合！', icon: '👨‍👩‍👧', loc: '蘇黎世', hl: true, schedule: [
+          { t: '07:30', a: '🛬 家人抵達蘇黎世機場', d: '-' }, { t: '08:30', a: '接機・早餐', d: '1.5h' },
+          { t: '10:00', a: '火車至市區・寄放行李', d: '30m' }, { t: '10:30', a: '酒店休息調時差', d: '2h' },
+          { t: '13:00', a: '午餐 Zeughauskeller', d: '1h' }, { t: '14:30', a: '蘇黎世湖畔散步', d: '1.5h' },
+          { t: '16:00', a: 'Sprüngli 巧克力店', d: '30m' }, { t: '17:00', a: '老城漫步', d: '2h' }
+        ], map: ['Zurich Airport', 'Zurich HB', 'Zeughauskeller Zurich', 'Lake Zurich'] },
+        { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', schedule: [
+          { t: '08:30', a: '🚂 蘇黎世出發', d: '1h' }, { t: '09:30', a: 'Sargans 轉車', d: '15m' },
+          { t: '10:00', a: '🚌 抵達瓦杜茲', d: '-' }, { t: '10:30', a: '護照蓋紀念章 CHF3', d: '30m' },
+          { t: '11:00', a: '瓦杜茲城堡(外觀)', d: '1h' }, { t: '12:00', a: '午餐', d: '1h' },
+          { t: '13:30', a: '藝術博物館', d: '1.5h' }, { t: '15:00', a: '王室酒莊品酒', d: '1h' },
+          { t: '17:00', a: '🚌🚂 返回蘇黎世', d: '1.5h' }
+        ], map: ['Zurich HB', 'Sargans Station', 'Vaduz Liechtenstein', 'Vaduz Castle'] },
+        { date: '2/10 (二)', title: '琉森', icon: '🦁', loc: '琉森', schedule: [
+          { t: '09:00', a: '🚂 蘇黎世→琉森', d: '45m' }, { t: '10:00', a: '獅子紀念碑', d: '30m' },
+          { t: '10:45', a: '冰河公園', d: '1h' }, { t: '12:00', a: '午餐', d: '1h' },
+          { t: '13:30', a: '卡貝爾橋', d: '30m' }, { t: '14:00', a: '老城漫步', d: '2h' },
+          { t: '16:00', a: '天鵝廣場購物', d: '1.5h' }, { t: '18:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Zurich HB', 'Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'] },
+        { date: '2/11 (三)', title: '前往少女峰地區', icon: '🏔️', loc: '格林德瓦', schedule: [
+          { t: '09:00', a: '🚂 琉森→因特拉肯 (黃金列車)', d: '2h' }, { t: '11:00', a: '因特拉肯午餐', d: '1h' },
+          { t: '12:30', a: '🚂 因特拉肯→格林德瓦', d: '35m' }, { t: '13:30', a: '入住酒店', d: '1h' },
+          { t: '15:00', a: '小鎮散步・艾格峰觀景', d: '3h' }, { t: '19:00', a: '瑞士傳統晚餐', d: '2h' }
+        ], map: ['Luzern Station', 'Interlaken Ost', 'Grindelwald'] },
+        { date: '2/12 (四)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hl: true, schedule: [
+          { t: '07:30', a: '早餐', d: '30m' }, { t: '08:30', a: '🚡 Eiger Express 纜車', d: '15m' },
+          { t: '09:00', a: '🚂 少女峰鐵路', d: '30m' }, { t: '09:30', a: '抵達少女峰站 3,454m', d: '-' },
+          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' }, { t: '11:00', a: '冰宮 Ice Palace', d: '45m' },
+          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:00', a: '雪地活動/拍照', d: '2h' },
+          { t: '15:30', a: '下山返回格林德瓦', d: '1h' }
+        ], map: ['Grindelwald Terminal', 'Eigergletscher', 'Jungfraujoch'] },
+        { date: '2/13 (五)', title: '前往聖莫里茲', icon: '🎿', loc: '聖莫里茲', schedule: [
+          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:00', a: '🚂 格林德瓦→聖莫里茲', d: '4h' },
+          { t: '13:00', a: '抵達聖莫里茲・入住', d: '1h' }, { t: '14:00', a: '午餐', d: '1h' },
+          { t: '15:00', a: '聖莫里茲湖散步', d: '1.5h' }, { t: '17:00', a: '小鎮購物 Via Serlas', d: '1.5h' },
+          { t: '19:00', a: '晚餐・早睡', d: '2h' }
+        ], map: ['Grindelwald', 'St Moritz', 'St Moritz Lake'] },
+        { date: '2/14 (六)', title: '❤️ 冰川列車 情人節', icon: '🚂', loc: '采爾馬特', hl: true, schedule: [
+          { t: '07:00', a: '早餐・退房', d: '1h' }, { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' },
+          { t: '10:00', a: '📸 蘭德瓦瑟高架橋', d: '-' }, { t: '12:00', a: '🍽️ 車上三道式午餐', d: '1.5h' },
+          { t: '14:00', a: '⛰️ 上阿爾卑斯山口 2,033m', d: '-' }, { t: '17:07', a: '抵達采爾馬特', d: '-' },
+          { t: '17:30', a: '入住酒店', d: '30m' }, { t: '18:00', a: '小鎮漫步', d: '1h' },
+          { t: '19:30', a: '❤️ 情人節晚餐', d: '2h' }
+        ], map: ['St Moritz Station', 'Zermatt'] },
+        { date: '2/15 (日)', title: '馬特洪峰', icon: '🏔️', loc: '采爾馬特', schedule: [
+          { t: '08:00', a: '早餐', d: '1h' }, { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' },
+          { t: '09:45', a: '抵達 Gornergrat 3,089m', d: '-' }, { t: '10:00', a: '馬特洪峰觀景', d: '2h' },
+          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:30', a: '下山・中途站健行', d: '2h' },
+          { t: '16:00', a: '返回采爾馬特', d: '-' }, { t: '17:00', a: '小鎮購物', d: '2h' }
+        ], map: ['Zermatt', 'Gornergrat Bahn Zermatt', 'Gornergrat'] },
+        { date: '2/16 (一)', title: '日內瓦', icon: '⛲', loc: '日內瓦', schedule: [
+          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:15', a: '🚂 采爾馬特→日內瓦', d: '3h45m' },
+          { t: '13:00', a: '抵達日內瓦・入住', d: '1h' }, { t: '14:00', a: '午餐', d: '1h' },
+          { t: '15:00', a: '大噴泉 Jet d\'Eau', d: '30m' }, { t: '15:45', a: '花鐘', d: '15m' },
+          { t: '16:00', a: '老城・聖彼得大教堂', d: '1.5h' }, { t: '17:30', a: '聯合國萬國宮', d: '30m' },
+          { t: '19:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Geneva Cornavin', 'Jet dEau Geneva', 'Geneva Old Town', 'Palais des Nations Geneva'] },
+        { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', schedule: [
+          { t: '08:00', a: '早餐・Eva告別', d: '1h' }, { t: '09:30', a: '✈️ Eva前往機場', d: '30m' },
+          { t: '12:00', a: '✈️ Eva飛回英國', d: '1h45m' }, { t: '---', a: '─── 家人行程 ───', d: '-' },
+          { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' }, { t: '12:00', a: '午餐', d: '1h' },
+          { t: '14:00', a: '奧林匹克博物館', d: '2h' }, { t: '17:00', a: '返回日內瓦', d: '1h' }
+        ], map: ['Geneva Airport', 'Lake Geneva', 'Olympic Museum Lausanne'] },
+        { date: '2/18 (三)', title: '家人返回蘇黎世', icon: '🚂', loc: '蘇黎世', fam: true, schedule: [
+          { t: '09:00', a: '早餐・退房', d: '1h' }, { t: '10:00', a: '🚂 日內瓦→蘇黎世', d: '2h45m' },
+          { t: '12:45', a: '抵達蘇黎世', d: '-' }, { t: '13:00', a: '入住・午餐', d: '1.5h' },
+          { t: '15:00', a: '蘇黎世購物', d: '2h' }, { t: '17:00', a: '湖畔散步', d: '1.5h' }
+        ], map: ['Geneva Cornavin', 'Zurich HB', 'Bahnhofstrasse Zurich', 'Lake Zurich'] },
+        { date: '2/19 (四)', title: '🇩🇪 德國康斯坦茨購物', icon: '🛍️', loc: '康斯坦茨', fam: true, hl: true, schedule: [
+          { t: '08:30', a: '早餐', d: '30m' }, { t: '09:05', a: '🚂 蘇黎世→康斯坦茨', d: '1h15m' },
+          { t: '10:20', a: '抵達康斯坦茨', d: '-' }, { t: '10:30', a: '🛍️ dm 藥妝店', d: '1.5h' },
+          { t: '12:00', a: '午餐', d: '1h' }, { t: '13:00', a: '🛍️ Rossmann 藥妝', d: '1h' },
+          { t: '14:00', a: '🛍️ Müller 百貨', d: '1h' }, { t: '15:00', a: '老城散步', d: '1h' },
+          { t: '16:00', a: '博登湖畔', d: '30m' }, { t: '17:05', a: '🚂 返回蘇黎世', d: '1h15m' }
+        ], map: ['Zurich HB', 'Konstanz Station', 'Konstanz Old Town', 'Lake Constance'] },
+        { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', fam: true, schedule: [
+          { t: '06:30', a: '起床・最後整理', d: '30m' }, { t: '07:00', a: '早餐・退房', d: '45m' },
+          { t: '08:00', a: '🚂 前往蘇黎世機場', d: '30m' }, { t: '08:30', a: 'Check-in', d: '1h' },
+          { t: '09:30', a: '機場免稅店', d: '1.5h' }, { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
+          { t: '+1日', a: '06:15 抵達香港', d: '-' }
+        ], map: ['Zurich Airport'] }
+      ],
+      glacier: {
+        route: ['聖莫里茲 1,775m', '蘭德瓦瑟高架橋 🌉', '庫爾 585m（最低點）', '萊茵峽谷', '上阿爾卑斯山口 2,033m（最高點）', '安德馬特', '采爾馬特 1,604m'],
+        tips: ['右側座位看高架橋最佳', '建議預訂車上午餐', '餐車有可開窗戶拍照', '提前2-3個月預訂']
+      },
+      budget: [
+        { cat: '🚂 交通', items: [
+          { n: 'Eva 英國↔瑞士機票', c: 180 }, { n: 'Swiss Travel Pass 8天 x3', c: 1347 },
+          { n: '冰川列車訂位費 x3', c: 147 }, { n: '少女峰鐵路 x3 (75折)', c: 510 },
+          { n: 'Gornergrat 鐵路 x3 (50折)', c: 270 }, { n: '家人 日內瓦→蘇黎世', c: 174 },
+          { n: '家人 德國康斯坦茨來回', c: 100 }
+        ]},
+        { cat: '🏨 住宿', items: [
+          { n: '蘇黎世 3晚', c: 600 }, { n: '琉森 1晚', c: 180 }, { n: '格林德瓦 2晚', c: 500 },
+          { n: '聖莫里茲 1晚', c: 300 }, { n: '采爾馬特 2晚', c: 500 }, { n: '日內瓦 2晚', c: 360 },
+          { n: '蘇黎世 1晚 (家人)', c: 200 }
+        ]},
+        { cat: '🎫 活動', items: [
+          { n: '列支敦士登蓋章+品酒', c: 60 }, { n: '冰川列車午餐 x3', c: 150 }
+        ]}
+      ],
+      packing: {
+        '📄 證件文件': ['護照', '機票/電子機票', 'Swiss Travel Pass', '冰川列車訂位確認', '酒店預訂確認', '旅遊保險文件', '信用卡/提款卡', '瑞士法郎現金', '證件影本（備用）'],
+        '🧥 保暖衣物': ['羽絨外套', '防水外套/風衣', '保暖毛衣 x3', '發熱衣 x4', '發熱褲 x2', '圍巾', '毛帽', '手套', '厚襪子 x4'],
+        '👟 鞋子配件': ['防水登山鞋', '室內拖鞋', '太陽眼鏡（雪地用）', '墨鏡夾片'],
+        '🧴 盥洗用品': ['牙刷牙膏', '洗面乳', '保濕乳液', '護唇膏', '防曬乳', '洗髮精/沐浴乳', '毛巾', '梳子'],
+        '💊 醫藥用品': ['個人藥品', '感冒藥', '腸胃藥', '止痛藥', 'OK繃', '暈車藥'],
+        '📱 電子產品': ['手機+充電線', '行動電源', '相機+記憶卡', '歐規轉接頭', '耳機'],
+        '🎒 其他': ['行李箱', '隨身背包', '頸枕', '眼罩耳塞', '雨傘', '購物袋', '零食', '保溫瓶']
+      }
+    };
+
+    const RATE = 36;
+    let checked = JSON.parse(localStorage.getItem('swissChecked') || '{}');
+    let openDays = {};
+
+    function saveChecked() { localStorage.setItem('swissChecked', JSON.stringify(checked)); }
+
+    function genMapUrl(points) {
+      if (!points || points.length === 0) return '';
+      if (points.length === 1) return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(points[0])}`;
+      const o = encodeURIComponent(points[0]), d = encodeURIComponent(points[points.length - 1]);
+      const w = points.slice(1, -1).map(p => encodeURIComponent(p)).join('|');
+      return `https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${d}${w ? `&waypoints=${w}` : ''}&travelmode=transit`;
+    }
+
+    function renderItinerary() {
+      const el = document.getElementById('itinerary-tab');
+      el.innerHTML = '<p style="font-size:0.875rem;color:#6b7280;margin-bottom:12px;">點擊展開查看詳細行程</p>' +
+        DATA.itinerary.map((day, i) => `
+          <div class="card ${day.hl ? 'highlight' : ''} ${day.fam ? 'family' : ''}">
+            <button class="day-header" onclick="toggleDay(${i})">
+              <div class="day-left">
+                <span class="day-icon">${day.icon}</span>
+                <div>
+                  <div class="day-date">${day.date}</div>
+                  <div class="day-title">${day.title}</div>
+                  <div class="day-loc">📍 ${day.loc}</div>
+                </div>
+              </div>
+              <div class="day-right">
+                ${day.fam ? '<span class="badge badge-family">家人</span>' : ''}
+                ${day.hl ? '<span class="badge badge-highlight">重點</span>' : ''}
+                <span class="arrow" id="arrow-${i}">▼</span>
+              </div>
+            </button>
+            <div class="day-content" id="content-${i}">
+              <div class="hotel-box">🏨 住宿：待訂</div>
+              <div class="schedule">
+                ${day.schedule.map(s => `
+                  <div class="schedule-item">
+                    <span class="schedule-time">${s.t}</span>
+                    <div>
+                      <div class="schedule-activity">${s.a}</div>
+                      ${s.d !== '-' ? `<div class="schedule-duration">⏱ ${s.d}</div>` : ''}
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+              ${day.map?.length ? `<a class="map-btn" href="${genMapUrl(day.map)}" target="_blank">🗺️ 開啟 Google Maps 導航</a>` : ''}
+            </div>
+          </div>
+        `).join('');
+    }
+
+    function toggleDay(i) {
+      openDays[i] = !openDays[i];
+      document.getElementById(`content-${i}`).classList.toggle('open', openDays[i]);
+      document.getElementById(`arrow-${i}`).textContent = openDays[i] ? '▲' : '▼';
+    }
+
+    function renderGlacier() {
+      const el = document.getElementById('glacier-tab');
+      el.innerHTML = `
+        <div class="card" style="padding:16px;">
+          <div class="section-title">❤️ 情人節特別行程</div>
+          <p style="font-size:0.875rem;color:#4b5563;">2/14（六）08:38 - 17:07</p>
+          <p style="font-size:0.875rem;color:#4b5563;">聖莫里茲 → 采爾馬特｜8小時29分</p>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div class="section-title">🏔️ 路線亮點</div>
+          ${DATA.glacier.route.map(r => `<div class="route-item"><div class="route-dot"></div><span>${r}</span></div>`).join('')}
+        </div>
+        <div class="card" style="padding:16px;">
+          <div class="section-title">💰 票價（持 Swiss Travel Pass）</div>
+          <div class="price-row recommended"><span>2等車廂（推薦）</span><span class="price-value green">CHF 49 ≈ NT$1,764</span></div>
+          <div class="price-row normal"><span>1等車廂</span><span class="price-value">CHF 69 ≈ NT$2,484</span></div>
+        </div>
+        <div class="tip-box">
+          <h3>💡 小提醒</h3>
+          <ul>${DATA.glacier.tips.map(t => `<li>${t}</li>`).join('')}</ul>
+        </div>
+      `;
+    }
+
+    function renderBudget() {
+      const total = DATA.budget.reduce((s, g) => s + g.items.reduce((ss, i) => ss + i.c, 0), 0);
+      const el = document.getElementById('budget-tab');
+      el.innerHTML = `
+        <div class="card" style="padding:16px;">
+          <div class="budget-header">
+            <h2 style="font-weight:600;font-size:1.125rem;">💰 預算總覽</h2>
+            <span class="rate-badge">1 CHF = ${RATE} TWD</span>
+          </div>
+          ${DATA.budget.map(g => `
+            <div class="budget-cat">${g.cat}</div>
+            ${g.items.map(i => `
+              <div class="budget-row">
+                <span class="budget-item">${i.n}</span>
+                <span class="budget-chf">CHF ${i.c}</span>
+                <span class="budget-twd">NT$ ${(i.c * RATE).toLocaleString()}</span>
+              </div>
+            `).join('')}
+          `).join('')}
+          <div class="budget-total">
+            <span class="budget-total-label">預估總計</span>
+            <div class="budget-total-value">
+              <div class="budget-total-chf">CHF ${total.toLocaleString()}</div>
+              <div class="budget-total-twd">≈ NT$ ${(total * RATE).toLocaleString()}</div>
+            </div>
+          </div>
+        </div>
+        <div class="info-box">💡 不含餐費（約 CHF 50-80/天/人）及購物</div>
+      `;
+    }
+
+    function renderPacking() {
+      const all = Object.values(DATA.packing).flat();
+      const done = all.filter(i => checked[i]).length;
+      const el = document.getElementById('packing-tab');
+      el.innerHTML = `
+        <div class="packing-header">
+          <div class="packing-title">
+            <h2 style="font-weight:600;font-size:1.125rem;">🧳 打包清單</h2>
+            <div style="text-align:right;">
+              <span class="packing-count ${done === all.length ? 'done' : 'pending'}">${done}/${all.length}</span>
+              <div class="packing-subtitle">${done === all.length ? '✅ 完成！' : '繼續加油'}</div>
+            </div>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width:${all.length ? (done/all.length)*100 : 0}%"></div></div>
+        </div>
+        ${Object.entries(DATA.packing).map(([cat, items]) => {
+          const catDone = items.filter(i => checked[i]).length;
+          return `
+            <div class="card" style="padding:16px;">
+              <div class="cat-header">
+                <span class="cat-title">${cat}</span>
+                <span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span>
+              </div>
+              ${items.map(item => `
+                <div class="check-item ${checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\'")}')">
+                  <div class="checkbox">${checked[item] ? '✓' : ''}</div>
+                  <span class="check-label">${item}</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }).join('')}
+        <button class="reset-btn" onclick="resetChecked()">🔄 重置全部勾選</button>
+      `;
+    }
+
+    function toggleCheck(item) {
+      checked[item] = !checked[item];
+      saveChecked();
+      renderPacking();
+    }
+
+    function resetChecked() {
+      checked = {};
+      saveChecked();
+      renderPacking();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+      ['itinerary', 'glacier', 'budget', 'packing'].forEach(id => {
+        document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId);
+      });
+    }
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+    });
+
+    renderItinerary();
+    renderGlacier();
+    renderBudget();
+    renderPacking();
+  </script>
+</body>
+</html>
