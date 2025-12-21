@@ -59,15 +59,14 @@
     .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
     .rate-badge { font-size: 0.75rem; background: #f3f4f6; padding: 6px 12px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
     .rate-badge:hover { background: #e5e7eb; }
-    .rate-input { width: 50px; padding: 4px 6px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.75rem; text-align: center; }
     .budget-cat { font-weight: 500; color: #374151; margin: 16px 0 8px; }
     .budget-row { display: flex; align-items: center; padding: 10px 0 10px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.875rem; gap: 8px; }
     .budget-row:hover { background: #f9fafb; }
     .budget-item { flex: 1; color: #4b5563; min-width: 0; }
     .budget-item-name { word-break: break-word; }
     .budget-item-note { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
-    .budget-chf { width: 65px; text-align: right; flex-shrink: 0; }
-    .budget-twd { width: 80px; text-align: right; color: #9ca3af; flex-shrink: 0; }
+    .budget-chf { width: 70px; text-align: right; flex-shrink: 0; }
+    .budget-twd { width: 90px; text-align: right; color: #9ca3af; flex-shrink: 0; font-size: 0.8rem; }
     .budget-actions { display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; }
     .budget-row:hover .budget-actions { opacity: 1; }
     .btn-icon { width: 28px; height: 28px; border: none; background: none; cursor: pointer; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
@@ -99,7 +98,6 @@
     .form-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; }
     .form-btn.primary { background: #22c55e; color: #fff; }
     .form-btn.primary:hover { background: #16a34a; }
-    .form-btn.primary:disabled { background: #d1d5db; cursor: not-allowed; }
     .form-btn.secondary { background: #e5e7eb; color: #374151; margin-top: 8px; }
     .form-btn.secondary:hover { background: #d1d5db; }
     .packing-header { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: sticky; top: 52px; z-index: 50; margin-bottom: 16px; }
@@ -130,6 +128,10 @@
     .reset-btn:hover { background: #d1d5db; }
     .footer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e7eb; padding: 12px; text-align: center; font-size: 0.75rem; color: #6b7280; }
     .hidden { display: none !important; }
+    .route-section { background: #f9fafb; padding: 12px; border-radius: 8px; margin-top: 12px; }
+    .route-section h4 { font-size: 0.875rem; margin-bottom: 8px; color: #374151; }
+    .route-step { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 0.8rem; color: #6b7280; }
+    .route-step .arrow { font-size: 0.75rem; }
     @media (max-width: 400px) {
       .budget-twd { display: none; }
       .budget-actions { opacity: 1; }
@@ -142,9 +144,9 @@
     <h1><span>🇨🇭</span> 瑞士之旅 2026</h1>
     <p>2/7 - 2/20 ｜14天</p>
     <div class="tags">
-      <span class="tag">少女峰</span>
-      <span class="tag">馬特洪峰</span>
       <span class="tag">冰川列車</span>
+      <span class="tag">馬特洪峰</span>
+      <span class="tag">少女峰</span>
       <span class="tag">列支敦士登</span>
     </div>
   </div>
@@ -183,115 +185,121 @@
           { t: '15:30', a: '搭火車至市區', d: '15m' }, { t: '16:00', a: '入住酒店', d: '1h' },
           { t: '17:00', a: '班霍夫大街購物', d: '1.5h' }, { t: '18:30', a: '大教堂 Grossmünster', d: '30m' },
           { t: '19:00', a: '林登霍夫山丘', d: '30m' }, { t: '20:00', a: '老城晚餐', d: '1.5h' }
-        ], map: ['Zurich Airport', 'Zurich HB', 'Bahnhofstrasse Zurich', 'Grossmunster Zurich'] },
+        ], map: ['Zurich Airport', 'Zurich HB', 'Bahnhofstrasse Zurich', 'Grossmunster Zurich'], route: '英國 ✈️ → 蘇黎世' },
         { date: '2/8 (日)', title: '家人抵達・會合！', icon: '👨‍👩‍👧', loc: '蘇黎世', hl: true, schedule: [
           { t: '07:30', a: '🛬 家人抵達蘇黎世機場', d: '-' }, { t: '08:30', a: '接機・早餐', d: '1.5h' },
           { t: '10:00', a: '火車至市區・寄放行李', d: '30m' }, { t: '10:30', a: '酒店休息調時差', d: '2h' },
           { t: '13:00', a: '午餐 Zeughauskeller', d: '1h' }, { t: '14:30', a: '蘇黎世湖畔散步', d: '1.5h' },
           { t: '16:00', a: 'Sprüngli 巧克力店', d: '30m' }, { t: '17:00', a: '老城漫步', d: '2h' }
-        ], map: ['Zurich Airport', 'Zurich HB', 'Zeughauskeller Zurich', 'Lake Zurich'] },
+        ], map: ['Zurich Airport', 'Zurich HB', 'Zeughauskeller Zurich', 'Lake Zurich'], route: '台灣 ✈️ → 蘇黎世' },
         { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', schedule: [
           { t: '08:30', a: '🚂 蘇黎世出發', d: '1h' }, { t: '09:30', a: 'Sargans 轉車', d: '15m' },
           { t: '10:00', a: '🚌 抵達瓦杜茲', d: '-' }, { t: '10:30', a: '護照蓋紀念章 CHF3', d: '30m' },
           { t: '11:00', a: '瓦杜茲城堡(外觀)', d: '1h' }, { t: '12:00', a: '午餐', d: '1h' },
           { t: '13:30', a: '藝術博物館', d: '1.5h' }, { t: '15:00', a: '王室酒莊品酒', d: '1h' },
           { t: '17:00', a: '🚌🚂 返回蘇黎世', d: '1.5h' }
-        ], map: ['Zurich HB', 'Sargans Station', 'Vaduz Liechtenstein', 'Vaduz Castle'] },
+        ], map: ['Zurich HB', 'Sargans Station', 'Vaduz Liechtenstein', 'Vaduz Castle'], route: '蘇黎世 🚂 → Sargans 🚌 → 瓦杜茲 🚌🚂 → 蘇黎世' },
         { date: '2/10 (二)', title: '琉森', icon: '🦁', loc: '琉森', schedule: [
           { t: '09:00', a: '🚂 蘇黎世→琉森', d: '45m' }, { t: '10:00', a: '獅子紀念碑', d: '30m' },
           { t: '10:45', a: '冰河公園', d: '1h' }, { t: '12:00', a: '午餐', d: '1h' },
           { t: '13:30', a: '卡貝爾橋', d: '30m' }, { t: '14:00', a: '老城漫步', d: '2h' },
           { t: '16:00', a: '天鵝廣場購物', d: '1.5h' }, { t: '18:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Zurich HB', 'Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'] },
-        { date: '2/11 (三)', title: '前往少女峰地區', icon: '🏔️', loc: '格林德瓦', schedule: [
-          { t: '09:00', a: '🚂 琉森→因特拉肯 (黃金列車)', d: '2h' }, { t: '11:00', a: '因特拉肯午餐', d: '1h' },
-          { t: '12:30', a: '🚂 因特拉肯→格林德瓦', d: '35m' }, { t: '13:30', a: '入住酒店', d: '1h' },
-          { t: '15:00', a: '小鎮散步・艾格峰觀景', d: '3h' }, { t: '19:00', a: '瑞士傳統晚餐', d: '2h' }
-        ], map: ['Luzern Station', 'Interlaken Ost', 'Grindelwald'] },
-        { date: '2/12 (四)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hl: true, schedule: [
-          { t: '07:30', a: '早餐', d: '30m' }, { t: '08:30', a: '🚡 Eiger Express 纜車', d: '15m' },
-          { t: '09:00', a: '🚂 少女峰鐵路', d: '30m' }, { t: '09:30', a: '抵達少女峰站 3,454m', d: '-' },
-          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' }, { t: '11:00', a: '冰宮 Ice Palace', d: '45m' },
-          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:00', a: '雪地活動/拍照', d: '2h' },
-          { t: '15:30', a: '下山返回格林德瓦', d: '1h' }
-        ], map: ['Grindelwald Terminal', 'Eigergletscher', 'Jungfraujoch'] },
-        { date: '2/13 (五)', title: '前往聖莫里茲', icon: '🎿', loc: '聖莫里茲', schedule: [
-          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:00', a: '🚂 格林德瓦→聖莫里茲', d: '4h' },
-          { t: '13:00', a: '抵達聖莫里茲・入住', d: '1h' }, { t: '14:00', a: '午餐', d: '1h' },
-          { t: '15:00', a: '聖莫里茲湖散步', d: '1.5h' }, { t: '17:00', a: '小鎮購物 Via Serlas', d: '1.5h' },
+        ], map: ['Zurich HB', 'Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂 → 琉森 🚂 → 蘇黎世' },
+        { date: '2/11 (三)', title: '前往聖莫里茲', icon: '🎿', loc: '聖莫里茲', schedule: [
+          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:00', a: '🚂 蘇黎世→聖莫里茲', d: '3h' },
+          { t: '12:00', a: '抵達聖莫里茲・入住', d: '1h' }, { t: '13:00', a: '午餐', d: '1h' },
+          { t: '14:30', a: '聖莫里茲湖散步', d: '1.5h' }, { t: '16:00', a: '小鎮購物 Via Serlas', d: '1.5h' },
+          { t: '18:00', a: '瑞士傳統晚餐', d: '2h' }
+        ], map: ['Zurich HB', 'Chur Station', 'St Moritz', 'St Moritz Lake'], route: '蘇黎世 🚂 → Chur 🚂 → 聖莫里茲（3小時）' },
+        { date: '2/12 (四)', title: '聖莫里茲小鎮', icon: '⛷️', loc: '聖莫里茲', schedule: [
+          { t: '08:00', a: '早餐', d: '1h' }, { t: '09:30', a: '🚡 Corviglia 纜車', d: '15m' },
+          { t: '10:00', a: '山頂觀景・拍照', d: '2h' }, { t: '12:00', a: '山頂午餐', d: '1h' },
+          { t: '13:30', a: '下山', d: '15m' }, { t: '14:00', a: 'Segantini 美術館', d: '1.5h' },
+          { t: '16:00', a: '小鎮咖啡廳', d: '1h' }, { t: '17:30', a: '準備明天冰川列車', d: '-' },
           { t: '19:00', a: '晚餐・早睡', d: '2h' }
-        ], map: ['Grindelwald', 'St Moritz', 'St Moritz Lake'] },
-        { date: '2/14 (六)', title: '❤️ 冰川列車 情人節', icon: '🚂', loc: '采爾馬特', hl: true, schedule: [
+        ], map: ['St Moritz', 'Corviglia St Moritz', 'Segantini Museum'], route: '聖莫里茲 🚡 → Corviglia → 聖莫里茲' },
+        { date: '2/13 (五)', title: '🚂 冰川列車', icon: '🚂', loc: '采爾馬特', hl: true, schedule: [
           { t: '07:00', a: '早餐・退房', d: '1h' }, { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' },
           { t: '10:00', a: '📸 蘭德瓦瑟高架橋', d: '-' }, { t: '12:00', a: '🍽️ 車上三道式午餐', d: '1.5h' },
           { t: '14:00', a: '⛰️ 上阿爾卑斯山口 2,033m', d: '-' }, { t: '17:07', a: '抵達采爾馬特', d: '-' },
           { t: '17:30', a: '入住酒店', d: '30m' }, { t: '18:00', a: '小鎮漫步', d: '1h' },
-          { t: '19:30', a: '❤️ 情人節晚餐', d: '2h' }
-        ], map: ['St Moritz Station', 'Zermatt'] },
-        { date: '2/15 (日)', title: '馬特洪峰', icon: '🏔️', loc: '采爾馬特', schedule: [
+          { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['St Moritz Station', 'Zermatt'], route: '聖莫里茲 🚂 → 采爾馬特（冰川列車 8h30m）' },
+        { date: '2/14 (六)', title: '❤️ 情人節・馬特洪峰', icon: '🏔️', loc: '采爾馬特', hl: true, schedule: [
           { t: '08:00', a: '早餐', d: '1h' }, { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' },
-          { t: '09:45', a: '抵達 Gornergrat 3,089m', d: '-' }, { t: '10:00', a: '馬特洪峰觀景', d: '2h' },
+          { t: '09:45', a: '抵達 Gornergrat 3,089m', d: '-' }, { t: '10:00', a: '馬特洪峰觀景・拍照', d: '2h' },
           { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:30', a: '下山・中途站健行', d: '2h' },
-          { t: '16:00', a: '返回采爾馬特', d: '-' }, { t: '17:00', a: '小鎮購物', d: '2h' }
-        ], map: ['Zermatt', 'Gornergrat Bahn Zermatt', 'Gornergrat'] },
-        { date: '2/16 (一)', title: '日內瓦', icon: '⛲', loc: '日內瓦', schedule: [
-          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:15', a: '🚂 采爾馬特→日內瓦', d: '3h45m' },
-          { t: '13:00', a: '抵達日內瓦・入住', d: '1h' }, { t: '14:00', a: '午餐', d: '1h' },
-          { t: '15:00', a: '大噴泉 Jet d\'Eau', d: '30m' }, { t: '15:45', a: '花鐘', d: '15m' },
-          { t: '16:00', a: '老城・聖彼得大教堂', d: '1.5h' }, { t: '17:30', a: '聯合國萬國宮', d: '30m' },
-          { t: '19:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Geneva Cornavin', 'Jet dEau Geneva', 'Geneva Old Town', 'Palais des Nations Geneva'] },
+          { t: '16:00', a: '返回采爾馬特', d: '-' }, { t: '17:00', a: '小鎮購物', d: '2h' },
+          { t: '19:30', a: '❤️ 情人節晚餐', d: '2.5h' }
+        ], map: ['Zermatt', 'Gornergrat Bahn Zermatt', 'Gornergrat'], route: '采爾馬特 🚂 → Gornergrat → 采爾馬特' },
+        { date: '2/15 (日)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', schedule: [
+          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:15', a: '🚂 采爾馬特→因特拉肯', d: '2h30m' },
+          { t: '11:45', a: '抵達因特拉肯・入住', d: '1h' }, { t: '13:00', a: '午餐', d: '1h' },
+          { t: '14:30', a: '因特拉肯小鎮漫步', d: '2h' }, { t: '16:30', a: 'Höheweg 大道', d: '1h' },
+          { t: '18:00', a: '湖畔散步', d: '1h' }, { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['Zermatt', 'Visp', 'Spiez', 'Interlaken Ost'], route: '采爾馬特 🚂 → Visp → Spiez → 因特拉肯（2.5小時）' },
+        { date: '2/16 (一)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hl: true, schedule: [
+          { t: '07:30', a: '早餐', d: '30m' }, { t: '08:30', a: '🚡 Eiger Express 纜車', d: '15m' },
+          { t: '09:00', a: '🚂 少女峰鐵路', d: '30m' }, { t: '09:30', a: '抵達少女峰站 3,454m', d: '-' },
+          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' }, { t: '11:00', a: '冰宮 Ice Palace', d: '45m' },
+          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:00', a: '雪地活動/拍照', d: '2h' },
+          { t: '15:30', a: '下山返回因特拉肯', d: '1h' }, { t: '17:00', a: '休息・準備明天', d: '-' }
+        ], map: ['Interlaken Ost', 'Grindelwald Terminal', 'Eigergletscher', 'Jungfraujoch'], route: '因特拉肯 🚂 → Grindelwald 🚡 → Eigergletscher 🚂 → 少女峰' },
         { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', schedule: [
-          { t: '08:00', a: '早餐・Eva告別', d: '1h' }, { t: '09:30', a: '✈️ Eva前往機場', d: '30m' },
-          { t: '12:00', a: '✈️ Eva飛回英國', d: '1h45m' }, { t: '---', a: '─── 家人行程 ───', d: '-' },
-          { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' }, { t: '12:00', a: '午餐', d: '1h' },
-          { t: '14:00', a: '奧林匹克博物館', d: '2h' }, { t: '17:00', a: '返回日內瓦', d: '1h' }
-        ], map: ['Geneva Airport', 'Lake Geneva', 'Olympic Museum Lausanne'] },
-        { date: '2/18 (三)', title: '家人返回蘇黎世', icon: '🚂', loc: '蘇黎世', fam: true, schedule: [
-          { t: '09:00', a: '早餐・退房', d: '1h' }, { t: '10:00', a: '🚂 日內瓦→蘇黎世', d: '2h45m' },
-          { t: '12:45', a: '抵達蘇黎世', d: '-' }, { t: '13:00', a: '入住・午餐', d: '1.5h' },
-          { t: '15:00', a: '蘇黎世購物', d: '2h' }, { t: '17:00', a: '湖畔散步', d: '1.5h' }
-        ], map: ['Geneva Cornavin', 'Zurich HB', 'Bahnhofstrasse Zurich', 'Lake Zurich'] },
-        { date: '2/19 (四)', title: '🇩🇪 德國康斯坦茨購物', icon: '🛍️', loc: '康斯坦茨', fam: true, hl: true, schedule: [
-          { t: '08:30', a: '早餐', d: '30m' }, { t: '09:05', a: '🚂 蘇黎世→康斯坦茨', d: '1h15m' },
-          { t: '10:20', a: '抵達康斯坦茨', d: '-' }, { t: '10:30', a: '🛍️ dm 藥妝店', d: '1.5h' },
-          { t: '12:00', a: '午餐', d: '1h' }, { t: '13:00', a: '🛍️ Rossmann 藥妝', d: '1h' },
-          { t: '14:00', a: '🛍️ Müller 百貨', d: '1h' }, { t: '15:00', a: '老城散步', d: '1h' },
-          { t: '16:00', a: '博登湖畔', d: '30m' }, { t: '17:05', a: '🚂 返回蘇黎世', d: '1h15m' }
-        ], map: ['Zurich HB', 'Konstanz Station', 'Konstanz Old Town', 'Lake Constance'] },
+          { t: '07:30', a: '早餐・退房', d: '1h' }, { t: '08:30', a: '🚂 因特拉肯→日內瓦', d: '2h45m' },
+          { t: '11:15', a: '抵達日內瓦', d: '-' }, { t: '11:30', a: '行李寄存・告別', d: '30m' },
+          { t: '12:00', a: '✈️ Eva前往機場', d: '20m' }, { t: '14:00', a: '✈️ Eva飛回英國', d: '1h45m' },
+          { t: '---', a: '─── 家人行程 ───', d: '-' },
+          { t: '12:00', a: '入住酒店・午餐', d: '1.5h' }, { t: '14:00', a: '大噴泉 Jet d\'Eau', d: '30m' },
+          { t: '15:00', a: '花鐘・老城', d: '2h' }, { t: '17:00', a: '聯合國萬國宮', d: '1h' },
+          { t: '19:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Interlaken Ost', 'Bern', 'Geneva Cornavin', 'Geneva Airport', 'Jet dEau Geneva'], route: '因特拉肯 🚂 → Bern → 日內瓦（2h45m）| Eva ✈️ → 英國' },
+        { date: '2/18 (三)', title: '日內瓦觀光', icon: '⛲', loc: '日內瓦', fam: true, schedule: [
+          { t: '09:00', a: '早餐', d: '1h' }, { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' },
+          { t: '12:00', a: '午餐', d: '1h' }, { t: '13:30', a: '聖彼得大教堂', d: '1h' },
+          { t: '15:00', a: '紅十字會博物館', d: '2h' }, { t: '17:00', a: '購物', d: '2h' },
+          { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['Lake Geneva', 'St Pierre Cathedral Geneva', 'Red Cross Museum Geneva'], route: '日內瓦市區觀光' },
+        { date: '2/19 (四)', title: '返回蘇黎世', icon: '🚂', loc: '蘇黎世', fam: true, schedule: [
+          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:30', a: '🚂 日內瓦→蘇黎世', d: '2h45m' },
+          { t: '12:15', a: '抵達蘇黎世', d: '-' }, { t: '12:30', a: '入住・午餐', d: '1.5h' },
+          { t: '14:00', a: '🇩🇪 🚂 蘇黎世→康斯坦茨', d: '1h15m' }, { t: '15:15', a: '🛍️ dm 藥妝店', d: '1h' },
+          { t: '16:15', a: '🛍️ Rossmann', d: '45m' }, { t: '17:00', a: '🛍️ Müller 百貨', d: '45m' },
+          { t: '18:00', a: '🚂 返回蘇黎世', d: '1h15m' }, { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['Geneva Cornavin', 'Zurich HB', 'Konstanz Station', 'Konstanz Old Town'], route: '日內瓦 🚂 → 蘇黎世（2h45m）🚂 → 康斯坦茨🇩🇪（1h15m）→ 蘇黎世' },
         { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', fam: true, schedule: [
           { t: '06:30', a: '起床・最後整理', d: '30m' }, { t: '07:00', a: '早餐・退房', d: '45m' },
-          { t: '08:00', a: '🚂 前往蘇黎世機場', d: '30m' }, { t: '08:30', a: 'Check-in', d: '1h' },
+          { t: '08:00', a: '🚂 前往蘇黎世機場', d: '15m' }, { t: '08:30', a: 'Check-in', d: '1h' },
           { t: '09:30', a: '機場免稅店', d: '1.5h' }, { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
           { t: '+1日', a: '06:15 抵達香港', d: '-' }
-        ], map: ['Zurich Airport'] }
+        ], map: ['Zurich HB', 'Zurich Airport'], route: '蘇黎世 🚂 → 機場 ✈️ → 香港' }
       ],
       glacier: {
-        route: ['聖莫里茲 1,775m', '蘭德瓦瑟高架橋 🌉', '庫爾 585m（最低點）', '萊茵峽谷', '上阿爾卑斯山口 2,033m（最高點）', '安德馬特', '采爾馬特 1,604m'],
-        tips: ['右側座位看高架橋最佳', '建議預訂車上午餐', '餐車有可開窗戶拍照', '提前2-3個月預訂']
+        date: '2/13（五）08:38 - 17:07',
+        route: ['聖莫里茲 1,775m', '🌉 蘭德瓦瑟高架橋', '庫爾 585m（最低點）', '🏔️ 萊茵峽谷', '⛰️ 上阿爾卑斯山口 2,033m（最高點）', '安德馬特', '采爾馬特 1,604m 🏔️'],
+        tips: ['右側座位看高架橋最佳', '建議預訂車上午餐 (CHF 45-55)', '餐車有可開窗戶拍照', '提前2-3個月預訂座位']
       },
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
-          { n: 'Eva 英國↔瑞士機票', c: 180, note: '' },
-          { n: 'Swiss Travel Pass 8天 x3', c: 1347, note: '' },
-          { n: '冰川列車訂位費 x3', c: 147, note: '' },
-          { n: '少女峰鐵路 x3 (75折)', c: 510, note: '' },
+          { n: 'Eva 英國↔瑞士機票', c: 180, note: 'easyJet 或 SWISS' },
+          { n: 'Swiss Travel Pass 8天 x3', c: 1347, note: 'CHF 449/人' },
+          { n: '冰川列車訂位費 x3', c: 147, note: 'CHF 49/人' },
+          { n: '少女峰鐵路 x3 (75折)', c: 510, note: 'Eiger Express' },
           { n: 'Gornergrat 鐵路 x3 (50折)', c: 270, note: '' },
           { n: '家人 日內瓦→蘇黎世', c: 174, note: '' },
           { n: '家人 德國康斯坦茨來回', c: 100, note: '' }
         ]},
         { cat: 'hotel', label: '🏨 住宿', items: [
-          { n: '蘇黎世 3晚', c: 600, note: '' },
-          { n: '琉森 1晚', c: 180, note: '' },
-          { n: '格林德瓦 2晚', c: 500, note: '' },
-          { n: '聖莫里茲 1晚', c: 300, note: '' },
-          { n: '采爾馬特 2晚', c: 500, note: '' },
-          { n: '日內瓦 2晚', c: 360, note: '' },
-          { n: '蘇黎世 1晚 (家人)', c: 200, note: '' }
+          { n: '蘇黎世 4晚', c: 800, note: '2/7-2/10 + 2/19' },
+          { n: '聖莫里茲 2晚', c: 600, note: '2/11-2/12' },
+          { n: '采爾馬特 2晚', c: 500, note: '2/13-2/14' },
+          { n: '因特拉肯 2晚', c: 400, note: '2/15-2/16' },
+          { n: '日內瓦 2晚', c: 360, note: '2/17-2/18' }
         ]},
         { cat: 'activity', label: '🎫 活動', items: [
           { n: '列支敦士登蓋章+品酒', c: 60, note: '' },
-          { n: '冰川列車午餐 x3', c: 150, note: '' }
+          { n: '冰川列車午餐 x3', c: 150, note: 'CHF 50/人' },
+          { n: '聖莫里茲纜車', c: 90, note: '' }
         ]}
       ],
       packing: {
@@ -308,21 +316,20 @@
     // State
     let state = {
       rate: 36,
-      budget: JSON.parse(localStorage.getItem('swissBudget')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
-      packing: JSON.parse(localStorage.getItem('swissPacking')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
-      checked: JSON.parse(localStorage.getItem('swissChecked')) || {},
+      budget: JSON.parse(localStorage.getItem('swissBudget2')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
+      packing: JSON.parse(localStorage.getItem('swissPacking2')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
+      checked: JSON.parse(localStorage.getItem('swissChecked2')) || {},
       openDays: {}
     };
 
     function save() {
-      localStorage.setItem('swissBudget', JSON.stringify(state.budget));
-      localStorage.setItem('swissPacking', JSON.stringify(state.packing));
-      localStorage.setItem('swissChecked', JSON.stringify(state.checked));
-      localStorage.setItem('swissRate', state.rate);
+      localStorage.setItem('swissBudget2', JSON.stringify(state.budget));
+      localStorage.setItem('swissPacking2', JSON.stringify(state.packing));
+      localStorage.setItem('swissChecked2', JSON.stringify(state.checked));
+      localStorage.setItem('swissRate2', state.rate);
     }
 
-    // Load rate
-    const savedRate = localStorage.getItem('swissRate');
+    const savedRate = localStorage.getItem('swissRate2');
     if (savedRate) state.rate = parseFloat(savedRate);
 
     function genMapUrl(points) {
@@ -339,14 +346,12 @@
       document.getElementById('modal').classList.remove('hidden');
     }
 
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
-    }
+    function closeModal() { document.getElementById('modal').classList.add('hidden'); }
 
     // Itinerary
     function renderItinerary() {
       const el = document.getElementById('itinerary-tab');
-      el.innerHTML = '<p style="font-size:0.875rem;color:#6b7280;margin-bottom:12px;">點擊展開查看詳細行程</p>' +
+      el.innerHTML = '<p style="font-size:0.875rem;color:#6b7280;margin-bottom:12px;">📍 點擊展開查看詳細行程及交通路線</p>' +
         DEFAULT_DATA.itinerary.map((day, i) => `
           <div class="card ${day.hl ? 'highlight' : ''} ${day.fam ? 'family' : ''}">
             <button class="day-header" onclick="toggleDay(${i})">
@@ -365,6 +370,7 @@
               </div>
             </button>
             <div class="day-content" id="content-${i}">
+              ${day.route ? `<div class="route-section"><h4>🚂 交通路線</h4><div style="font-size:0.875rem;color:#374151;">${day.route}</div></div>` : ''}
               <div class="hotel-box">🏨 住宿：待訂</div>
               <div class="schedule">
                 ${day.schedule.map(s => `
@@ -391,25 +397,30 @@
 
     // Glacier
     function renderGlacier() {
+      const g = DEFAULT_DATA.glacier;
       const el = document.getElementById('glacier-tab');
       el.innerHTML = `
         <div class="card" style="padding:16px;">
-          <div class="section-title">❤️ 情人節特別行程</div>
-          <p style="font-size:0.875rem;color:#4b5563;">2/14（六）08:38 - 17:07</p>
+          <div class="section-title">🚂 冰川列車 Glacier Express</div>
+          <p style="font-size:0.875rem;color:#4b5563;margin-bottom:8px;">${g.date}</p>
           <p style="font-size:0.875rem;color:#4b5563;">聖莫里茲 → 采爾馬特｜8小時29分</p>
         </div>
         <div class="card" style="padding:16px;">
           <div class="section-title">🏔️ 路線亮點</div>
-          ${DEFAULT_DATA.glacier.route.map(r => `<div class="route-item"><div class="route-dot"></div><span>${r}</span></div>`).join('')}
+          ${g.route.map(r => `<div class="route-item"><div class="route-dot"></div><span>${r}</span></div>`).join('')}
         </div>
         <div class="card" style="padding:16px;">
           <div class="section-title">💰 票價（持 Swiss Travel Pass）</div>
           <div class="price-row recommended"><span>2等車廂（推薦）</span><span class="price-value green">CHF 49 ≈ NT$${Math.round(49 * state.rate).toLocaleString()}</span></div>
           <div class="price-row normal"><span>1等車廂</span><span class="price-value">CHF 69 ≈ NT$${Math.round(69 * state.rate).toLocaleString()}</span></div>
+          <div class="price-row normal"><span>Excellence Class</span><span class="price-value">CHF 470</span></div>
         </div>
         <div class="tip-box">
           <h3>💡 小提醒</h3>
-          <ul>${DEFAULT_DATA.glacier.tips.map(t => `<li>${t}</li>`).join('')}</ul>
+          <ul>${g.tips.map(t => `<li>${t}</li>`).join('')}</ul>
+        </div>
+        <div class="info-box" style="margin-top:16px;">
+          🎫 預訂網站：<a href="https://www.glacierexpress.ch" target="_blank" style="color:#2563eb;">glacierexpress.ch</a>
         </div>
       `;
     }
@@ -435,7 +446,7 @@
                   ${item.note ? `<div class="budget-item-note">💬 ${item.note}</div>` : ''}
                 </div>
                 <span class="budget-chf">CHF ${item.c}</span>
-                <span class="budget-twd">NT$ ${Math.round(item.c * state.rate).toLocaleString()}</span>
+                <span class="budget-twd">≈ NT$${Math.round(item.c * state.rate).toLocaleString()}</span>
                 <div class="budget-actions">
                   <button class="btn-icon edit" onclick="editBudgetItem(${gi}, ${ii})">✏️</button>
                   <button class="btn-icon delete" onclick="deleteBudgetItem(${gi}, ${ii})">🗑️</button>
@@ -444,7 +455,7 @@
             `).join('')}
           `).join('')}
           <div class="budget-total">
-            <span class="budget-total-label">預估總計</span>
+            <span class="budget-total-label">預估總計（不含餐費）</span>
             <div class="budget-total-value">
               <div class="budget-total-chf">CHF ${total.toLocaleString()}</div>
               <div class="budget-total-twd">≈ NT$ ${Math.round(total * state.rate).toLocaleString()}</div>
@@ -452,7 +463,7 @@
           </div>
         </div>
         <button class="add-btn" onclick="addBudgetItem()">➕ 新增預算項目</button>
-        <div class="info-box">💡 不含餐費（約 CHF 50-80/天/人）及購物<br>👆 點擊項目右側按鈕可編輯或刪除</div>
+        <div class="info-box">💡 餐費約 CHF 50-80/天/人，購物另計<br>👆 滑鼠移至項目可編輯或刪除</div>
       `;
     }
 
@@ -470,13 +481,7 @@
 
     function saveRate() {
       const val = parseFloat(document.getElementById('rate-input').value);
-      if (val > 0) {
-        state.rate = val;
-        save();
-        renderBudget();
-        renderGlacier();
-        closeModal();
-      }
+      if (val > 0) { state.rate = val; save(); renderBudget(); renderGlacier(); closeModal(); }
     }
 
     function addBudgetItem() {
@@ -516,9 +521,7 @@
       const note = document.getElementById('budget-note').value.trim();
       if (!name || !amount) return alert('請填寫名稱和金額');
       state.budget[cat].items.push({ n: name, c: amount, note: note });
-      save();
-      renderBudget();
-      closeModal();
+      save(); renderBudget(); closeModal();
     }
 
     function editBudgetItem(gi, ii) {
@@ -558,21 +561,15 @@
       const amount = parseFloat(document.getElementById('budget-amount').value);
       const note = document.getElementById('budget-note').value.trim();
       if (!name || !amount) return alert('請填寫名稱和金額');
-      
-      // Remove from old category
       state.budget[oldGi].items.splice(ii, 1);
-      // Add to new category
       state.budget[newGi].items.push({ n: name, c: amount, note: note });
-      save();
-      renderBudget();
-      closeModal();
+      save(); renderBudget(); closeModal();
     }
 
     function deleteBudgetItem(gi, ii) {
       if (confirm('確定刪除此項目？')) {
         state.budget[gi].items.splice(ii, 1);
-        save();
-        renderBudget();
+        save(); renderBudget();
       }
     }
 
@@ -624,18 +621,10 @@
       `;
     }
 
-    function toggleCheck(item) {
-      state.checked[item] = !state.checked[item];
-      save();
-      renderPacking();
-    }
+    function toggleCheck(item) { state.checked[item] = !state.checked[item]; save(); renderPacking(); }
 
     function resetChecked() {
-      if (confirm('確定要重置所有勾選？')) {
-        state.checked = {};
-        save();
-        renderPacking();
-      }
+      if (confirm('確定要重置所有勾選？')) { state.checked = {}; save(); renderPacking(); }
     }
 
     function addPackingItem() {
@@ -661,9 +650,7 @@
       const name = document.getElementById('packing-name').value.trim();
       if (!name) return alert('請填寫物品名稱');
       state.packing[cat].push(name);
-      save();
-      renderPacking();
-      closeModal();
+      save(); renderPacking(); closeModal();
     }
 
     function editPackingItem(cat, idx) {
@@ -683,14 +670,8 @@
       const newName = document.getElementById('packing-name').value.trim();
       if (!newName) return alert('請填寫物品名稱');
       state.packing[cat][idx] = newName;
-      // Update checked state
-      if (state.checked[oldName]) {
-        delete state.checked[oldName];
-        state.checked[newName] = true;
-      }
-      save();
-      renderPacking();
-      closeModal();
+      if (state.checked[oldName]) { delete state.checked[oldName]; state.checked[newName] = true; }
+      save(); renderPacking(); closeModal();
     }
 
     function deletePackingItem(cat, idx) {
@@ -698,8 +679,7 @@
         const item = state.packing[cat][idx];
         state.packing[cat].splice(idx, 1);
         delete state.checked[item];
-        save();
-        renderPacking();
+        save(); renderPacking();
       }
     }
 
@@ -720,17 +700,14 @@
       if (!name.match(/^[\u{1F300}-\u{1F9FF}]/u)) name = '🎒 ' + name;
       if (state.packing[name]) return alert('此分類已存在');
       state.packing[name] = [];
-      save();
-      renderPacking();
-      closeModal();
+      save(); renderPacking(); closeModal();
     }
 
     function deletePackingCategory(cat) {
       if (confirm(`確定刪除「${cat}」分類及所有物品？`)) {
         state.packing[cat].forEach(item => delete state.checked[item]);
         delete state.packing[cat];
-        save();
-        renderPacking();
+        save(); renderPacking();
       }
     }
 
@@ -747,7 +724,6 @@
       tab.addEventListener('click', () => switchTab(tab.dataset.tab));
     });
 
-    // Close modal on background click
     document.getElementById('modal').addEventListener('click', function(e) {
       if (e.target === this) closeModal();
     });
