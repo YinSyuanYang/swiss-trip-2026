@@ -16,9 +16,9 @@
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .tag { background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; }
     .tabs { display: flex; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-    .tab { flex: 1; padding: 10px 4px; border: none; background: none; cursor: pointer; font-size: 0.7rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all 0.2s; }
+    .tab { flex: 1; padding: 10px 2px; border: none; background: none; cursor: pointer; font-size: 0.65rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all 0.2s; }
     .tab.active { color: #dc2626; border-bottom: 2px solid #dc2626; }
-    .tab-icon { font-size: 1.125rem; }
+    .tab-icon { font-size: 1rem; }
     .content { padding: 16px; padding-bottom: 80px; max-width: 500px; margin: 0 auto; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 12px; overflow: hidden; }
     .card.highlight { box-shadow: 0 0 0 2px #ef4444, 0 2px 8px rgba(0,0,0,0.08); }
@@ -49,54 +49,22 @@
     .section-title { font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
     .route-item { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 0.875rem; }
     .route-dot { width: 12px; height: 12px; background: #ef4444; border-radius: 50%; }
-    .price-row { display: flex; justify-content: space-between; padding: 10px 12px; font-size: 0.875rem; border-radius: 8px; margin-bottom: 8px; }
-    .price-row.recommended { background: #f0fdf4; }
-    .price-row.normal { background: #f9fafb; }
-    .price-value { font-weight: 600; }
-    .price-value.green { color: #16a34a; }
-    .tip-box { background: #fffbeb; padding: 16px; border-radius: 12px; }
-    .tip-box h3 { font-size: 0.875rem; margin-bottom: 8px; }
-    .tip-box li { font-size: 0.875rem; color: #374151; margin-left: 16px; margin-bottom: 4px; }
-    .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
-    .rate-badge { font-size: 0.75rem; background: #f3f4f6; padding: 6px 12px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-    .rate-badge:hover { background: #e5e7eb; }
-    .budget-cat { font-weight: 500; color: #374151; margin: 16px 0 8px; }
-    .budget-row { display: flex; align-items: center; padding: 10px 0 10px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.875rem; gap: 8px; }
-    .budget-row:hover { background: #f9fafb; }
-    .budget-item { flex: 1; color: #4b5563; min-width: 0; }
-    .budget-item-name { word-break: break-word; }
-    .budget-item-note { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
-    .budget-chf { width: 70px; text-align: right; flex-shrink: 0; }
-    .budget-twd { width: 90px; text-align: right; color: #9ca3af; flex-shrink: 0; font-size: 0.8rem; }
-    .budget-actions { display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; }
-    .budget-row:hover .budget-actions { opacity: 1; }
-    .btn-icon { width: 28px; height: 28px; border: none; background: none; cursor: pointer; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
-    .btn-icon:hover { background: #e5e7eb; }
-    .btn-icon.edit { color: #3b82f6; }
-    .btn-icon.delete { color: #ef4444; }
-    .budget-total { border-top: 2px solid #fecaca; padding-top: 16px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; }
-    .budget-total-label { font-weight: 600; }
-    .budget-total-value { text-align: right; }
-    .budget-total-chf { font-size: 1.25rem; font-weight: 700; color: #dc2626; }
-    .budget-total-twd { font-size: 0.875rem; color: #6b7280; }
     .info-box { background: #eff6ff; padding: 16px; border-radius: 12px; font-size: 0.875rem; color: #1e40af; margin-top: 16px; }
     .add-btn { width: 100%; padding: 14px; background: #3b82f6; color: #fff; border: none; border-radius: 12px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
     .add-btn:hover { background: #2563eb; }
     .add-btn.purple { background: #8b5cf6; }
     .add-btn.purple:hover { background: #7c3aed; }
-    .add-btn.green { background: #16a34a; }
-    .add-btn.green:hover { background: #15803d; }
     .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
     .modal.hidden { display: none; }
     .modal-content { background: #fff; border-radius: 16px; padding: 20px; width: 100%; max-width: 400px; max-height: 90vh; overflow-y: auto; }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .modal-title { font-weight: 600; font-size: 1.125rem; }
-    .modal-close { width: 32px; height: 32px; border: none; background: #f3f4f6; border-radius: 8px; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; }
+    .modal-close { width: 32px; height: 32px; border: none; background: #f3f4f6; border-radius: 8px; cursor: pointer; font-size: 1.25rem; }
     .modal-close:hover { background: #e5e7eb; }
     .form-group { margin-bottom: 16px; }
     .form-label { display: block; font-size: 0.75rem; color: #6b7280; margin-bottom: 6px; }
     .form-input, .form-select { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.875rem; }
-    .form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    .form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; }
     .form-hint { font-size: 0.75rem; color: #9ca3af; margin-top: 4px; }
     .form-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; }
     .form-btn.primary { background: #22c55e; color: #fff; }
@@ -118,17 +86,38 @@
     .cat-actions { display: flex; align-items: center; gap: 8px; }
     .cat-count { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; background: #f3f4f6; }
     .cat-count.done { background: #dcfce7; color: #16a34a; }
-    .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+    .check-item { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 8px; cursor: pointer; }
     .check-item:hover { background: #f9fafb; }
     .check-item.checked { background: #f0fdf4; }
-    .checkbox { width: 24px; height: 24px; border: 2px solid #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+    .checkbox { width: 24px; height: 24px; border: 2px solid #d1d5db; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .check-item.checked .checkbox { background: #22c55e; border-color: #22c55e; color: #fff; }
     .check-label { font-size: 0.875rem; color: #374151; flex: 1; }
     .check-item.checked .check-label { color: #9ca3af; text-decoration: line-through; }
-    .check-actions { display: flex; gap: 2px; opacity: 0; transition: opacity 0.2s; }
+    .check-actions { display: flex; gap: 2px; opacity: 0; }
     .check-item:hover .check-actions { opacity: 1; }
+    .btn-icon { width: 28px; height: 28px; border: none; background: none; cursor: pointer; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
+    .btn-icon:hover { background: #e5e7eb; }
+    .btn-icon.edit { color: #3b82f6; }
+    .btn-icon.delete { color: #ef4444; }
     .reset-btn { width: 100%; padding: 14px; background: #e5e7eb; color: #4b5563; border: none; border-radius: 12px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 16px; }
     .reset-btn:hover { background: #d1d5db; }
+    .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .rate-badge { font-size: 0.75rem; background: #f3f4f6; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
+    .rate-badge:hover { background: #e5e7eb; }
+    .budget-cat { font-weight: 500; color: #374151; margin: 16px 0 8px; }
+    .budget-row { display: flex; align-items: center; padding: 10px 0 10px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.875rem; gap: 8px; }
+    .budget-row:hover { background: #f9fafb; }
+    .budget-item { flex: 1; color: #4b5563; min-width: 0; }
+    .budget-item-name { word-break: break-word; }
+    .budget-item-note { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
+    .budget-chf { width: 70px; text-align: right; flex-shrink: 0; }
+    .budget-twd { width: 90px; text-align: right; color: #9ca3af; flex-shrink: 0; font-size: 0.8rem; }
+    .budget-actions { display: flex; gap: 4px; opacity: 0; }
+    .budget-row:hover .budget-actions { opacity: 1; }
+    .budget-total { border-top: 2px solid #fecaca; padding-top: 16px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; }
+    .budget-total-label { font-weight: 600; }
+    .budget-total-chf { font-size: 1.25rem; font-weight: 700; color: #dc2626; }
+    .budget-total-twd { font-size: 0.875rem; color: #6b7280; }
     .footer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e7eb; padding: 12px; text-align: center; font-size: 0.75rem; color: #6b7280; }
     .hidden { display: none !important; }
     .route-section { background: #f9fafb; padding: 12px; border-radius: 8px; margin-top: 12px; }
@@ -136,7 +125,6 @@
     .booking-info { background: #dbeafe; padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 0.8rem; }
     .booking-info div { margin-bottom: 4px; }
     .booking-info strong { color: #1e40af; }
-    /* Files tab */
     .lock-screen { text-align: center; padding: 60px 20px; }
     .lock-icon { font-size: 4rem; margin-bottom: 16px; }
     .lock-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
@@ -148,7 +136,7 @@
     .error-msg { color: #dc2626; font-size: 0.875rem; margin-top: 12px; }
     .file-category { margin-bottom: 20px; }
     .file-cat-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f3f4f6; border-radius: 8px; margin-bottom: 8px; }
-    .file-cat-name { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .file-cat-name { font-weight: 600; }
     .file-cat-count { font-size: 0.75rem; color: #6b7280; }
     .file-item { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
     .file-item:hover { background: #f9fafb; }
@@ -157,17 +145,35 @@
     .file-name { font-weight: 500; font-size: 0.875rem; word-break: break-word; }
     .file-meta { font-size: 0.75rem; color: #9ca3af; }
     .file-actions { display: flex; gap: 4px; }
-    .upload-zone { border: 2px dashed #d1d5db; border-radius: 12px; padding: 32px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 16px; }
+    .upload-zone { border: 2px dashed #d1d5db; border-radius: 12px; padding: 32px; text-align: center; cursor: pointer; margin-bottom: 16px; }
     .upload-zone:hover { border-color: #3b82f6; background: #eff6ff; }
     .upload-zone.dragover { border-color: #3b82f6; background: #dbeafe; }
     .upload-icon { font-size: 2.5rem; margin-bottom: 8px; }
     .upload-text { color: #6b7280; font-size: 0.875rem; }
     .upload-hint { color: #9ca3af; font-size: 0.75rem; margin-top: 4px; }
+    .hotel-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
+    .hotel-card-header { padding: 16px; background: linear-gradient(to right, #7c3aed, #6d28d9); color: #fff; }
+    .hotel-location { font-size: 1.125rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .hotel-dates { font-size: 0.875rem; opacity: 0.9; margin-top: 4px; }
+    .hotel-nights { display: inline-block; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px; }
+    .hotel-card-body { padding: 16px; }
+    .hotel-options { margin-top: 8px; }
+    .hotel-option { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
+    .hotel-option:hover { border-color: #7c3aed; background: #faf5ff; }
+    .hotel-option.selected { border-color: #7c3aed; background: #f3e8ff; }
+    .option-number { width: 28px; height: 28px; background: #7c3aed; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.875rem; flex-shrink: 0; }
+    .option-info { flex: 1; min-width: 0; }
+    .option-name { font-weight: 500; font-size: 0.875rem; word-break: break-word; }
+    .option-price { font-size: 0.75rem; color: #6b7280; margin-top: 2px; }
+    .option-link { color: #7c3aed; text-decoration: none; font-size: 0.75rem; }
+    .option-link:hover { text-decoration: underline; }
+    .option-actions { display: flex; gap: 4px; }
+    .no-options { text-align: center; padding: 20px; color: #9ca3af; font-size: 0.875rem; }
+    .add-option-btn { width: 100%; padding: 10px; background: #f3e8ff; color: #7c3aed; border: 1px dashed #7c3aed; border-radius: 8px; font-size: 0.875rem; cursor: pointer; }
+    .add-option-btn:hover { background: #ede9fe; }
     @media (max-width: 400px) {
       .budget-twd { display: none; }
-      .budget-actions { opacity: 1; }
-      .check-actions { opacity: 1; }
-      .file-actions { opacity: 1; }
+      .budget-actions, .check-actions, .file-actions, .option-actions { opacity: 1; }
     }
   </style>
 </head>
@@ -179,13 +185,12 @@
       <span class="tag">冰川列車 🚂</span>
       <span class="tag">馬特洪峰</span>
       <span class="tag">少女峰</span>
-      <span class="tag">列支敦士登</span>
     </div>
   </div>
 
   <div class="tabs">
     <button class="tab active" data-tab="itinerary"><span class="tab-icon">📅</span>行程</button>
-    <button class="tab" data-tab="glacier"><span class="tab-icon">🚂</span>冰川</button>
+    <button class="tab" data-tab="hotel"><span class="tab-icon">🏨</span>住宿</button>
     <button class="tab" data-tab="budget"><span class="tab-icon">💰</span>預算</button>
     <button class="tab" data-tab="packing"><span class="tab-icon">🧳</span>打包</button>
     <button class="tab" data-tab="files"><span class="tab-icon">📁</span>文件</button>
@@ -193,7 +198,7 @@
 
   <div class="content">
     <div id="itinerary-tab"></div>
-    <div id="glacier-tab" class="hidden"></div>
+    <div id="hotel-tab" class="hidden"></div>
     <div id="budget-tab" class="hidden"></div>
     <div id="packing-tab" class="hidden"></div>
     <div id="files-tab" class="hidden"></div>
@@ -209,187 +214,136 @@
     </div>
   </div>
 
-  <div class="footer">🇨🇭 瑞士之旅 2026 ｜情人節快樂 ❤️</div>
+  <div class="footer">🇨🇭 瑞士之旅 2026 ｜❤️</div>
 
   <script>
     const DEFAULT_DATA = {
       itinerary: [
         { date: '2/7 (六)', title: 'Eva抵達蘇黎世', icon: '✈️', loc: '蘇黎世', schedule: [
-          { t: '12:00', a: '✈️ 從英國出發', d: '1h45m' }, { t: '15:00', a: '抵達蘇黎世機場', d: '-' },
-          { t: '15:30', a: '搭火車至市區', d: '15m' }, { t: '16:00', a: '入住酒店', d: '1h' },
-          { t: '17:00', a: '班霍夫大街購物', d: '1.5h' }, { t: '18:30', a: '大教堂 Grossmünster', d: '30m' },
-          { t: '19:00', a: '林登霍夫山丘', d: '30m' }, { t: '20:00', a: '老城晚餐', d: '1.5h' }
-        ], map: ['Zurich Airport', 'Zurich HB', 'Bahnhofstrasse Zurich', 'Grossmunster Zurich'], route: '英國 ✈️ → 蘇黎世' },
+          { t: '15:00', a: '抵達蘇黎世機場', d: '-' }, { t: '16:00', a: '入住酒店', d: '1h' },
+          { t: '17:00', a: '班霍夫大街購物', d: '1.5h' }, { t: '20:00', a: '老城晚餐', d: '1.5h' }
+        ], map: ['Zurich Airport', 'Zurich HB'], route: '英國 ✈️ → 蘇黎世' },
         { date: '2/8 (日)', title: '家人抵達・會合！', icon: '👨‍👩‍👧', loc: '蘇黎世', hl: true, schedule: [
-          { t: '07:30', a: '🛬 家人抵達蘇黎世機場', d: '-' }, { t: '08:30', a: '接機・早餐', d: '1.5h' },
-          { t: '10:00', a: '火車至市區・寄放行李', d: '30m' }, { t: '10:30', a: '酒店休息調時差', d: '2h' },
-          { t: '13:00', a: '午餐 Zeughauskeller', d: '1h' }, { t: '14:30', a: '蘇黎世湖畔散步', d: '1.5h' },
-          { t: '16:00', a: 'Sprüngli 巧克力店', d: '30m' }, { t: '17:00', a: '老城漫步', d: '2h' }
-        ], map: ['Zurich Airport', 'Zurich HB', 'Zeughauskeller Zurich', 'Lake Zurich'], route: '台灣 ✈️ → 蘇黎世' },
+          { t: '07:30', a: '🛬 家人抵達', d: '-' }, { t: '10:30', a: '酒店休息', d: '2h' },
+          { t: '13:00', a: '午餐 Zeughauskeller', d: '1h' }, { t: '14:30', a: '蘇黎世湖畔', d: '1.5h' }
+        ], map: ['Zurich Airport', 'Lake Zurich'], route: '台灣 ✈️ → 蘇黎世' },
         { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', schedule: [
-          { t: '08:30', a: '🚂 蘇黎世出發', d: '1h' }, { t: '09:30', a: 'Sargans 轉車', d: '15m' },
-          { t: '10:00', a: '🚌 抵達瓦杜茲', d: '-' }, { t: '10:30', a: '護照蓋紀念章 CHF3', d: '30m' },
-          { t: '11:00', a: '瓦杜茲城堡(外觀)', d: '1h' }, { t: '12:00', a: '午餐', d: '1h' },
-          { t: '13:30', a: '藝術博物館', d: '1.5h' }, { t: '15:00', a: '王室酒莊品酒', d: '1h' },
-          { t: '17:00', a: '🚌🚂 返回蘇黎世', d: '1.5h' }
-        ], map: ['Zurich HB', 'Sargans Station', 'Vaduz Liechtenstein', 'Vaduz Castle'], route: '蘇黎世 🚂 → Sargans 🚌 → 瓦杜茲 → 蘇黎世' },
+          { t: '08:30', a: '🚂 蘇黎世出發', d: '1.5h' }, { t: '10:30', a: '護照蓋章', d: '30m' },
+          { t: '11:00', a: '瓦杜茲城堡', d: '1h' }, { t: '17:00', a: '返回蘇黎世', d: '1.5h' }
+        ], map: ['Zurich HB', 'Vaduz'], route: '蘇黎世 🚂 → 瓦杜茲 → 蘇黎世' },
         { date: '2/10 (二)', title: '琉森', icon: '🦁', loc: '琉森', schedule: [
           { t: '09:00', a: '🚂 蘇黎世→琉森', d: '45m' }, { t: '10:00', a: '獅子紀念碑', d: '30m' },
-          { t: '10:45', a: '冰河公園', d: '1h' }, { t: '12:00', a: '午餐', d: '1h' },
-          { t: '13:30', a: '卡貝爾橋', d: '30m' }, { t: '14:00', a: '老城漫步', d: '2h' },
-          { t: '16:00', a: '天鵝廣場購物', d: '1.5h' }, { t: '18:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Zurich HB', 'Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂 → 琉森 → 蘇黎世' },
+          { t: '13:30', a: '卡貝爾橋', d: '30m' }, { t: '18:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Luzern Station', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂 → 琉森 → 蘇黎世' },
         { date: '2/11 (三)', title: '前往聖莫里茲', icon: '🎿', loc: '聖莫里茲', schedule: [
-          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:00', a: '🚂 蘇黎世→聖莫里茲', d: '3h' },
-          { t: '12:00', a: '抵達聖莫里茲・入住', d: '1h' }, { t: '13:00', a: '午餐', d: '1h' },
-          { t: '14:30', a: '聖莫里茲湖散步', d: '1.5h' }, { t: '16:00', a: '小鎮購物 Via Serlas', d: '1.5h' },
-          { t: '18:00', a: '瑞士傳統晚餐', d: '2h' }, { t: '20:30', a: '早睡（明天冰川列車）', d: '-' }
-        ], map: ['Zurich HB', 'Chur Station', 'St Moritz', 'St Moritz Lake'], route: '蘇黎世 🚂 → Chur → 聖莫里茲（3小時）' },
+          { t: '09:00', a: '🚂 蘇黎世→聖莫里茲', d: '3h' }, { t: '13:00', a: '午餐', d: '1h' },
+          { t: '14:30', a: '聖莫里茲湖散步', d: '1.5h' }, { t: '20:30', a: '早睡', d: '-' }
+        ], map: ['St Moritz'], route: '蘇黎世 🚂 → 聖莫里茲（3小時）' },
         { date: '2/12 (四)', title: '🚂 冰川列車', icon: '🚂', loc: '采爾馬特', hl: true, first: true, schedule: [
-          { t: '07:00', a: '早餐・退房', d: '1h' }, { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' },
-          { t: '10:00', a: '📸 蘭德瓦瑟高架橋', d: '-' }, { t: '12:00', a: '🍽️ 車上2道式午餐', d: '1.5h' },
-          { t: '14:00', a: '⛰️ 上阿爾卑斯山口 2,033m', d: '-' }, { t: '17:07', a: '抵達采爾馬特', d: '-' },
-          { t: '17:30', a: '入住酒店', d: '30m' }, { t: '18:00', a: '小鎮漫步', d: '1h' },
-          { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['St Moritz Station', 'Zermatt'], route: '聖莫里茲 🚂 → 采爾馬特（冰川列車 8h30m）',
-        booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐(肉)x5', price: 'CHF 210' } },
+          { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' }, { t: '12:00', a: '車上午餐', d: '1.5h' },
+          { t: '17:07', a: '抵達采爾馬特', d: '-' }, { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['St Moritz Station', 'Zermatt'], route: '聖莫里茲 🚂 → 采爾馬特',
+        booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐x5' } },
         { date: '2/13 (五)', title: '馬特洪峰', icon: '🏔️', loc: '采爾馬特', schedule: [
-          { t: '08:00', a: '早餐', d: '1h' }, { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' },
-          { t: '09:45', a: '抵達 Gornergrat 3,089m', d: '-' }, { t: '10:00', a: '馬特洪峰觀景・拍照', d: '2h' },
-          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:30', a: '下山・中途站健行', d: '2h' },
-          { t: '16:00', a: '返回采爾馬特', d: '-' }, { t: '17:00', a: '小鎮購物', d: '2h' },
-          { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Zermatt', 'Gornergrat Bahn Zermatt', 'Gornergrat'], route: '采爾馬特 🚂 → Gornergrat → 采爾馬特' },
+          { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' }, { t: '10:00', a: '馬特洪峰觀景', d: '2h' },
+          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '17:00', a: '小鎮購物', d: '2h' }
+        ], map: ['Zermatt', 'Gornergrat'], route: '采爾馬特 🚂 → Gornergrat' },
         { date: '2/14 (六)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hl: true, schedule: [
-          { t: '09:00', a: '睡到自然醒・早午餐', d: '2h' }, { t: '11:00', a: 'Sunnegga 纜車', d: '3m' },
-          { t: '11:30', a: '馬特洪峰拍照點', d: '1.5h' }, { t: '13:00', a: '山上午餐', d: '1h' },
-          { t: '14:30', a: '下山', d: '-' }, { t: '15:00', a: '采爾馬特小鎮漫步', d: '2h' },
+          { t: '09:00', a: '睡到自然醒', d: '2h' }, { t: '11:00', a: 'Sunnegga 纜車', d: '3m' },
           { t: '17:00', a: 'Spa / 休息', d: '2h' }, { t: '19:30', a: '❤️ 情人節晚餐', d: '2.5h' }
-        ], map: ['Zermatt', 'Sunnegga Zermatt'], route: '采爾馬特 🚡 → Sunnegga → 采爾馬特' },
+        ], map: ['Zermatt', 'Sunnegga'], route: '采爾馬特悠閒日' },
         { date: '2/15 (日)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', schedule: [
-          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:15', a: '🚂 采爾馬特→因特拉肯', d: '2h30m' },
-          { t: '11:45', a: '抵達因特拉肯・入住', d: '1h' }, { t: '13:00', a: '午餐', d: '1h' },
-          { t: '14:30', a: '因特拉肯小鎮漫步', d: '2h' }, { t: '16:30', a: 'Höheweg 大道', d: '1h' },
-          { t: '18:00', a: '湖畔散步', d: '1h' }, { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Zermatt', 'Visp', 'Spiez', 'Interlaken Ost'], route: '采爾馬特 🚂 → Visp → Spiez → 因特拉肯（2.5小時）' },
-        { date: '2/16 (一)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hl: true, schedule: [
-          { t: '07:30', a: '早餐', d: '30m' }, { t: '08:30', a: '🚡 Eiger Express 纜車', d: '15m' },
-          { t: '09:00', a: '🚂 少女峰鐵路', d: '30m' }, { t: '09:30', a: '抵達少女峰站 3,454m', d: '-' },
-          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' }, { t: '11:00', a: '冰宮 Ice Palace', d: '45m' },
-          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '13:00', a: '雪地活動/拍照', d: '2h' },
-          { t: '15:30', a: '下山返回因特拉肯', d: '1h' }, { t: '17:00', a: '休息・準備明天', d: '-' }
-        ], map: ['Interlaken Ost', 'Grindelwald Terminal', 'Eigergletscher', 'Jungfraujoch'], route: '因特拉肯 🚂 → Grindelwald 🚡 → 少女峰' },
+          { t: '09:15', a: '🚂 采爾馬特→因特拉肯', d: '2h30m' }, { t: '13:00', a: '午餐', d: '1h' },
+          { t: '14:30', a: '小鎮漫步', d: '2h' }, { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['Interlaken Ost'], route: '采爾馬特 🚂 → 因特拉肯' },
+        { date: '2/16 (一)', title: '⭐ 少女峰', icon: '🗻', loc: '少女峰', hl: true, schedule: [
+          { t: '08:30', a: '🚡 Eiger Express', d: '15m' }, { t: '09:30', a: '少女峰站 3,454m', d: '-' },
+          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' }, { t: '15:30', a: '下山', d: '1h' }
+        ], map: ['Jungfraujoch'], route: '因特拉肯 → 少女峰' },
         { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', schedule: [
-          { t: '07:30', a: '早餐・退房', d: '1h' }, { t: '08:30', a: '🚂 因特拉肯→日內瓦', d: '2h45m' },
-          { t: '11:15', a: '抵達日內瓦', d: '-' }, { t: '11:30', a: '行李寄存・告別', d: '30m' },
-          { t: '12:00', a: '✈️ Eva前往機場', d: '20m' }, { t: '14:00', a: '✈️ Eva飛回英國', d: '1h45m' },
-          { t: '---', a: '─── 家人行程 ───', d: '-' },
-          { t: '12:00', a: '入住酒店・午餐', d: '1.5h' }, { t: '14:00', a: '大噴泉 Jet d\'Eau', d: '30m' },
-          { t: '15:00', a: '花鐘・老城', d: '2h' }, { t: '17:00', a: '聯合國萬國宮', d: '1h' },
-          { t: '19:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Interlaken Ost', 'Bern', 'Geneva Cornavin', 'Jet dEau Geneva'], route: '因特拉肯 🚂 → Bern → 日內瓦 | Eva ✈️ → 英國' },
+          { t: '08:30', a: '🚂 因特拉肯→日內瓦', d: '2h45m' }, { t: '12:00', a: 'Eva前往機場', d: '20m' },
+          { t: '14:00', a: '大噴泉', d: '30m' }, { t: '19:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Geneva'], route: '因特拉肯 🚂 → 日內瓦' },
         { date: '2/18 (三)', title: '日內瓦觀光', icon: '⛲', loc: '日內瓦', fam: true, schedule: [
-          { t: '09:00', a: '早餐', d: '1h' }, { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' },
-          { t: '12:00', a: '午餐', d: '1h' }, { t: '13:30', a: '聖彼得大教堂', d: '1h' },
-          { t: '15:00', a: '紅十字會博物館', d: '2h' }, { t: '17:00', a: '購物', d: '2h' },
+          { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' }, { t: '15:00', a: '紅十字會博物館', d: '2h' },
           { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Lake Geneva', 'St Pierre Cathedral Geneva', 'Red Cross Museum Geneva'], route: '日內瓦市區觀光' },
-        { date: '2/19 (四)', title: '返回蘇黎世・🇩🇪德國', icon: '🛍️', loc: '蘇黎世', fam: true, hl: true, schedule: [
-          { t: '08:00', a: '早餐・退房', d: '1h' }, { t: '09:30', a: '🚂 日內瓦→蘇黎世', d: '2h45m' },
-          { t: '12:15', a: '抵達蘇黎世', d: '-' }, { t: '12:30', a: '入住・午餐', d: '1.5h' },
-          { t: '14:00', a: '🇩🇪 🚂 蘇黎世→康斯坦茨', d: '1h15m' }, { t: '15:15', a: '🛍️ dm 藥妝店', d: '1h' },
-          { t: '16:15', a: '🛍️ Rossmann', d: '45m' }, { t: '17:00', a: '🛍️ Müller 百貨', d: '45m' },
-          { t: '18:00', a: '🚂 返回蘇黎世', d: '1h15m' }, { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Geneva Cornavin', 'Zurich HB', 'Konstanz Station'], route: '日內瓦 🚂 → 蘇黎世 🚂 → 康斯坦茨🇩🇪 → 蘇黎世' },
+        ], map: ['Lake Geneva'], route: '日內瓦市區' },
+        { date: '2/19 (四)', title: '🇩🇪德國購物', icon: '🛍️', loc: '蘇黎世', fam: true, hl: true, schedule: [
+          { t: '09:30', a: '🚂 日內瓦→蘇黎世', d: '2h45m' }, { t: '14:00', a: '🚂 蘇黎世→康斯坦茨', d: '1h15m' },
+          { t: '15:15', a: 'dm 藥妝店', d: '1h' }, { t: '18:00', a: '返回蘇黎世', d: '1h15m' }
+        ], map: ['Konstanz'], route: '日內瓦 🚂 → 蘇黎世 🚂 → 康斯坦茨🇩🇪' },
         { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', fam: true, schedule: [
-          { t: '06:30', a: '起床・最後整理', d: '30m' }, { t: '07:00', a: '早餐・退房', d: '45m' },
-          { t: '08:00', a: '🚂 前往蘇黎世機場', d: '15m' }, { t: '08:30', a: 'Check-in', d: '1h' },
-          { t: '09:30', a: '機場免稅店', d: '1.5h' }, { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
+          { t: '08:00', a: '前往機場', d: '15m' }, { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
           { t: '+1日', a: '06:15 抵達香港', d: '-' }
-        ], map: ['Zurich HB', 'Zurich Airport'], route: '蘇黎世 🚂 → 機場 ✈️ → 香港' }
+        ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港' }
       ],
-      glacier: {
-        date: '2/12（四）08:38 - 17:07',
-        booking: {
-          confirmNo: '2759298-1',
-          name: 'Wen-hung Yang',
-          train: '903',
-          class: '頭等艙 1. Class',
-          car: '24',
-          seats: '21-22, 24-26',
-          qty: '5人',
-          meal: '2道式午餐(肉) x5',
-          mealPrice: 'CHF 210'
-        },
-        route: ['聖莫里茲 1,775m', '🌉 蘭德瓦瑟高架橋', '庫爾 585m（最低點）', '🏔️ 萊茵峽谷', '⛰️ 上阿爾卑斯山口 2,033m（最高點）', '安德馬特', '采爾馬特 1,604m 🏔️'],
-        tips: ['右側座位看高架橋最佳', '車上只能無現金支付', '提早到車站找座位']
-      },
+      hotels: [
+        { id: 1, location: '蘇黎世 Zürich', dates: '2/7 - 2/11', nights: 4, note: 'Eva 2/7先到', options: [] },
+        { id: 2, location: '聖莫里茲 St. Moritz', dates: '2/11', nights: 1, note: '冰川列車前一晚', options: [] },
+        { id: 3, location: '采爾馬特 Zermatt', dates: '2/12 - 2/14', nights: 3, note: '含情人節❤️', options: [] },
+        { id: 4, location: '因特拉肯 Interlaken', dates: '2/15 - 2/16', nights: 2, note: '少女峰', options: [] },
+        { id: 5, location: '日內瓦 Geneva', dates: '2/17 - 2/18', nights: 2, note: '家人獨自', options: [] },
+        { id: 6, location: '蘇黎世 Zürich', dates: '2/19', nights: 1, note: '回程前一晚', options: [] }
+      ],
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
-          { n: 'Eva 英國↔瑞士機票', c: 180, note: 'easyJet 或 SWISS' },
+          { n: 'Eva 英國↔瑞士機票', c: 180, note: '' },
           { n: 'Swiss Travel Pass 8天 x5', c: 2245, note: 'CHF 449/人' },
           { n: '冰川列車訂位費 x5（頭等）', c: 345, note: 'CHF 69/人' },
-          { n: '冰川列車午餐 x5', c: 210, note: '2道式(肉)' },
-          { n: '少女峰鐵路 x5 (75折)', c: 850, note: 'Eiger Express' },
-          { n: 'Gornergrat 鐵路 x5 (50折)', c: 450, note: '' },
-          { n: '家人 日內瓦→蘇黎世', c: 348, note: '4人' },
-          { n: '家人 德國康斯坦茨來回', c: 200, note: '4人' }
+          { n: '冰川列車午餐 x5', c: 210, note: '' },
+          { n: '少女峰鐵路 x5', c: 850, note: '' },
+          { n: 'Gornergrat 鐵路 x5', c: 450, note: '' }
         ]},
         { cat: 'hotel', label: '🏨 住宿', items: [
-          { n: '蘇黎世 4晚', c: 800, note: '2/7-2/10 + 2/19' },
-          { n: '聖莫里茲 1晚', c: 300, note: '2/11' },
-          { n: '采爾馬特 3晚', c: 750, note: '2/12-2/14' },
-          { n: '因特拉肯 2晚', c: 400, note: '2/15-2/16' },
-          { n: '日內瓦 2晚', c: 360, note: '2/17-2/18' }
+          { n: '蘇黎世 4晚', c: 800, note: '' },
+          { n: '聖莫里茲 1晚', c: 300, note: '' },
+          { n: '采爾馬特 3晚', c: 750, note: '' },
+          { n: '因特拉肯 2晚', c: 400, note: '' },
+          { n: '日內瓦 2晚', c: 360, note: '' },
+          { n: '蘇黎世 1晚', c: 200, note: '' }
         ]},
         { cat: 'activity', label: '🎫 活動', items: [
-          { n: '列支敦士登蓋章+品酒', c: 75, note: '5人' },
-          { n: '聖莫里茲纜車', c: 150, note: '5人' }
+          { n: '列支敦士登', c: 75, note: '' }
         ]}
       ],
       packing: {
-        '📄 證件文件': ['護照 x5', '機票/電子機票', 'Swiss Travel Pass x5', '冰川列車訂位確認', '酒店預訂確認', '旅遊保險文件', '信用卡/提款卡', '瑞士法郎現金', '證件影本（備用）'],
-        '🧥 保暖衣物': ['羽絨外套', '防水外套/風衣', '保暖毛衣 x3', '發熱衣 x4', '發熱褲 x2', '圍巾', '毛帽', '手套', '厚襪子 x4'],
-        '👟 鞋子配件': ['防水登山鞋', '室內拖鞋', '太陽眼鏡（雪地用）', '墨鏡夾片'],
-        '🧴 盥洗用品': ['牙刷牙膏', '洗面乳', '保濕乳液', '護唇膏', '防曬乳', '洗髮精/沐浴乳', '毛巾', '梳子'],
-        '💊 醫藥用品': ['個人藥品', '感冒藥', '腸胃藥', '止痛藥', 'OK繃', '暈車藥'],
-        '📱 電子產品': ['手機+充電線', '行動電源', '相機+記憶卡', '歐規轉接頭', '耳機'],
-        '🎒 其他': ['行李箱', '隨身背包', '頸枕', '眼罩耳塞', '雨傘', '購物袋', '零食', '保溫瓶']
+        '📄 證件': ['護照 x5', 'Swiss Travel Pass x5', '冰川列車訂位確認', '酒店預訂確認'],
+        '🧥 衣物': ['羽絨外套', '防水外套', '毛衣 x3', '發熱衣 x4', '圍巾', '毛帽', '手套'],
+        '🧴 盥洗': ['牙刷牙膏', '保濕乳液', '護唇膏', '防曬乳'],
+        '📱 電子': ['手機+充電線', '行動電源', '歐規轉接頭']
       },
       fileCategories: ['Swiss Pass', '冰川列車', '酒店確認', '機票', '其他']
     };
 
     const FILE_PASSWORD = '558894';
-
     let state = {
       rate: 36,
-      budget: JSON.parse(localStorage.getItem('swissBudget3')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
-      packing: JSON.parse(localStorage.getItem('swissPacking3')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
-      checked: JSON.parse(localStorage.getItem('swissChecked3')) || {},
-      files: JSON.parse(localStorage.getItem('swissFiles')) || [],
-      fileCategories: JSON.parse(localStorage.getItem('swissFileCats')) || [...DEFAULT_DATA.fileCategories],
+      budget: JSON.parse(localStorage.getItem('swissBudget4')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
+      packing: JSON.parse(localStorage.getItem('swissPacking4')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
+      checked: JSON.parse(localStorage.getItem('swissChecked4')) || {},
+      files: JSON.parse(localStorage.getItem('swissFiles2')) || [],
+      fileCategories: JSON.parse(localStorage.getItem('swissFileCats2')) || [...DEFAULT_DATA.fileCategories],
+      hotels: JSON.parse(localStorage.getItem('swissHotels2')) || JSON.parse(JSON.stringify(DEFAULT_DATA.hotels)),
       filesUnlocked: false,
       openDays: {}
     };
 
     function save() {
-      localStorage.setItem('swissBudget3', JSON.stringify(state.budget));
-      localStorage.setItem('swissPacking3', JSON.stringify(state.packing));
-      localStorage.setItem('swissChecked3', JSON.stringify(state.checked));
-      localStorage.setItem('swissFiles', JSON.stringify(state.files));
-      localStorage.setItem('swissFileCats', JSON.stringify(state.fileCategories));
-      localStorage.setItem('swissRate3', state.rate);
+      localStorage.setItem('swissBudget4', JSON.stringify(state.budget));
+      localStorage.setItem('swissPacking4', JSON.stringify(state.packing));
+      localStorage.setItem('swissChecked4', JSON.stringify(state.checked));
+      localStorage.setItem('swissFiles2', JSON.stringify(state.files));
+      localStorage.setItem('swissFileCats2', JSON.stringify(state.fileCategories));
+      localStorage.setItem('swissHotels2', JSON.stringify(state.hotels));
+      localStorage.setItem('swissRate4', state.rate);
     }
 
-    const savedRate = localStorage.getItem('swissRate3');
+    const savedRate = localStorage.getItem('swissRate4');
     if (savedRate) state.rate = parseFloat(savedRate);
 
     function genMapUrl(points) {
-      if (!points || points.length === 0) return '';
-      if (points.length === 1) return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(points[0])}`;
-      const o = encodeURIComponent(points[0]), d = encodeURIComponent(points[points.length - 1]);
-      const w = points.slice(1, -1).map(p => encodeURIComponent(p)).join('|');
-      return `https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${d}${w ? `&waypoints=${w}` : ''}&travelmode=transit`;
+      if (!points?.length) return '';
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(points[0])}`;
     }
 
     function openModal(title, bodyHtml) {
@@ -397,56 +351,41 @@
       document.getElementById('modal-body').innerHTML = bodyHtml;
       document.getElementById('modal').classList.remove('hidden');
     }
-
     function closeModal() { document.getElementById('modal').classList.add('hidden'); }
 
     // Itinerary
     function renderItinerary() {
-      const el = document.getElementById('itinerary-tab');
-      el.innerHTML = '<p style="font-size:0.875rem;color:#6b7280;margin-bottom:12px;">📍 點擊展開查看詳細行程</p>' +
-        DEFAULT_DATA.itinerary.map((day, i) => `
-          <div class="card ${day.hl ? 'highlight' : ''} ${day.fam ? 'family' : ''}">
-            <button class="day-header" onclick="toggleDay(${i})">
-              <div class="day-left">
-                <span class="day-icon">${day.icon}</span>
-                <div>
-                  <div class="day-date">${day.date}</div>
-                  <div class="day-title">${day.title}</div>
-                  <div class="day-loc">📍 ${day.loc}</div>
-                </div>
+      document.getElementById('itinerary-tab').innerHTML = DEFAULT_DATA.itinerary.map((day, i) => `
+        <div class="card ${day.hl ? 'highlight' : ''} ${day.fam ? 'family' : ''}">
+          <button class="day-header" onclick="toggleDay(${i})">
+            <div class="day-left">
+              <span class="day-icon">${day.icon}</span>
+              <div>
+                <div class="day-date">${day.date}</div>
+                <div class="day-title">${day.title}</div>
+                <div class="day-loc">📍 ${day.loc}</div>
               </div>
-              <div class="day-right">
-                ${day.first ? '<span class="badge badge-first">頭等艙</span>' : ''}
-                ${day.fam ? '<span class="badge badge-family">家人</span>' : ''}
-                ${day.hl ? '<span class="badge badge-highlight">重點</span>' : ''}
-                <span class="arrow" id="arrow-${i}">▼</span>
-              </div>
-            </button>
-            <div class="day-content" id="content-${i}">
-              ${day.route ? `<div class="route-section"><h4>🚂 交通路線</h4><div style="font-size:0.875rem;color:#374151;">${day.route}</div></div>` : ''}
-              ${day.booking ? `
-                <div class="booking-info">
-                  <div><strong>🎫 訂位確認</strong></div>
-                  <div>列車 ${day.booking.train} ｜車廂 ${day.booking.car} ｜座位 ${day.booking.seats}</div>
-                  <div>${day.booking.class} ｜${day.booking.meal}</div>
-                </div>
-              ` : ''}
-              <div class="hotel-box">🏨 住宿：待訂</div>
-              <div class="schedule">
-                ${day.schedule.map(s => `
-                  <div class="schedule-item">
-                    <span class="schedule-time">${s.t}</span>
-                    <div>
-                      <div class="schedule-activity">${s.a}</div>
-                      ${s.d !== '-' ? `<div class="schedule-duration">⏱ ${s.d}</div>` : ''}
-                    </div>
-                  </div>
-                `).join('')}
-              </div>
-              ${day.map?.length ? `<a class="map-btn" href="${genMapUrl(day.map)}" target="_blank">🗺️ 開啟 Google Maps 導航</a>` : ''}
             </div>
+            <div class="day-right">
+              ${day.first ? '<span class="badge badge-first">頭等艙</span>' : ''}
+              ${day.fam ? '<span class="badge badge-family">家人</span>' : ''}
+              ${day.hl ? '<span class="badge badge-highlight">重點</span>' : ''}
+              <span class="arrow" id="arrow-${i}">▼</span>
+            </div>
+          </button>
+          <div class="day-content" id="content-${i}">
+            ${day.route ? `<div class="route-section"><h4>🚂 交通</h4><div>${day.route}</div></div>` : ''}
+            ${day.booking ? `<div class="booking-info"><strong>🎫 訂位</strong><br>車廂${day.booking.car} 座位${day.booking.seats}<br>${day.booking.class} ${day.booking.meal}</div>` : ''}
+            <div class="schedule">${day.schedule.map(s => `
+              <div class="schedule-item">
+                <span class="schedule-time">${s.t}</span>
+                <div><div class="schedule-activity">${s.a}</div>${s.d !== '-' ? `<div class="schedule-duration">⏱ ${s.d}</div>` : ''}</div>
+              </div>`).join('')}
+            </div>
+            ${day.map?.length ? `<a class="map-btn" href="${genMapUrl(day.map)}" target="_blank">🗺️ Google Maps</a>` : ''}
           </div>
-        `).join('');
+        </div>
+      `).join('');
     }
 
     function toggleDay(i) {
@@ -455,65 +394,91 @@
       document.getElementById(`arrow-${i}`).textContent = state.openDays[i] ? '▲' : '▼';
     }
 
-    // Glacier
-    function renderGlacier() {
-      const g = DEFAULT_DATA.glacier;
-      const b = g.booking;
-      const el = document.getElementById('glacier-tab');
-      el.innerHTML = `
-        <div class="card" style="padding:16px;">
-          <div class="section-title">🚂 冰川列車 Glacier Express</div>
-          <p style="font-size:0.875rem;color:#4b5563;margin-bottom:8px;">${g.date}</p>
-          <p style="font-size:0.875rem;color:#4b5563;">聖莫里茲 → 采爾馬特｜8小時29分</p>
-        </div>
-        <div class="card" style="padding:16px;">
-          <div class="section-title">🎫 訂位資訊</div>
-          <div style="background:#dbeafe;padding:16px;border-radius:12px;font-size:0.875rem;">
-            <div style="margin-bottom:8px;"><strong>確認編號：</strong>${b.confirmNo}</div>
-            <div style="margin-bottom:8px;"><strong>訂位人：</strong>${b.name}</div>
-            <div style="margin-bottom:8px;"><strong>列車：</strong>${b.train}</div>
-            <div style="margin-bottom:8px;"><strong>艙等：</strong>${b.class}</div>
-            <div style="margin-bottom:8px;"><strong>車廂：</strong>${b.car}號</div>
-            <div style="margin-bottom:8px;"><strong>座位：</strong>${b.seats}</div>
-            <div style="margin-bottom:8px;"><strong>人數：</strong>${b.qty}</div>
-            <div style="margin-bottom:8px;"><strong>餐點：</strong>${b.meal}</div>
-            <div><strong>餐費：</strong>${b.mealPrice}</div>
+    // Hotels
+    function renderHotels() {
+      document.getElementById('hotel-tab').innerHTML = `
+        <p style="font-size:0.875rem;color:#6b7280;margin-bottom:16px;">🏨 添加住宿選項讓家人投票</p>
+        ${state.hotels.map((h, hi) => `
+          <div class="hotel-card">
+            <div class="hotel-card-header">
+              <div class="hotel-location">📍 ${h.location}<span class="hotel-nights">${h.nights}晚</span></div>
+              <div class="hotel-dates">${h.dates} ${h.note ? `・${h.note}` : ''}</div>
+            </div>
+            <div class="hotel-card-body">
+              ${h.options.length ? h.options.map((opt, oi) => `
+                <div class="hotel-option ${opt.selected ? 'selected' : ''}">
+                  <div class="option-number">${oi + 1}</div>
+                  <div class="option-info">
+                    <div class="option-name">${opt.name}</div>
+                    ${opt.price ? `<div class="option-price">💰 ${opt.price}</div>` : ''}
+                    ${opt.url ? `<a href="${opt.url}" target="_blank" class="option-link">🔗 查看</a>` : ''}
+                  </div>
+                  <div class="option-actions">
+                    <button class="btn-icon" onclick="toggleHotelSelect(${hi}, ${oi})">${opt.selected ? '✅' : '⭕'}</button>
+                    <button class="btn-icon edit" onclick="editHotelOption(${hi}, ${oi})">✏️</button>
+                    <button class="btn-icon delete" onclick="deleteHotelOption(${hi}, ${oi})">🗑️</button>
+                  </div>
+                </div>
+              `).join('') : '<div class="no-options">尚未添加選項</div>'}
+              <button class="add-option-btn" onclick="addHotelOption(${hi})">➕ 添加選項</button>
+            </div>
           </div>
-          <div class="info-box" style="margin-top:12px;">
-            ⚠️ 此確認不含車票，需另外出示有效車票（Swiss Travel Pass）
-          </div>
-        </div>
-        <div class="card" style="padding:16px;">
-          <div class="section-title">🏔️ 路線亮點</div>
-          ${g.route.map(r => `<div class="route-item"><div class="route-dot"></div><span>${r}</span></div>`).join('')}
-        </div>
-        <div class="tip-box">
-          <h3>💡 小提醒</h3>
-          <ul>${g.tips.map(t => `<li>${t}</li>`).join('')}</ul>
-        </div>
+        `).join('')}
       `;
     }
+
+    function addHotelOption(hi) {
+      openModal('➕ 添加住宿', `
+        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="opt-name" class="form-input" placeholder="Hotel Name"></div>
+        <div class="form-group"><label class="form-label">價格</label><input type="text" id="opt-price" class="form-input" placeholder="CHF 200/晚"></div>
+        <div class="form-group"><label class="form-label">連結</label><input type="url" id="opt-url" class="form-input" placeholder="https://..."></div>
+        <button class="form-btn primary" onclick="saveHotelOption(${hi})">確認</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+    }
+
+    function saveHotelOption(hi) {
+      const name = document.getElementById('opt-name').value.trim();
+      if (!name) return alert('請填寫名稱');
+      state.hotels[hi].options.push({ name, price: document.getElementById('opt-price').value.trim(), url: document.getElementById('opt-url').value.trim(), selected: false });
+      save(); renderHotels(); closeModal();
+    }
+
+    function editHotelOption(hi, oi) {
+      const opt = state.hotels[hi].options[oi];
+      openModal('✏️ 編輯', `
+        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="opt-name" class="form-input" value="${opt.name}"></div>
+        <div class="form-group"><label class="form-label">價格</label><input type="text" id="opt-price" class="form-input" value="${opt.price || ''}"></div>
+        <div class="form-group"><label class="form-label">連結</label><input type="url" id="opt-url" class="form-input" value="${opt.url || ''}"></div>
+        <button class="form-btn primary" onclick="updateHotelOption(${hi}, ${oi})">儲存</button>
+        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      `);
+    }
+
+    function updateHotelOption(hi, oi) {
+      const name = document.getElementById('opt-name').value.trim();
+      if (!name) return alert('請填寫名稱');
+      state.hotels[hi].options[oi] = { ...state.hotels[hi].options[oi], name, price: document.getElementById('opt-price').value.trim(), url: document.getElementById('opt-url').value.trim() };
+      save(); renderHotels(); closeModal();
+    }
+
+    function deleteHotelOption(hi, oi) { if (confirm('確定刪除？')) { state.hotels[hi].options.splice(oi, 1); save(); renderHotels(); } }
+    function toggleHotelSelect(hi, oi) { state.hotels[hi].options[oi].selected = !state.hotels[hi].options[oi].selected; save(); renderHotels(); }
 
     // Budget
     function renderBudget() {
       const total = state.budget.reduce((s, g) => s + g.items.reduce((ss, i) => ss + i.c, 0), 0);
-      const el = document.getElementById('budget-tab');
-      el.innerHTML = `
+      document.getElementById('budget-tab').innerHTML = `
         <div class="card" style="padding:16px;">
           <div class="budget-header">
-            <h2 style="font-weight:600;font-size:1.125rem;">💰 預算總覽（5人）</h2>
-            <div class="rate-badge" onclick="editRate()">
-              ⚙️ 1 CHF = ${state.rate} TWD
-            </div>
+            <h2 style="font-weight:600;">💰 預算（5人）</h2>
+            <div class="rate-badge" onclick="editRate()">⚙️ 1 CHF = ${state.rate} TWD</div>
           </div>
           ${state.budget.map((g, gi) => `
             <div class="budget-cat">${g.label}</div>
             ${g.items.map((item, ii) => `
               <div class="budget-row">
-                <div class="budget-item">
-                  <div class="budget-item-name">${item.n}</div>
-                  ${item.note ? `<div class="budget-item-note">💬 ${item.note}</div>` : ''}
-                </div>
+                <div class="budget-item"><div class="budget-item-name">${item.n}</div>${item.note ? `<div class="budget-item-note">${item.note}</div>` : ''}</div>
                 <span class="budget-chf">CHF ${item.c}</span>
                 <span class="budget-twd">≈ NT$${Math.round(item.c * state.rate).toLocaleString()}</span>
                 <div class="budget-actions">
@@ -524,387 +489,180 @@
             `).join('')}
           `).join('')}
           <div class="budget-total">
-            <span class="budget-total-label">預估總計</span>
-            <div class="budget-total-value">
-              <div class="budget-total-chf">CHF ${total.toLocaleString()}</div>
-              <div class="budget-total-twd">≈ NT$ ${Math.round(total * state.rate).toLocaleString()}</div>
-            </div>
+            <span class="budget-total-label">總計</span>
+            <div><div class="budget-total-chf">CHF ${total.toLocaleString()}</div><div class="budget-total-twd">≈ NT$ ${Math.round(total * state.rate).toLocaleString()}</div></div>
           </div>
         </div>
-        <button class="add-btn" onclick="addBudgetItem()">➕ 新增預算項目</button>
-        <div class="info-box">💡 不含餐費（約 CHF 50-80/天/人）及購物</div>
+        <button class="add-btn" onclick="addBudgetItem()">➕ 新增項目</button>
       `;
     }
 
     function editRate() {
-      openModal('⚙️ 設定匯率', `
-        <div class="form-group">
-          <label class="form-label">1 CHF = ? TWD</label>
-          <input type="number" id="rate-input" class="form-input" value="${state.rate}" step="0.1">
-        </div>
+      openModal('⚙️ 匯率', `
+        <div class="form-group"><label class="form-label">1 CHF = ? TWD</label><input type="number" id="rate-input" class="form-input" value="${state.rate}" step="0.1"></div>
         <button class="form-btn primary" onclick="saveRate()">儲存</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
       `);
     }
-
-    function saveRate() {
-      const val = parseFloat(document.getElementById('rate-input').value);
-      if (val > 0) { state.rate = val; save(); renderBudget(); closeModal(); }
-    }
+    function saveRate() { const val = parseFloat(document.getElementById('rate-input').value); if (val > 0) { state.rate = val; save(); renderBudget(); closeModal(); } }
 
     function addBudgetItem() {
-      openModal('➕ 新增預算項目', `
-        <div class="form-group">
-          <label class="form-label">類別</label>
-          <select id="budget-cat" class="form-select">
-            ${state.budget.map((g, i) => `<option value="${i}">${g.label}</option>`).join('')}
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">項目名稱</label>
-          <input type="text" id="budget-name" class="form-input" placeholder="例：紀念品">
-        </div>
-        <div class="form-group">
-          <label class="form-label">金額 (CHF)</label>
-          <input type="number" id="budget-amount" class="form-input" placeholder="50">
-          <div class="form-hint" id="budget-twd-hint"></div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">備註（選填）</label>
-          <input type="text" id="budget-note" class="form-input">
-        </div>
-        <button class="form-btn primary" onclick="saveBudgetItem()">確認新增</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+      openModal('➕ 新增', `
+        <div class="form-group"><label class="form-label">類別</label><select id="budget-cat" class="form-select">${state.budget.map((g, i) => `<option value="${i}">${g.label}</option>`).join('')}</select></div>
+        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="budget-name" class="form-input"></div>
+        <div class="form-group"><label class="form-label">金額 CHF</label><input type="number" id="budget-amount" class="form-input"></div>
+        <div class="form-group"><label class="form-label">備註</label><input type="text" id="budget-note" class="form-input"></div>
+        <button class="form-btn primary" onclick="saveBudgetItem()">確認</button>
       `);
-      document.getElementById('budget-amount').addEventListener('input', function() {
-        const val = parseFloat(this.value) || 0;
-        document.getElementById('budget-twd-hint').textContent = val ? `≈ NT$ ${Math.round(val * state.rate).toLocaleString()}` : '';
-      });
     }
 
     function saveBudgetItem() {
-      const cat = parseInt(document.getElementById('budget-cat').value);
-      const name = document.getElementById('budget-name').value.trim();
-      const amount = parseFloat(document.getElementById('budget-amount').value);
-      const note = document.getElementById('budget-note').value.trim();
-      if (!name || !amount) return alert('請填寫名稱和金額');
-      state.budget[cat].items.push({ n: name, c: amount, note });
+      const cat = parseInt(document.getElementById('budget-cat').value), name = document.getElementById('budget-name').value.trim(), amount = parseFloat(document.getElementById('budget-amount').value);
+      if (!name || !amount) return alert('請填寫');
+      state.budget[cat].items.push({ n: name, c: amount, note: document.getElementById('budget-note').value.trim() });
       save(); renderBudget(); closeModal();
     }
 
     function editBudgetItem(gi, ii) {
       const item = state.budget[gi].items[ii];
-      openModal('✏️ 編輯項目', `
-        <div class="form-group">
-          <label class="form-label">類別</label>
-          <select id="budget-cat" class="form-select">
-            ${state.budget.map((g, i) => `<option value="${i}" ${i === gi ? 'selected' : ''}>${g.label}</option>`).join('')}
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">項目名稱</label>
-          <input type="text" id="budget-name" class="form-input" value="${item.n}">
-        </div>
-        <div class="form-group">
-          <label class="form-label">金額 (CHF)</label>
-          <input type="number" id="budget-amount" class="form-input" value="${item.c}">
-          <div class="form-hint" id="budget-twd-hint">≈ NT$ ${Math.round(item.c * state.rate).toLocaleString()}</div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">備註</label>
-          <input type="text" id="budget-note" class="form-input" value="${item.note || ''}">
-        </div>
+      openModal('✏️ 編輯', `
+        <div class="form-group"><label class="form-label">類別</label><select id="budget-cat" class="form-select">${state.budget.map((g, i) => `<option value="${i}" ${i === gi ? 'selected' : ''}>${g.label}</option>`).join('')}</select></div>
+        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="budget-name" class="form-input" value="${item.n}"></div>
+        <div class="form-group"><label class="form-label">金額</label><input type="number" id="budget-amount" class="form-input" value="${item.c}"></div>
+        <div class="form-group"><label class="form-label">備註</label><input type="text" id="budget-note" class="form-input" value="${item.note || ''}"></div>
         <button class="form-btn primary" onclick="updateBudgetItem(${gi}, ${ii})">儲存</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
       `);
-      document.getElementById('budget-amount').addEventListener('input', function() {
-        const val = parseFloat(this.value) || 0;
-        document.getElementById('budget-twd-hint').textContent = val ? `≈ NT$ ${Math.round(val * state.rate).toLocaleString()}` : '';
-      });
     }
 
     function updateBudgetItem(oldGi, ii) {
-      const newGi = parseInt(document.getElementById('budget-cat').value);
-      const name = document.getElementById('budget-name').value.trim();
-      const amount = parseFloat(document.getElementById('budget-amount').value);
-      const note = document.getElementById('budget-note').value.trim();
-      if (!name || !amount) return alert('請填寫名稱和金額');
+      const newGi = parseInt(document.getElementById('budget-cat').value), name = document.getElementById('budget-name').value.trim(), amount = parseFloat(document.getElementById('budget-amount').value);
+      if (!name || !amount) return alert('請填寫');
       state.budget[oldGi].items.splice(ii, 1);
-      state.budget[newGi].items.push({ n: name, c: amount, note });
+      state.budget[newGi].items.push({ n: name, c: amount, note: document.getElementById('budget-note').value.trim() });
       save(); renderBudget(); closeModal();
     }
 
-    function deleteBudgetItem(gi, ii) {
-      if (confirm('確定刪除？')) { state.budget[gi].items.splice(ii, 1); save(); renderBudget(); }
-    }
+    function deleteBudgetItem(gi, ii) { if (confirm('刪除？')) { state.budget[gi].items.splice(ii, 1); save(); renderBudget(); } }
 
     // Packing
     function renderPacking() {
-      const all = Object.values(state.packing).flat();
-      const done = all.filter(i => state.checked[i]).length;
-      const el = document.getElementById('packing-tab');
-      el.innerHTML = `
+      const all = Object.values(state.packing).flat(), done = all.filter(i => state.checked[i]).length;
+      document.getElementById('packing-tab').innerHTML = `
         <div class="packing-header">
-          <div class="packing-title">
-            <h2 style="font-weight:600;font-size:1.125rem;">🧳 打包清單</h2>
-            <div style="text-align:right;">
-              <span class="packing-count ${done === all.length ? 'done' : 'pending'}">${done}/${all.length}</span>
-              <div class="packing-subtitle">${done === all.length ? '✅ 完成！' : '繼續加油'}</div>
-            </div>
-          </div>
+          <div class="packing-title"><h2 style="font-weight:600;">🧳 打包清單</h2><div><span class="packing-count ${done === all.length ? 'done' : 'pending'}">${done}/${all.length}</span></div></div>
           <div class="progress-bar"><div class="progress-fill" style="width:${all.length ? (done/all.length)*100 : 0}%"></div></div>
         </div>
         <div class="packing-btns">
-          <button class="add-btn" onclick="addPackingItem()">➕ 新增物品</button>
-          <button class="add-btn purple" onclick="addPackingCategory()">📁 新增分類</button>
+          <button class="add-btn" onclick="addPackingItem()">➕ 新增</button>
+          <button class="add-btn purple" onclick="addPackingCategory()">📁 分類</button>
         </div>
         ${Object.entries(state.packing).map(([cat, items]) => {
           const catDone = items.filter(i => state.checked[i]).length;
-          return `
-            <div class="card" style="padding:16px;">
-              <div class="cat-header">
-                <span class="cat-title">${cat}</span>
-                <div class="cat-actions">
-                  <span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span>
-                  <button class="btn-icon delete" onclick="deletePackingCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button>
-                </div>
-              </div>
-              ${items.length ? items.map((item, idx) => `
-                <div class="check-item ${state.checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\'")}')">
-                  <div class="checkbox">${state.checked[item] ? '✓' : ''}</div>
-                  <span class="check-label">${item}</span>
-                  <div class="check-actions" onclick="event.stopPropagation()">
-                    <button class="btn-icon edit" onclick="editPackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">✏️</button>
-                    <button class="btn-icon delete" onclick="deletePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">🗑️</button>
-                  </div>
-                </div>
-              `).join('') : '<p style="font-size:0.875rem;color:#9ca3af;text-align:center;padding:12px;">尚無物品</p>'}
-            </div>
-          `;
+          return `<div class="card" style="padding:16px;">
+            <div class="cat-header"><span class="cat-title">${cat}</span><div class="cat-actions"><span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span><button class="btn-icon delete" onclick="deletePackingCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button></div></div>
+            ${items.map((item, idx) => `<div class="check-item ${state.checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\'")}')"><div class="checkbox">${state.checked[item] ? '✓' : ''}</div><span class="check-label">${item}</span><div class="check-actions" onclick="event.stopPropagation()"><button class="btn-icon edit" onclick="editPackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">✏️</button><button class="btn-icon delete" onclick="deletePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">🗑️</button></div></div>`).join('')}
+          </div>`;
         }).join('')}
-        <button class="reset-btn" onclick="resetChecked()">🔄 重置全部勾選</button>
+        <button class="reset-btn" onclick="resetChecked()">🔄 重置</button>
       `;
     }
 
     function toggleCheck(item) { state.checked[item] = !state.checked[item]; save(); renderPacking(); }
-    function resetChecked() { if (confirm('確定重置？')) { state.checked = {}; save(); renderPacking(); } }
+    function resetChecked() { if (confirm('重置？')) { state.checked = {}; save(); renderPacking(); } }
 
     function addPackingItem() {
-      openModal('➕ 新增物品', `
-        <div class="form-group">
-          <label class="form-label">分類</label>
-          <select id="packing-cat" class="form-select">
-            ${Object.keys(state.packing).map(c => `<option value="${c}">${c}</option>`).join('')}
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">物品名稱</label>
-          <input type="text" id="packing-name" class="form-input">
-        </div>
+      openModal('➕ 新增', `
+        <div class="form-group"><label class="form-label">分類</label><select id="packing-cat" class="form-select">${Object.keys(state.packing).map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
+        <div class="form-group"><label class="form-label">物品</label><input type="text" id="packing-name" class="form-input"></div>
         <button class="form-btn primary" onclick="savePackingItem()">確認</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
       `);
     }
 
     function savePackingItem() {
-      const cat = document.getElementById('packing-cat').value;
-      const name = document.getElementById('packing-name').value.trim();
-      if (!name) return alert('請填寫物品名稱');
+      const cat = document.getElementById('packing-cat').value, name = document.getElementById('packing-name').value.trim();
+      if (!name) return alert('請填寫');
       state.packing[cat].push(name); save(); renderPacking(); closeModal();
     }
 
     function editPackingItem(cat, idx) {
-      const item = state.packing[cat][idx];
-      openModal('✏️ 編輯物品', `
-        <div class="form-group">
-          <label class="form-label">物品名稱</label>
-          <input type="text" id="packing-name" class="form-input" value="${item}">
-        </div>
+      openModal('✏️ 編輯', `
+        <div class="form-group"><label class="form-label">物品</label><input type="text" id="packing-name" class="form-input" value="${state.packing[cat][idx]}"></div>
         <button class="form-btn primary" onclick="updatePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">儲存</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
       `);
     }
 
     function updatePackingItem(cat, idx) {
-      const oldName = state.packing[cat][idx];
-      const newName = document.getElementById('packing-name').value.trim();
-      if (!newName) return alert('請填寫物品名稱');
+      const oldName = state.packing[cat][idx], newName = document.getElementById('packing-name').value.trim();
+      if (!newName) return alert('請填寫');
       state.packing[cat][idx] = newName;
       if (state.checked[oldName]) { delete state.checked[oldName]; state.checked[newName] = true; }
       save(); renderPacking(); closeModal();
     }
 
-    function deletePackingItem(cat, idx) {
-      if (confirm('確定刪除？')) {
-        delete state.checked[state.packing[cat][idx]];
-        state.packing[cat].splice(idx, 1); save(); renderPacking();
-      }
-    }
+    function deletePackingItem(cat, idx) { if (confirm('刪除？')) { delete state.checked[state.packing[cat][idx]]; state.packing[cat].splice(idx, 1); save(); renderPacking(); } }
 
     function addPackingCategory() {
       openModal('📁 新增分類', `
-        <div class="form-group">
-          <label class="form-label">分類名稱</label>
-          <input type="text" id="cat-name" class="form-input" placeholder="🎁 伴手禮">
-        </div>
+        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="cat-name" class="form-input" placeholder="🎁 伴手禮"></div>
         <button class="form-btn primary" onclick="savePackingCategory()">確認</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
       `);
     }
 
     function savePackingCategory() {
       let name = document.getElementById('cat-name').value.trim();
-      if (!name) return alert('請填寫分類名稱');
-      if (!name.match(/^[\u{1F300}-\u{1F9FF}]/u)) name = '🎒 ' + name;
-      if (state.packing[name]) return alert('此分類已存在');
+      if (!name) return alert('請填寫');
+      if (state.packing[name]) return alert('已存在');
       state.packing[name] = []; save(); renderPacking(); closeModal();
     }
 
-    function deletePackingCategory(cat) {
-      if (confirm(`確定刪除「${cat}」？`)) {
-        state.packing[cat].forEach(item => delete state.checked[item]);
-        delete state.packing[cat]; save(); renderPacking();
-      }
-    }
+    function deletePackingCategory(cat) { if (confirm(`刪除「${cat}」？`)) { state.packing[cat].forEach(item => delete state.checked[item]); delete state.packing[cat]; save(); renderPacking(); } }
 
     // Files
     function renderFiles() {
       const el = document.getElementById('files-tab');
       if (!state.filesUnlocked) {
-        el.innerHTML = `
-          <div class="lock-screen">
-            <div class="lock-icon">🔒</div>
-            <div class="lock-title">文件已加密</div>
-            <div class="lock-desc">請輸入密碼查看文件</div>
-            <input type="password" id="file-password" class="password-input" maxlength="6" placeholder="••••••">
-            <br>
-            <button class="unlock-btn" onclick="unlockFiles()">🔓 解鎖</button>
-            <div id="password-error" class="error-msg hidden"></div>
-          </div>
-        `;
-        setTimeout(() => {
-          const input = document.getElementById('file-password');
-          if (input) {
-            input.addEventListener('keypress', e => { if (e.key === 'Enter') unlockFiles(); });
-          }
-        }, 100);
+        el.innerHTML = `<div class="lock-screen"><div class="lock-icon">🔒</div><div class="lock-title">文件已加密</div><div class="lock-desc">請輸入密碼</div><input type="password" id="file-password" class="password-input" maxlength="6"><br><button class="unlock-btn" onclick="unlockFiles()">🔓 解鎖</button><div id="password-error" class="error-msg hidden"></div></div>`;
+        setTimeout(() => { const input = document.getElementById('file-password'); if (input) input.addEventListener('keypress', e => { if (e.key === 'Enter') unlockFiles(); }); }, 100);
         return;
       }
 
-      const grouped = {};
-      state.fileCategories.forEach(cat => grouped[cat] = []);
-      state.files.forEach(f => {
-        if (!grouped[f.category]) grouped[f.category] = [];
-        grouped[f.category].push(f);
-      });
+      const grouped = {}; state.fileCategories.forEach(cat => grouped[cat] = []);
+      state.files.forEach(f => { if (!grouped[f.category]) grouped[f.category] = []; grouped[f.category].push(f); });
 
       el.innerHTML = `
-        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
-          <div class="upload-icon">📤</div>
-          <div class="upload-text">點擊或拖曳檔案上傳</div>
-          <div class="upload-hint">支援 PDF, JPG, PNG（單檔最大 5MB）</div>
+        <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📤</div><div class="upload-text">點擊上傳</div><div class="upload-hint">PDF, JPG, PNG (max 5MB)</div>
           <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" multiple style="display:none" onchange="handleFileUpload(event)">
         </div>
         <div class="packing-btns">
-          <button class="add-btn purple" onclick="addFileCategory()">📁 新增分類</button>
+          <button class="add-btn purple" onclick="addFileCategory()">📁 分類</button>
           <button class="add-btn" style="background:#ef4444;" onclick="lockFiles()">🔒 鎖定</button>
         </div>
         ${state.fileCategories.map(cat => `
           <div class="file-category">
-            <div class="file-cat-header">
-              <span class="file-cat-name">📁 ${cat}</span>
-              <div class="cat-actions">
-                <span class="file-cat-count">${grouped[cat]?.length || 0} 個檔案</span>
-                <button class="btn-icon delete" onclick="deleteFileCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button>
-              </div>
-            </div>
-            ${grouped[cat]?.length ? grouped[cat].map((f, idx) => `
-              <div class="file-item">
-                <span class="file-icon">${f.type === 'application/pdf' ? '📄' : '🖼️'}</span>
-                <div class="file-info">
-                  <div class="file-name">${f.name}</div>
-                  <div class="file-meta">${formatFileSize(f.size)} ｜ ${f.uploadDate}</div>
-                </div>
-                <div class="file-actions">
-                  <button class="btn-icon" onclick="viewFile(${state.files.indexOf(f)})" title="檢視">👁️</button>
-                  <button class="btn-icon edit" onclick="editFile(${state.files.indexOf(f)})" title="編輯">✏️</button>
-                  <button class="btn-icon delete" onclick="deleteFile(${state.files.indexOf(f)})" title="刪除">🗑️</button>
-                </div>
-              </div>
-            `).join('') : '<p style="font-size:0.875rem;color:#9ca3af;text-align:center;padding:12px;">尚無檔案</p>'}
+            <div class="file-cat-header"><span class="file-cat-name">📁 ${cat}</span><div class="cat-actions"><span class="file-cat-count">${grouped[cat]?.length || 0}</span><button class="btn-icon delete" onclick="deleteFileCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button></div></div>
+            ${grouped[cat]?.length ? grouped[cat].map((f, idx) => `<div class="file-item"><span class="file-icon">${f.type === 'application/pdf' ? '📄' : '🖼️'}</span><div class="file-info"><div class="file-name">${f.name}</div><div class="file-meta">${f.uploadDate}</div></div><div class="file-actions"><button class="btn-icon" onclick="viewFile(${state.files.indexOf(f)})">👁️</button><button class="btn-icon edit" onclick="editFile(${state.files.indexOf(f)})">✏️</button><button class="btn-icon delete" onclick="deleteFile(${state.files.indexOf(f)})">🗑️</button></div></div>`).join('') : '<div class="no-options">無檔案</div>'}
           </div>
         `).join('')}
-        <div class="info-box">💡 檔案儲存在瀏覽器中，清除瀏覽資料會遺失檔案</div>
       `;
-
-      // Drag and drop
-      setTimeout(() => {
-        const zone = document.getElementById('upload-zone');
-        if (zone) {
-          zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
-          zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-          zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('dragover'); handleFileDrop(e); });
-        }
-      }, 100);
     }
 
     function unlockFiles() {
-      const input = document.getElementById('file-password');
-      const error = document.getElementById('password-error');
-      if (input.value === FILE_PASSWORD) {
-        state.filesUnlocked = true;
-        renderFiles();
-      } else {
-        error.textContent = '密碼錯誤，請重試';
-        error.classList.remove('hidden');
-        input.value = '';
-        input.focus();
-      }
+      const input = document.getElementById('file-password'), error = document.getElementById('password-error');
+      if (input.value === FILE_PASSWORD) { state.filesUnlocked = true; renderFiles(); }
+      else { error.textContent = '密碼錯誤'; error.classList.remove('hidden'); input.value = ''; }
     }
 
-    function lockFiles() {
-      state.filesUnlocked = false;
-      renderFiles();
-    }
-
-    function formatFileSize(bytes) {
-      if (bytes < 1024) return bytes + ' B';
-      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-    }
+    function lockFiles() { state.filesUnlocked = false; renderFiles(); }
 
     function handleFileUpload(event) {
-      const files = event.target.files;
-      processFiles(files);
-    }
-
-    function handleFileDrop(event) {
-      const files = event.dataTransfer.files;
-      processFiles(files);
-    }
-
-    function processFiles(files) {
-      Array.from(files).forEach(file => {
-        if (file.size > 5 * 1024 * 1024) {
-          alert(`${file.name} 超過 5MB 限制`);
-          return;
-        }
+      Array.from(event.target.files).forEach(file => {
+        if (file.size > 5 * 1024 * 1024) { alert('超過5MB'); return; }
         const reader = new FileReader();
         reader.onload = e => {
-          openModal('📤 上傳檔案', `
-            <div class="form-group">
-              <label class="form-label">檔案名稱</label>
-              <input type="text" id="file-name" class="form-input" value="${file.name}">
-            </div>
-            <div class="form-group">
-              <label class="form-label">分類</label>
-              <select id="file-category" class="form-select">
-                ${state.fileCategories.map(c => `<option value="${c}">${c}</option>`).join('')}
-              </select>
-            </div>
-            <div class="form-hint">檔案大小：${formatFileSize(file.size)}</div>
-            <button class="form-btn primary" onclick="saveFile('${e.target.result.replace(/'/g, "\\'")}', '${file.type}', ${file.size})">確認上傳</button>
-            <button class="form-btn secondary" onclick="closeModal()">取消</button>
+          openModal('📤 上傳', `
+            <div class="form-group"><label class="form-label">名稱</label><input type="text" id="file-name" class="form-input" value="${file.name}"></div>
+            <div class="form-group"><label class="form-label">分類</label><select id="file-category" class="form-select">${state.fileCategories.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
+            <button class="form-btn primary" onclick="saveFile('${e.target.result.replace(/'/g, "\\'")}', '${file.type}', ${file.size})">上傳</button>
           `);
         };
         reader.readAsDataURL(file);
@@ -913,108 +671,58 @@
 
     function saveFile(data, type, size) {
       const name = document.getElementById('file-name').value.trim();
-      const category = document.getElementById('file-category').value;
-      if (!name) return alert('請填寫檔案名稱');
-      state.files.push({
-        name, category, type, size, data,
-        uploadDate: new Date().toLocaleDateString('zh-TW')
-      });
+      if (!name) return alert('請填寫');
+      state.files.push({ name, category: document.getElementById('file-category').value, type, size, data, uploadDate: new Date().toLocaleDateString('zh-TW') });
       save(); renderFiles(); closeModal();
     }
 
     function viewFile(idx) {
-      const f = state.files[idx];
-      if (f.type === 'application/pdf') {
-        const win = window.open();
-        win.document.write(`<iframe src="${f.data}" style="width:100%;height:100%;border:none;"></iframe>`);
-      } else {
-        const win = window.open();
-        win.document.write(`<img src="${f.data}" style="max-width:100%;height:auto;">`);
-      }
+      const f = state.files[idx], win = window.open();
+      win.document.write(f.type === 'application/pdf' ? `<iframe src="${f.data}" style="width:100%;height:100%;border:none;"></iframe>` : `<img src="${f.data}" style="max-width:100%;">`);
     }
 
     function editFile(idx) {
       const f = state.files[idx];
-      openModal('✏️ 編輯檔案', `
-        <div class="form-group">
-          <label class="form-label">檔案名稱</label>
-          <input type="text" id="file-name" class="form-input" value="${f.name}">
-        </div>
-        <div class="form-group">
-          <label class="form-label">分類</label>
-          <select id="file-category" class="form-select">
-            ${state.fileCategories.map(c => `<option value="${c}" ${c === f.category ? 'selected' : ''}>${c}</option>`).join('')}
-          </select>
-        </div>
+      openModal('✏️ 編輯', `
+        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="file-name" class="form-input" value="${f.name}"></div>
+        <div class="form-group"><label class="form-label">分類</label><select id="file-category" class="form-select">${state.fileCategories.map(c => `<option value="${c}" ${c === f.category ? 'selected' : ''}>${c}</option>`).join('')}</select></div>
         <button class="form-btn primary" onclick="updateFile(${idx})">儲存</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
       `);
     }
 
-    function updateFile(idx) {
-      state.files[idx].name = document.getElementById('file-name').value.trim();
-      state.files[idx].category = document.getElementById('file-category').value;
-      save(); renderFiles(); closeModal();
-    }
-
-    function deleteFile(idx) {
-      if (confirm('確定刪除此檔案？')) {
-        state.files.splice(idx, 1); save(); renderFiles();
-      }
-    }
+    function updateFile(idx) { state.files[idx].name = document.getElementById('file-name').value.trim(); state.files[idx].category = document.getElementById('file-category').value; save(); renderFiles(); closeModal(); }
+    function deleteFile(idx) { if (confirm('刪除？')) { state.files.splice(idx, 1); save(); renderFiles(); } }
 
     function addFileCategory() {
-      openModal('📁 新增分類', `
-        <div class="form-group">
-          <label class="form-label">分類名稱</label>
-          <input type="text" id="cat-name" class="form-input" placeholder="例：保險文件">
-        </div>
-        <button class="form-btn primary" onclick="saveFileCategory()">確認</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
-      `);
+      openModal('📁 新增', `<div class="form-group"><label class="form-label">名稱</label><input type="text" id="cat-name" class="form-input"></div><button class="form-btn primary" onclick="saveFileCategory()">確認</button>`);
     }
 
     function saveFileCategory() {
       const name = document.getElementById('cat-name').value.trim();
-      if (!name) return alert('請填寫分類名稱');
-      if (state.fileCategories.includes(name)) return alert('此分類已存在');
+      if (!name || state.fileCategories.includes(name)) return alert('無效');
       state.fileCategories.push(name); save(); renderFiles(); closeModal();
     }
 
     function deleteFileCategory(cat) {
-      const hasFiles = state.files.some(f => f.category === cat);
-      if (hasFiles) {
-        if (!confirm(`「${cat}」分類內有檔案，刪除分類會將檔案移至「其他」？`)) return;
-        state.files.forEach(f => { if (f.category === cat) f.category = '其他'; });
-      }
+      if (state.files.some(f => f.category === cat) && !confirm('有檔案會移至其他？')) return;
+      state.files.forEach(f => { if (f.category === cat) f.category = '其他'; });
       state.fileCategories = state.fileCategories.filter(c => c !== cat);
       save(); renderFiles();
     }
 
-    // Tab switching
+    // Tabs
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-      ['itinerary', 'glacier', 'budget', 'packing', 'files'].forEach(id => {
-        document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId);
-      });
+      ['itinerary', 'hotel', 'budget', 'packing', 'files'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
       if (tabId === 'files') renderFiles();
+      if (tabId === 'hotel') renderHotels();
     }
 
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => switchTab(tab.dataset.tab));
-    });
+    document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => switchTab(tab.dataset.tab)));
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-    document.getElementById('modal').addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
-    });
-
-    // Init
-    renderItinerary();
-    renderGlacier();
-    renderBudget();
-    renderPacking();
-    renderFiles();
+    renderItinerary(); renderHotels(); renderBudget(); renderPacking(); renderFiles();
   </script>
 </body>
 </html>
