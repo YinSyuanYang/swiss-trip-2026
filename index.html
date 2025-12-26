@@ -299,12 +299,12 @@
         ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港' }
       ],
       hotels: [
-        { id: 1, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', dates: '2/7 - 2/11', nights: 4, note: 'Eva 2/7先到', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 2, location: '聖莫里茲', locationEn: 'St. Moritz Dorf / Station', dates: '2/11', nights: 1, note: '冰川列車前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 3, location: '采爾馬特', locationEn: 'Zermatt Station / Bahnhofstrasse', dates: '2/12 - 2/14', nights: 3, note: '含情人節❤️', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 4, location: '因特拉肯', locationEn: 'Interlaken Ost (東站)', dates: '2/15 - 2/16', nights: 2, note: '少女峰出發站', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 5, location: '日內瓦', locationEn: 'Geneva Cornavin', dates: '2/17 - 2/18', nights: 2, note: '家人獨自', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 6, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', dates: '2/19', nights: 1, note: '回程前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] }
+        { id: 1, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/7 (六)', checkOut: '2/11 (三)', nights: 4, note: 'Eva 2/7先到', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 2, location: '聖莫里茲', locationEn: 'St. Moritz Dorf / Station', checkIn: '2/11 (三)', checkOut: '2/12 (四)', nights: 1, note: '冰川列車前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 3, location: '采爾馬特', locationEn: 'Zermatt Station / Bahnhofstrasse', checkIn: '2/12 (四)', checkOut: '2/15 (日)', nights: 3, note: '含情人節❤️', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 4, location: '因特拉肯', locationEn: 'Interlaken Ost (東站)', checkIn: '2/15 (日)', checkOut: '2/17 (二)', nights: 2, note: '少女峰出發站', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 5, location: '日內瓦', locationEn: 'Geneva Cornavin', checkIn: '2/17 (二)', checkOut: '2/19 (四)', nights: 2, note: '家人獨自', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 6, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/19 (四)', checkOut: '2/20 (五)', nights: 1, note: '回程前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] }
       ],
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
@@ -337,6 +337,33 @@
     };
 
     const FILE_PASSWORD = '558894';
+    // 日期對照表
+    const dateMap = {
+      1: { checkIn: '2/7 (六)', checkOut: '2/11 (三)' },
+      2: { checkIn: '2/11 (三)', checkOut: '2/12 (四)' },
+      3: { checkIn: '2/12 (四)', checkOut: '2/15 (日)' },
+      4: { checkIn: '2/15 (日)', checkOut: '2/17 (二)' },
+      5: { checkIn: '2/17 (二)', checkOut: '2/19 (四)' },
+      6: { checkIn: '2/19 (四)', checkOut: '2/20 (五)' }
+    };
+
+    // 遷移舊資料
+    function migrateHotels(savedHotels) {
+      if (!savedHotels) return JSON.parse(JSON.stringify(DEFAULT_DATA.hotels));
+      return savedHotels.map((h, i) => {
+        const defaultH = DEFAULT_DATA.hotels[i] || {};
+        const dates = dateMap[h.id] || dateMap[i + 1] || {};
+        return {
+          ...defaultH,
+          ...h,
+          checkIn: h.checkIn || dates.checkIn || '',
+          checkOut: h.checkOut || dates.checkOut || '',
+          airbnbs: h.airbnbs || [],
+          hotels: h.hotels || []
+        };
+      });
+    }
+
     let state = {
       rate: 36,
       budget: JSON.parse(localStorage.getItem('swissBudget5')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
@@ -344,7 +371,7 @@
       checked: JSON.parse(localStorage.getItem('swissChecked5')) || {},
       files: JSON.parse(localStorage.getItem('swissFiles3')) || [],
       fileCategories: JSON.parse(localStorage.getItem('swissFileCats3')) || [...DEFAULT_DATA.fileCategories],
-      hotels: JSON.parse(localStorage.getItem('swissHotels3')) || JSON.parse(JSON.stringify(DEFAULT_DATA.hotels)),
+      hotels: migrateHotels(JSON.parse(localStorage.getItem('swissHotels3'))),
       filesUnlocked: false,
       openDays: {}
     };
@@ -436,7 +463,8 @@
             <div class="hotel-card-header">
               <div class="hotel-location">📍 ${h.location}<span class="hotel-nights">${h.nights}晚</span></div>
               <div class="hotel-location-en">${h.locationEn}</div>
-              <div class="hotel-dates">${h.dates} ${h.note ? `・${h.note}` : ''}</div>
+              <div class="hotel-dates">📅 入住 ${h.checkIn} → 退房 ${h.checkOut}</div>
+              <div class="hotel-dates" style="opacity:0.8;">${h.note ? `💬 ${h.note}` : ''}</div>
             </div>
             <div class="hotel-card-body">
               <!-- Airbnb Section -->
