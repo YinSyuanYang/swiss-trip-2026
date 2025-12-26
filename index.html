@@ -54,6 +54,10 @@
     .add-btn:hover { background: #2563eb; }
     .add-btn.purple { background: #8b5cf6; }
     .add-btn.purple:hover { background: #7c3aed; }
+    .add-btn.pink { background: #ec4899; }
+    .add-btn.pink:hover { background: #db2777; }
+    .add-btn.amber { background: #f59e0b; }
+    .add-btn.amber:hover { background: #d97706; }
     .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
     .modal.hidden { display: none; }
     .modal-content { background: #fff; border-radius: 16px; padding: 20px; width: 100%; max-width: 400px; max-height: 90vh; overflow-y: auto; }
@@ -151,26 +155,43 @@
     .upload-icon { font-size: 2.5rem; margin-bottom: 8px; }
     .upload-text { color: #6b7280; font-size: 0.875rem; }
     .upload-hint { color: #9ca3af; font-size: 0.75rem; margin-top: 4px; }
+    /* Hotel tab */
     .hotel-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
     .hotel-card-header { padding: 16px; background: linear-gradient(to right, #7c3aed, #6d28d9); color: #fff; }
-    .hotel-location { font-size: 1.125rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .hotel-location { font-size: 1rem; font-weight: 600; }
+    .hotel-location-en { font-size: 0.75rem; opacity: 0.9; }
     .hotel-dates { font-size: 0.875rem; opacity: 0.9; margin-top: 4px; }
     .hotel-nights { display: inline-block; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px; }
     .hotel-card-body { padding: 16px; }
-    .hotel-options { margin-top: 8px; }
-    .hotel-option { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
+    .hotel-section { margin-bottom: 16px; }
+    .hotel-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #e5e7eb; }
+    .hotel-section-title { font-weight: 600; font-size: 0.875rem; display: flex; align-items: center; gap: 6px; }
+    .hotel-section-title.airbnb { color: #ec4899; }
+    .hotel-section-title.hotel { color: #f59e0b; }
+    .airbnb-list-link { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 8px; margin-bottom: 8px; }
+    .airbnb-list-link a { color: #ec4899; font-size: 0.8rem; flex: 1; word-break: break-all; }
+    .hotel-option { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
     .hotel-option:hover { border-color: #7c3aed; background: #faf5ff; }
     .hotel-option.selected { border-color: #7c3aed; background: #f3e8ff; }
-    .option-number { width: 28px; height: 28px; background: #7c3aed; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.875rem; flex-shrink: 0; }
+    .hotel-option.airbnb { border-left: 3px solid #ec4899; }
+    .hotel-option.hotel-type { border-left: 3px solid #f59e0b; }
+    .option-number { width: 24px; height: 24px; background: #7c3aed; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.75rem; flex-shrink: 0; }
+    .option-number.airbnb { background: #ec4899; }
+    .option-number.hotel-type { background: #f59e0b; }
     .option-info { flex: 1; min-width: 0; }
     .option-name { font-weight: 500; font-size: 0.875rem; word-break: break-word; }
-    .option-price { font-size: 0.75rem; color: #6b7280; margin-top: 2px; }
-    .option-link { color: #7c3aed; text-decoration: none; font-size: 0.75rem; }
+    .option-price { font-size: 0.75rem; color: #6b7280; margin-top: 4px; }
+    .option-price-detail { font-size: 0.7rem; color: #9ca3af; }
+    .option-link { color: #7c3aed; text-decoration: none; font-size: 0.75rem; display: inline-block; margin-top: 4px; }
     .option-link:hover { text-decoration: underline; }
-    .option-actions { display: flex; gap: 4px; }
-    .no-options { text-align: center; padding: 20px; color: #9ca3af; font-size: 0.875rem; }
-    .add-option-btn { width: 100%; padding: 10px; background: #f3e8ff; color: #7c3aed; border: 1px dashed #7c3aed; border-radius: 8px; font-size: 0.875rem; cursor: pointer; }
+    .option-actions { display: flex; flex-direction: column; gap: 4px; }
+    .no-options { text-align: center; padding: 16px; color: #9ca3af; font-size: 0.875rem; }
+    .add-option-btn { width: 100%; padding: 8px; background: #f3e8ff; color: #7c3aed; border: 1px dashed #7c3aed; border-radius: 8px; font-size: 0.8rem; cursor: pointer; margin-top: 8px; }
     .add-option-btn:hover { background: #ede9fe; }
+    .add-option-btn.airbnb { background: #fdf2f8; color: #ec4899; border-color: #ec4899; }
+    .add-option-btn.airbnb:hover { background: #fce7f3; }
+    .add-option-btn.hotel-type { background: #fffbeb; color: #f59e0b; border-color: #f59e0b; }
+    .add-option-btn.hotel-type:hover { background: #fef3c7; }
     @media (max-width: 400px) {
       .budget-twd { display: none; }
       .budget-actions, .check-actions, .file-actions, .option-actions { opacity: 1; }
@@ -278,12 +299,12 @@
         ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港' }
       ],
       hotels: [
-        { id: 1, location: '蘇黎世 Zürich', dates: '2/7 - 2/11', nights: 4, note: 'Eva 2/7先到', options: [] },
-        { id: 2, location: '聖莫里茲 St. Moritz', dates: '2/11', nights: 1, note: '冰川列車前一晚', options: [] },
-        { id: 3, location: '采爾馬特 Zermatt', dates: '2/12 - 2/14', nights: 3, note: '含情人節❤️', options: [] },
-        { id: 4, location: '因特拉肯 Interlaken', dates: '2/15 - 2/16', nights: 2, note: '少女峰', options: [] },
-        { id: 5, location: '日內瓦 Geneva', dates: '2/17 - 2/18', nights: 2, note: '家人獨自', options: [] },
-        { id: 6, location: '蘇黎世 Zürich', dates: '2/19', nights: 1, note: '回程前一晚', options: [] }
+        { id: 1, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', dates: '2/7 - 2/11', nights: 4, note: 'Eva 2/7先到', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 2, location: '聖莫里茲', locationEn: 'St. Moritz Dorf / Station', dates: '2/11', nights: 1, note: '冰川列車前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 3, location: '采爾馬特', locationEn: 'Zermatt Station / Bahnhofstrasse', dates: '2/12 - 2/14', nights: 3, note: '含情人節❤️', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 4, location: '因特拉肯', locationEn: 'Interlaken Ost (東站)', dates: '2/15 - 2/16', nights: 2, note: '少女峰出發站', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 5, location: '日內瓦', locationEn: 'Geneva Cornavin', dates: '2/17 - 2/18', nights: 2, note: '家人獨自', airbnbListUrl: '', airbnbs: [], hotels: [] },
+        { id: 6, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', dates: '2/19', nights: 1, note: '回程前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] }
       ],
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
@@ -318,32 +339,42 @@
     const FILE_PASSWORD = '558894';
     let state = {
       rate: 36,
-      budget: JSON.parse(localStorage.getItem('swissBudget4')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
-      packing: JSON.parse(localStorage.getItem('swissPacking4')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
-      checked: JSON.parse(localStorage.getItem('swissChecked4')) || {},
-      files: JSON.parse(localStorage.getItem('swissFiles2')) || [],
-      fileCategories: JSON.parse(localStorage.getItem('swissFileCats2')) || [...DEFAULT_DATA.fileCategories],
-      hotels: JSON.parse(localStorage.getItem('swissHotels2')) || JSON.parse(JSON.stringify(DEFAULT_DATA.hotels)),
+      budget: JSON.parse(localStorage.getItem('swissBudget5')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
+      packing: JSON.parse(localStorage.getItem('swissPacking5')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
+      checked: JSON.parse(localStorage.getItem('swissChecked5')) || {},
+      files: JSON.parse(localStorage.getItem('swissFiles3')) || [],
+      fileCategories: JSON.parse(localStorage.getItem('swissFileCats3')) || [...DEFAULT_DATA.fileCategories],
+      hotels: JSON.parse(localStorage.getItem('swissHotels3')) || JSON.parse(JSON.stringify(DEFAULT_DATA.hotels)),
       filesUnlocked: false,
       openDays: {}
     };
 
     function save() {
-      localStorage.setItem('swissBudget4', JSON.stringify(state.budget));
-      localStorage.setItem('swissPacking4', JSON.stringify(state.packing));
-      localStorage.setItem('swissChecked4', JSON.stringify(state.checked));
-      localStorage.setItem('swissFiles2', JSON.stringify(state.files));
-      localStorage.setItem('swissFileCats2', JSON.stringify(state.fileCategories));
-      localStorage.setItem('swissHotels2', JSON.stringify(state.hotels));
-      localStorage.setItem('swissRate4', state.rate);
+      localStorage.setItem('swissBudget5', JSON.stringify(state.budget));
+      localStorage.setItem('swissPacking5', JSON.stringify(state.packing));
+      localStorage.setItem('swissChecked5', JSON.stringify(state.checked));
+      localStorage.setItem('swissFiles3', JSON.stringify(state.files));
+      localStorage.setItem('swissFileCats3', JSON.stringify(state.fileCategories));
+      localStorage.setItem('swissHotels3', JSON.stringify(state.hotels));
+      localStorage.setItem('swissRate5', state.rate);
     }
 
-    const savedRate = localStorage.getItem('swissRate4');
+    const savedRate = localStorage.getItem('swissRate5');
     if (savedRate) state.rate = parseFloat(savedRate);
 
     function genMapUrl(points) {
       if (!points?.length) return '';
       return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(points[0])}`;
+    }
+
+    function formatPrice(chf, nights) {
+      const total = chf * nights;
+      const twdPerNight = Math.round(chf * state.rate);
+      const twdTotal = Math.round(total * state.rate);
+      return {
+        perNight: `CHF ${chf}/晚 (NT$${twdPerNight.toLocaleString()})`,
+        total: `總計 CHF ${total} (NT$${twdTotal.toLocaleString()})`
+      };
     }
 
     function openModal(title, bodyHtml) {
@@ -397,73 +428,199 @@
     // Hotels
     function renderHotels() {
       document.getElementById('hotel-tab').innerHTML = `
-        <p style="font-size:0.875rem;color:#6b7280;margin-bottom:16px;">🏨 添加住宿選項讓家人投票</p>
+        <div class="info-box" style="margin-bottom:16px;">
+          💡 匯率：1 CHF = ${state.rate} TWD <span onclick="editRate()" style="cursor:pointer;text-decoration:underline;margin-left:8px;">修改</span>
+        </div>
         ${state.hotels.map((h, hi) => `
           <div class="hotel-card">
             <div class="hotel-card-header">
               <div class="hotel-location">📍 ${h.location}<span class="hotel-nights">${h.nights}晚</span></div>
+              <div class="hotel-location-en">${h.locationEn}</div>
               <div class="hotel-dates">${h.dates} ${h.note ? `・${h.note}` : ''}</div>
             </div>
             <div class="hotel-card-body">
-              ${h.options.length ? h.options.map((opt, oi) => `
-                <div class="hotel-option ${opt.selected ? 'selected' : ''}">
-                  <div class="option-number">${oi + 1}</div>
-                  <div class="option-info">
-                    <div class="option-name">${opt.name}</div>
-                    ${opt.price ? `<div class="option-price">💰 ${opt.price}</div>` : ''}
-                    ${opt.url ? `<a href="${opt.url}" target="_blank" class="option-link">🔗 查看</a>` : ''}
-                  </div>
-                  <div class="option-actions">
-                    <button class="btn-icon" onclick="toggleHotelSelect(${hi}, ${oi})">${opt.selected ? '✅' : '⭕'}</button>
-                    <button class="btn-icon edit" onclick="editHotelOption(${hi}, ${oi})">✏️</button>
-                    <button class="btn-icon delete" onclick="deleteHotelOption(${hi}, ${oi})">🗑️</button>
-                  </div>
+              <!-- Airbnb Section -->
+              <div class="hotel-section">
+                <div class="hotel-section-header">
+                  <span class="hotel-section-title airbnb">🏠 Airbnb</span>
                 </div>
-              `).join('') : '<div class="no-options">尚未添加選項</div>'}
-              <button class="add-option-btn" onclick="addHotelOption(${hi})">➕ 添加選項</button>
+                ${h.airbnbListUrl ? `
+                  <div class="airbnb-list-link">
+                    <span>📋</span>
+                    <a href="${h.airbnbListUrl}" target="_blank">${h.airbnbListUrl}</a>
+                    <button class="btn-icon edit" onclick="editAirbnbListUrl(${hi})">✏️</button>
+                    <button class="btn-icon delete" onclick="deleteAirbnbListUrl(${hi})">🗑️</button>
+                  </div>
+                ` : `
+                  <button class="add-option-btn airbnb" onclick="addAirbnbListUrl(${hi})" style="margin-bottom:8px;">🔗 設定 Airbnb 清單連結</button>
+                `}
+                ${h.airbnbs?.length ? h.airbnbs.map((opt, oi) => {
+                  const price = formatPrice(opt.pricePerNight, h.nights);
+                  return `
+                  <div class="hotel-option airbnb ${opt.selected ? 'selected' : ''}">
+                    <div class="option-number airbnb">${oi + 1}</div>
+                    <div class="option-info">
+                      <div class="option-name">${opt.name}</div>
+                      <div class="option-price">${price.perNight}</div>
+                      <div class="option-price-detail">${price.total}</div>
+                      ${opt.url ? `<a href="${opt.url}" target="_blank" class="option-link">🔗 查看</a>` : ''}
+                    </div>
+                    <div class="option-actions">
+                      <button class="btn-icon" onclick="toggleSelect(${hi}, 'airbnbs', ${oi})">${opt.selected ? '✅' : '⭕'}</button>
+                      <button class="btn-icon edit" onclick="editOption(${hi}, 'airbnbs', ${oi})">✏️</button>
+                      <button class="btn-icon delete" onclick="deleteOption(${hi}, 'airbnbs', ${oi})">🗑️</button>
+                    </div>
+                  </div>
+                `}).join('') : ''}
+                <button class="add-option-btn airbnb" onclick="addOption(${hi}, 'airbnbs')">➕ 添加 Airbnb</button>
+              </div>
+
+              <!-- Hotel Section -->
+              <div class="hotel-section">
+                <div class="hotel-section-header">
+                  <span class="hotel-section-title hotel">🏨 飯店</span>
+                </div>
+                ${h.hotels?.length ? h.hotels.map((opt, oi) => {
+                  const price = formatPrice(opt.pricePerNight, h.nights);
+                  return `
+                  <div class="hotel-option hotel-type ${opt.selected ? 'selected' : ''}">
+                    <div class="option-number hotel-type">${oi + 1}</div>
+                    <div class="option-info">
+                      <div class="option-name">${opt.name}</div>
+                      <div class="option-price">${price.perNight}</div>
+                      <div class="option-price-detail">${price.total}</div>
+                      ${opt.url ? `<a href="${opt.url}" target="_blank" class="option-link">🔗 查看</a>` : ''}
+                    </div>
+                    <div class="option-actions">
+                      <button class="btn-icon" onclick="toggleSelect(${hi}, 'hotels', ${oi})">${opt.selected ? '✅' : '⭕'}</button>
+                      <button class="btn-icon edit" onclick="editOption(${hi}, 'hotels', ${oi})">✏️</button>
+                      <button class="btn-icon delete" onclick="deleteOption(${hi}, 'hotels', ${oi})">🗑️</button>
+                    </div>
+                  </div>
+                `}).join('') : ''}
+                <button class="add-option-btn hotel-type" onclick="addOption(${hi}, 'hotels')">➕ 添加飯店</button>
+              </div>
             </div>
           </div>
         `).join('')}
       `;
     }
 
-    function addHotelOption(hi) {
-      openModal('➕ 添加住宿', `
-        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="opt-name" class="form-input" placeholder="Hotel Name"></div>
-        <div class="form-group"><label class="form-label">價格</label><input type="text" id="opt-price" class="form-input" placeholder="CHF 200/晚"></div>
-        <div class="form-group"><label class="form-label">連結</label><input type="url" id="opt-url" class="form-input" placeholder="https://..."></div>
-        <button class="form-btn primary" onclick="saveHotelOption(${hi})">確認</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+    function addAirbnbListUrl(hi) {
+      openModal('🔗 Airbnb 清單連結', `
+        <div class="form-group">
+          <label class="form-label">Airbnb Wishlist 連結</label>
+          <input type="url" id="airbnb-list-url" class="form-input" placeholder="https://www.airbnb.com/wishlists/...">
+          <div class="form-hint">貼上你在 Airbnb 建立的清單連結</div>
+        </div>
+        <button class="form-btn primary" onclick="saveAirbnbListUrl(${hi})">儲存</button>
       `);
     }
 
-    function saveHotelOption(hi) {
-      const name = document.getElementById('opt-name').value.trim();
-      if (!name) return alert('請填寫名稱');
-      state.hotels[hi].options.push({ name, price: document.getElementById('opt-price').value.trim(), url: document.getElementById('opt-url').value.trim(), selected: false });
+    function saveAirbnbListUrl(hi) {
+      state.hotels[hi].airbnbListUrl = document.getElementById('airbnb-list-url').value.trim();
       save(); renderHotels(); closeModal();
     }
 
-    function editHotelOption(hi, oi) {
-      const opt = state.hotels[hi].options[oi];
-      openModal('✏️ 編輯', `
-        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="opt-name" class="form-input" value="${opt.name}"></div>
-        <div class="form-group"><label class="form-label">價格</label><input type="text" id="opt-price" class="form-input" value="${opt.price || ''}"></div>
-        <div class="form-group"><label class="form-label">連結</label><input type="url" id="opt-url" class="form-input" value="${opt.url || ''}"></div>
-        <button class="form-btn primary" onclick="updateHotelOption(${hi}, ${oi})">儲存</button>
-        <button class="form-btn secondary" onclick="closeModal()">取消</button>
+    function editAirbnbListUrl(hi) {
+      openModal('🔗 編輯連結', `
+        <div class="form-group">
+          <label class="form-label">Airbnb Wishlist 連結</label>
+          <input type="url" id="airbnb-list-url" class="form-input" value="${state.hotels[hi].airbnbListUrl || ''}">
+        </div>
+        <button class="form-btn primary" onclick="saveAirbnbListUrl(${hi})">儲存</button>
       `);
     }
 
-    function updateHotelOption(hi, oi) {
+    function deleteAirbnbListUrl(hi) {
+      if (confirm('刪除連結？')) {
+        state.hotels[hi].airbnbListUrl = '';
+        save(); renderHotels();
+      }
+    }
+
+    function addOption(hi, type) {
+      const label = type === 'airbnbs' ? 'Airbnb' : '飯店';
+      const nights = state.hotels[hi].nights;
+      openModal(`➕ 添加${label}`, `
+        <div class="form-group">
+          <label class="form-label">名稱</label>
+          <input type="text" id="opt-name" class="form-input" placeholder="${label}名稱">
+        </div>
+        <div class="form-group">
+          <label class="form-label">每晚價格 (CHF)</label>
+          <input type="number" id="opt-price" class="form-input" placeholder="150" oninput="calcTotal(${nights})">
+          <div class="form-hint" id="price-calc"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">連結</label>
+          <input type="url" id="opt-url" class="form-input" placeholder="https://...">
+        </div>
+        <button class="form-btn primary" onclick="saveOption(${hi}, '${type}')">確認</button>
+      `);
+    }
+
+    function calcTotal(nights) {
+      const price = parseFloat(document.getElementById('opt-price').value) || 0;
+      const total = price * nights;
+      const twdPerNight = Math.round(price * state.rate);
+      const twdTotal = Math.round(total * state.rate);
+      document.getElementById('price-calc').innerHTML = price ? 
+        `每晚 NT$${twdPerNight.toLocaleString()} ｜ ${nights}晚總計 CHF ${total} (NT$${twdTotal.toLocaleString()})` : '';
+    }
+
+    function saveOption(hi, type) {
       const name = document.getElementById('opt-name').value.trim();
+      const pricePerNight = parseFloat(document.getElementById('opt-price').value) || 0;
+      const url = document.getElementById('opt-url').value.trim();
       if (!name) return alert('請填寫名稱');
-      state.hotels[hi].options[oi] = { ...state.hotels[hi].options[oi], name, price: document.getElementById('opt-price').value.trim(), url: document.getElementById('opt-url').value.trim() };
+      if (!state.hotels[hi][type]) state.hotels[hi][type] = [];
+      state.hotels[hi][type].push({ name, pricePerNight, url, selected: false });
       save(); renderHotels(); closeModal();
     }
 
-    function deleteHotelOption(hi, oi) { if (confirm('確定刪除？')) { state.hotels[hi].options.splice(oi, 1); save(); renderHotels(); } }
-    function toggleHotelSelect(hi, oi) { state.hotels[hi].options[oi].selected = !state.hotels[hi].options[oi].selected; save(); renderHotels(); }
+    function editOption(hi, type, oi) {
+      const opt = state.hotels[hi][type][oi];
+      const label = type === 'airbnbs' ? 'Airbnb' : '飯店';
+      const nights = state.hotels[hi].nights;
+      openModal(`✏️ 編輯${label}`, `
+        <div class="form-group">
+          <label class="form-label">名稱</label>
+          <input type="text" id="opt-name" class="form-input" value="${opt.name}">
+        </div>
+        <div class="form-group">
+          <label class="form-label">每晚價格 (CHF)</label>
+          <input type="number" id="opt-price" class="form-input" value="${opt.pricePerNight || ''}" oninput="calcTotal(${nights})">
+          <div class="form-hint" id="price-calc">${opt.pricePerNight ? `每晚 NT$${Math.round(opt.pricePerNight * state.rate).toLocaleString()} ｜ ${nights}晚總計 CHF ${opt.pricePerNight * nights} (NT$${Math.round(opt.pricePerNight * nights * state.rate).toLocaleString()})` : ''}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">連結</label>
+          <input type="url" id="opt-url" class="form-input" value="${opt.url || ''}">
+        </div>
+        <button class="form-btn primary" onclick="updateOption(${hi}, '${type}', ${oi})">儲存</button>
+      `);
+    }
+
+    function updateOption(hi, type, oi) {
+      const name = document.getElementById('opt-name').value.trim();
+      const pricePerNight = parseFloat(document.getElementById('opt-price').value) || 0;
+      const url = document.getElementById('opt-url').value.trim();
+      if (!name) return alert('請填寫名稱');
+      state.hotels[hi][type][oi] = { ...state.hotels[hi][type][oi], name, pricePerNight, url };
+      save(); renderHotels(); closeModal();
+    }
+
+    function deleteOption(hi, type, oi) {
+      if (confirm('刪除？')) {
+        state.hotels[hi][type].splice(oi, 1);
+        save(); renderHotels();
+      }
+    }
+
+    function toggleSelect(hi, type, oi) {
+      state.hotels[hi][type][oi].selected = !state.hotels[hi][type][oi].selected;
+      save(); renderHotels();
+    }
 
     // Budget
     function renderBudget() {
@@ -503,7 +660,7 @@
         <button class="form-btn primary" onclick="saveRate()">儲存</button>
       `);
     }
-    function saveRate() { const val = parseFloat(document.getElementById('rate-input').value); if (val > 0) { state.rate = val; save(); renderBudget(); closeModal(); } }
+    function saveRate() { const val = parseFloat(document.getElementById('rate-input').value); if (val > 0) { state.rate = val; save(); renderBudget(); renderHotels(); closeModal(); } }
 
     function addBudgetItem() {
       openModal('➕ 新增', `
