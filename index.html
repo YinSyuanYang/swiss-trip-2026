@@ -299,12 +299,34 @@
         ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港' }
       ],
       hotels: [
-        { id: 1, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/7 (六)', checkOut: '2/11 (三)', nights: 4, note: 'Eva 2/7先到', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 2, location: '聖莫里茲', locationEn: 'St. Moritz Dorf / Station', checkIn: '2/11 (三)', checkOut: '2/12 (四)', nights: 1, note: '冰川列車前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 3, location: '采爾馬特', locationEn: 'Zermatt Station / Bahnhofstrasse', checkIn: '2/12 (四)', checkOut: '2/15 (日)', nights: 3, note: '含情人節❤️', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 4, location: '因特拉肯', locationEn: 'Interlaken Ost (東站)', checkIn: '2/15 (日)', checkOut: '2/17 (二)', nights: 2, note: '少女峰出發站', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 5, location: '日內瓦', locationEn: 'Geneva Cornavin', checkIn: '2/17 (二)', checkOut: '2/19 (四)', nights: 2, note: '家人獨自', airbnbListUrl: '', airbnbs: [], hotels: [] },
-        { id: 6, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/19 (四)', checkOut: '2/20 (五)', nights: 1, note: '回程前一晚', airbnbListUrl: '', airbnbs: [], hotels: [] }
+        { id: 1, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/7 (六)', checkOut: '2/11 (三)', nights: 4, note: 'Eva 2/7先到', airbnbListUrl: 'https://www.airbnb.co.uk/wishlists/invite/3dddc27c-72a6-4c48-97b3-f0149aecb5e6?s=67&unique_share_id=22e5018b-633a-4ea7-b067-594c3d4abaad', airbnbs: [], hotels: [] },
+        { id: 2, location: '聖莫里茲', locationEn: 'St. Moritz Dorf / Station', checkIn: '2/11 (三)', checkOut: '2/12 (四)', nights: 1, note: '冰川列車前一晚', airbnbListUrl: '', airbnbs: [], hotels: [
+          { name: 'Hotel Schweizerhof St. Moritz', pricePerNight: 1190, url: 'https://www.simplebooking.it/ibe2/hotel/4942?lang=EN&cur=CHF', selected: false },
+          { name: 'HOTEL STEFFANI', pricePerNight: 1172, url: 'https://steffani.ch/', selected: false }
+        ] },
+        { id: 3, location: '采爾馬特', locationEn: 'Zermatt Station / Bahnhofstrasse', checkIn: '2/12 (四)', checkOut: '2/15 (日)', nights: 3, note: '含情人節❤️', airbnbListUrl: '', airbnbs: [], hotels: [
+          { name: 'Schweizerhof Zermatt', pricePerNight: 607.5, url: 'https://www.schweizerhofzermatt.ch/en/', selected: false },
+          { name: 'Vrony Apartments by Hotel Walliserhof', pricePerNight: 865, url: 'https://www.booking.com/hotel/ch/the-rooftop-by-walliserhof-zermatt.en-gb.html', selected: false },
+          { name: 'Hotel Ambassador Zermatt', pricePerNight: 1464, url: 'https://www.booking.com/hotel/ch/ambassador-zermatt.en-gb.html', selected: false }
+        ] },
+        { id: 4, location: '因特拉肯', locationEn: 'Interlaken Ost (東站)', checkIn: '2/15 (日)', checkOut: '2/17 (二)', nights: 2, note: '少女峰出發站', airbnbListUrl: '', airbnbs: [
+          { name: 'River-Kissed Retreat with Jungfraujoch View', pricePerNight: 467, url: 'https://www.airbnb.co.uk/rooms/1434225833129440565?adults=5&check_in=2026-02-15&check_out=2026-02-17', selected: false },
+          { name: 'Swiss Hotel Apartments - Two Bedroom', pricePerNight: 876.26, url: 'https://www.airbnb.co.uk/rooms/45729237?adults=5&check_in=2026-02-15&check_out=2026-02-17', selected: false }
+        ], hotels: [
+          { name: 'Stay Switzerland Apartments', pricePerNight: 597, url: 'https://www.booking.com/hotel/ch/mountain-view-apartment-interlaken.en-gb.html', selected: false },
+          { name: 'Modern City Apartments', pricePerNight: 625, url: 'https://www.booking.com/hotel/ch/modern-city-apartment.en-gb.html', selected: false },
+          { name: 'Downtown Family&Friends', pricePerNight: 236, url: 'https://www.booking.com/hotel/ch/downtown-family-rooms-interlaken.en-gb.html', selected: false }
+        ] },
+        { id: 5, location: '日內瓦', locationEn: 'Geneva Cornavin', checkIn: '2/17 (二)', checkOut: '2/19 (四)', nights: 2, note: '家人獨自', airbnbListUrl: '', airbnbs: [], hotels: [
+          { name: 'Hotel Cristal Design', pricePerNight: 366, url: 'https://www.booking.com/hotel/ch/christal.en-gb.html', selected: false },
+          { name: 'Hotel International & Terminus', pricePerNight: 403, url: 'https://www.booking.com/hotel/ch/international-terminus.en-gb.html', selected: false },
+          { name: 'ibis Geneve Centre Lac', pricePerNight: 325, url: 'https://www.booking.com/hotel/ch/ibis-geneve-centre-lac.html', selected: false }
+        ] },
+        { id: 6, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/19 (四)', checkOut: '2/20 (五)', nights: 1, note: '回程前一晚', airbnbListUrl: '', airbnbs: [], hotels: [
+          { name: 'Hotel Bristol Zurich', pricePerNight: 284, url: 'https://www.booking.com/hotel/ch/bristol.en-gb.html', selected: false },
+          { name: 'Aparthotel Adagio Zurich City Center', pricePerNight: 322, url: 'https://www.booking.com/hotel/ch/aparthotel-adagio-zurich-center.en-gb.html', selected: false },
+          { name: 'Townhouse Boutique Hotel', pricePerNight: 482, url: 'https://www.booking.com/hotel/ch/townhouse-boutique.en-gb.html', selected: false }
+        ] }
       ],
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
@@ -337,31 +359,14 @@
     };
 
     const FILE_PASSWORD = '558894';
-    // 日期對照表
-    const dateMap = {
-      1: { checkIn: '2/7 (六)', checkOut: '2/11 (三)' },
-      2: { checkIn: '2/11 (三)', checkOut: '2/12 (四)' },
-      3: { checkIn: '2/12 (四)', checkOut: '2/15 (日)' },
-      4: { checkIn: '2/15 (日)', checkOut: '2/17 (二)' },
-      5: { checkIn: '2/17 (二)', checkOut: '2/19 (四)' },
-      6: { checkIn: '2/19 (四)', checkOut: '2/20 (五)' }
-    };
-
-    // 遷移舊資料
-    function migrateHotels(savedHotels) {
-      if (!savedHotels) return JSON.parse(JSON.stringify(DEFAULT_DATA.hotels));
-      return savedHotels.map((h, i) => {
-        const defaultH = DEFAULT_DATA.hotels[i] || {};
-        const dates = dateMap[h.id] || dateMap[i + 1] || {};
-        return {
-          ...defaultH,
-          ...h,
-          checkIn: h.checkIn || dates.checkIn || '',
-          checkOut: h.checkOut || dates.checkOut || '',
-          airbnbs: h.airbnbs || [],
-          hotels: h.hotels || []
-        };
-      });
+    // 使用 DEFAULT_DATA 作為基礎，合併用戶的 selected 狀態
+    function loadHotels() {
+      const saved = JSON.parse(localStorage.getItem('swissHotelsSelected')) || {};
+      return DEFAULT_DATA.hotels.map(h => ({
+        ...h,
+        airbnbs: h.airbnbs.map((a, i) => ({ ...a, selected: saved[`${h.id}-a-${i}`] || false })),
+        hotels: h.hotels.map((hotel, i) => ({ ...hotel, selected: saved[`${h.id}-h-${i}`] || false }))
+      }));
     }
 
     let state = {
@@ -371,7 +376,7 @@
       checked: JSON.parse(localStorage.getItem('swissChecked5')) || {},
       files: JSON.parse(localStorage.getItem('swissFiles3')) || [],
       fileCategories: JSON.parse(localStorage.getItem('swissFileCats3')) || [...DEFAULT_DATA.fileCategories],
-      hotels: migrateHotels(JSON.parse(localStorage.getItem('swissHotels3'))),
+      hotels: loadHotels(),
       filesUnlocked: false,
       openDays: {}
     };
@@ -382,8 +387,14 @@
       localStorage.setItem('swissChecked5', JSON.stringify(state.checked));
       localStorage.setItem('swissFiles3', JSON.stringify(state.files));
       localStorage.setItem('swissFileCats3', JSON.stringify(state.fileCategories));
-      localStorage.setItem('swissHotels3', JSON.stringify(state.hotels));
       localStorage.setItem('swissRate5', state.rate);
+      // 只儲存 selected 狀態
+      const selectedMap = {};
+      state.hotels.forEach(h => {
+        h.airbnbs.forEach((a, i) => { if (a.selected) selectedMap[`${h.id}-a-${i}`] = true; });
+        h.hotels.forEach((hotel, i) => { if (hotel.selected) selectedMap[`${h.id}-h-${i}`] = true; });
+      });
+      localStorage.setItem('swissHotelsSelected', JSON.stringify(selectedMap));
     }
 
     const savedRate = localStorage.getItem('swissRate5');
