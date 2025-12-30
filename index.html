@@ -15,8 +15,8 @@
     .header p { color: #fecaca; font-size: 0.875rem; margin-top: 4px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .tag { background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; }
-    .tabs { display: flex; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-    .tab { flex: 1; padding: 10px 2px; border: none; background: none; cursor: pointer; font-size: 0.65rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all 0.2s; }
+    .tabs { display: flex; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; overflow-x: auto; }
+    .tab { flex: 1; padding: 10px 2px; border: none; background: none; cursor: pointer; font-size: 0.6rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all 0.2s; min-width: 60px; }
     .tab.active { color: #dc2626; border-bottom: 2px solid #dc2626; }
     .tab-icon { font-size: 1rem; }
     .content { padding: 16px; padding-bottom: 80px; max-width: 500px; margin: 0 auto; }
@@ -54,6 +54,7 @@
     .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
     .modal.hidden { display: none; }
     .modal-content { background: #fff; border-radius: 16px; padding: 20px; width: 100%; max-width: 400px; max-height: 90vh; overflow-y: auto; }
+    .modal-content.pdf-modal { max-width: 95vw; width: 100%; height: 90vh; padding: 12px; }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .modal-title { font-weight: 600; font-size: 1.125rem; }
     .modal-close { width: 32px; height: 32px; border: none; background: #f3f4f6; border-radius: 8px; cursor: pointer; font-size: 1.25rem; }
@@ -175,6 +176,32 @@
     .hotel-card-btn.book { background: #f3e8ff; color: #7c3aed; }
     .hotel-card-btn.book:hover { background: #ede9fe; }
     .confirmed-badge { display: inline-block; background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 8px; }
+    
+    /* Ticket styles */
+    .ticket-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
+    .ticket-header { padding: 16px; background: linear-gradient(to right, #dc2626, #b91c1c); color: #fff; }
+    .ticket-header.glacier { background: linear-gradient(to right, #2563eb, #1d4ed8); }
+    .ticket-title { font-size: 1.125rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .ticket-subtitle { font-size: 0.8rem; opacity: 0.9; margin-top: 4px; }
+    .ticket-body { padding: 16px; }
+    .ticket-row { display: flex; align-items: center; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; }
+    .ticket-row:hover { background: #fef2f2; border-color: #fecaca; }
+    .ticket-row.glacier:hover { background: #eff6ff; border-color: #bfdbfe; }
+    .ticket-avatar { width: 40px; height: 40px; border-radius: 50%; background: #fee2e2; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-right: 12px; }
+    .ticket-avatar.glacier { background: #dbeafe; }
+    .ticket-info { flex: 1; }
+    .ticket-name { font-weight: 600; font-size: 0.9rem; }
+    .ticket-type { font-size: 0.75rem; color: #6b7280; }
+    .ticket-price { font-weight: 600; color: #dc2626; font-size: 0.9rem; }
+    .ticket-price.glacier { color: #2563eb; }
+    .ticket-view { width: 32px; height: 32px; background: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-left: 8px; }
+    .ticket-total { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #fef2f2; border-radius: 8px; margin-top: 8px; }
+    .ticket-total.glacier { background: #eff6ff; }
+    .ticket-total-label { font-weight: 500; color: #374151; }
+    .ticket-total-price { font-weight: 700; font-size: 1.125rem; color: #dc2626; }
+    .ticket-total-price.glacier { color: #2563eb; }
+    .pdf-frame { width: 100%; height: calc(90vh - 80px); border: none; border-radius: 8px; }
+    
     @media (max-width: 400px) {
       .budget-twd { display: none; }
       .budget-actions, .check-actions, .file-actions { opacity: 1; }
@@ -194,6 +221,7 @@
 
   <div class="tabs">
     <button class="tab active" data-tab="itinerary"><span class="tab-icon">📅</span>行程</button>
+    <button class="tab" data-tab="ticket"><span class="tab-icon">🎫</span>票券</button>
     <button class="tab" data-tab="hotel"><span class="tab-icon">🏨</span>住宿</button>
     <button class="tab" data-tab="budget"><span class="tab-icon">💰</span>預算</button>
     <button class="tab" data-tab="packing"><span class="tab-icon">🧳</span>打包</button>
@@ -202,6 +230,7 @@
 
   <div class="content">
     <div id="itinerary-tab"></div>
+    <div id="ticket-tab" class="hidden"></div>
     <div id="hotel-tab" class="hidden"></div>
     <div id="budget-tab" class="hidden"></div>
     <div id="packing-tab" class="hidden"></div>
@@ -209,7 +238,7 @@
   </div>
 
   <div id="modal" class="modal hidden">
-    <div class="modal-content">
+    <div class="modal-content" id="modal-container">
       <div class="modal-header">
         <span class="modal-title" id="modal-title">新增</span>
         <button class="modal-close" onclick="closeModal()">×</button>
@@ -221,6 +250,26 @@
   <div class="footer">🇨🇭 瑞士之旅 2026 ｜❤️</div>
 
   <script>
+    const SWISS_PASSES = [
+      { name: 'Wen-Hung, Yang', nameCn: '楊文宏', type: 'Adult', price: 499, dob: '09.09.1970', fileId: '13ijUN_-8759eNwrfk4zEy7tjLjt3enlD' },
+      { name: 'Hui-Chen, Cho', nameCn: '卓慧珍', type: 'Adult', price: 499, dob: '25.08.1968', fileId: '1hnunPBnrmxMn4kW1sXZkK4OLqlSQSZYv' },
+      { name: 'Ya-Fan, Yang', nameCn: '楊雅帆', type: 'Adult', price: 499, dob: '20.12.1998', fileId: '1KDQKA7KNaAsc9M3hDx7OzThb6C1BRz3J' },
+      { name: 'Yin-Syuan, Yang', nameCn: '楊尹瑄', type: 'Adult', price: 499, dob: '07.12.1999', fileId: '1TKAPWGig5raNUrAEjCZZKE60Il1VGlob' },
+      { name: 'Yu-Chiao, Yang', nameCn: '楊宇喬', type: 'Youth', price: 356, dob: '09.03.2005', fileId: '1FMmLwK3WHjlzD7Whk4m6CiDT52S8vu_D' }
+    ];
+
+    const GLACIER_EXPRESS = {
+      fileId: '1DWYyjMZZJOX9oUXXB_L8ut0h5Rx6HFdq',
+      train: '903',
+      car: '24',
+      seats: '21-22, 24-26',
+      class: '頭等艙',
+      meal: '2道式午餐 x5',
+      date: '2/12',
+      departure: '08:38 St. Moritz',
+      arrival: '17:07 Zermatt'
+    };
+
     const CONFIRMED_HOTELS = [
       {
         id: 1,
@@ -480,7 +529,7 @@
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
           { n: 'Eva 英國⇄瑞士機票', c: 180, note: 'easyJet' },
-          { n: 'Swiss Travel Pass 8天 x5', c: 2245, note: 'CHF 449/人' },
+          { n: 'Swiss Travel Pass 15天 x5', c: 2352, note: '4 Adult + 1 Youth' },
           { n: '冰川列車訂位費 x5（頭等）', c: 345, note: 'CHF 69/人' },
           { n: '冰川列車午餐 x5', c: 210, note: '' },
           { n: '少女峰鐵路 x5', c: 850, note: '' },
@@ -510,7 +559,7 @@
     const FILE_PASSWORD = '558894';
     let state = {
       rate: 36,
-      budget: JSON.parse(localStorage.getItem('swissBudget6')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
+      budget: JSON.parse(localStorage.getItem('swissBudget7')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
       packing: JSON.parse(localStorage.getItem('swissPacking6')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
       checked: JSON.parse(localStorage.getItem('swissChecked6')) || {},
       files: JSON.parse(localStorage.getItem('swissFiles4')) || [],
@@ -520,7 +569,7 @@
     };
 
     function save() {
-      localStorage.setItem('swissBudget6', JSON.stringify(state.budget));
+      localStorage.setItem('swissBudget7', JSON.stringify(state.budget));
       localStorage.setItem('swissPacking6', JSON.stringify(state.packing));
       localStorage.setItem('swissChecked6', JSON.stringify(state.checked));
       localStorage.setItem('swissFiles4', JSON.stringify(state.files));
@@ -536,12 +585,77 @@
       return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(points[0])}`;
     }
 
-    function openModal(title, bodyHtml) {
+    function openModal(title, bodyHtml, isPdf = false) {
       document.getElementById('modal-title').textContent = title;
       document.getElementById('modal-body').innerHTML = bodyHtml;
+      document.getElementById('modal-container').className = isPdf ? 'modal-content pdf-modal' : 'modal-content';
       document.getElementById('modal').classList.remove('hidden');
     }
     function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+
+    function viewPdf(fileId, title) {
+      const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+      openModal(title, `<iframe class="pdf-frame" src="${embedUrl}" allow="autoplay"></iframe>`, true);
+    }
+
+    // Tickets
+    function renderTickets() {
+      const passTotal = SWISS_PASSES.reduce((sum, p) => sum + p.price, 0);
+      document.getElementById('ticket-tab').innerHTML = `
+        <div class="ticket-card">
+          <div class="ticket-header">
+            <div class="ticket-title">🚂 Swiss Travel Pass</div>
+            <div class="ticket-subtitle">15天 二等艙 | 2/7 00:00 - 2/22 05:00</div>
+          </div>
+          <div class="ticket-body">
+            ${SWISS_PASSES.map(p => `
+              <div class="ticket-row" onclick="viewPdf('${p.fileId}', '${p.nameCn} - Swiss Pass')">
+                <div class="ticket-avatar">👤</div>
+                <div class="ticket-info">
+                  <div class="ticket-name">${p.nameCn} ${p.name}</div>
+                  <div class="ticket-type">${p.type} · ${p.dob}</div>
+                </div>
+                <div class="ticket-price">CHF ${p.price}</div>
+                <div class="ticket-view">📄</div>
+              </div>
+            `).join('')}
+            <div class="ticket-total">
+              <span class="ticket-total-label">總計 (5人)</span>
+              <span class="ticket-total-price">CHF ${passTotal.toLocaleString()}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticket-card">
+          <div class="ticket-header glacier">
+            <div class="ticket-title">🚂 Glacier Express 冰川列車</div>
+            <div class="ticket-subtitle">${GLACIER_EXPRESS.date} | ${GLACIER_EXPRESS.departure} → ${GLACIER_EXPRESS.arrival}</div>
+          </div>
+          <div class="ticket-body">
+            <div class="ticket-row glacier" onclick="viewPdf('${GLACIER_EXPRESS.fileId}', '冰川列車訂位確認')">
+              <div class="ticket-avatar glacier">🚂</div>
+              <div class="ticket-info">
+                <div class="ticket-name">${GLACIER_EXPRESS.class} · 車廂 ${GLACIER_EXPRESS.car}</div>
+                <div class="ticket-type">座位 ${GLACIER_EXPRESS.seats} · ${GLACIER_EXPRESS.meal}</div>
+              </div>
+              <div class="ticket-price glacier">5人</div>
+              <div class="ticket-view">📄</div>
+            </div>
+            <div class="ticket-total glacier">
+              <span class="ticket-total-label">行程時間</span>
+              <span class="ticket-total-price glacier">8小時30分</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <strong>📌 使用須知</strong><br>
+          • Swiss Pass 需搭配護照使用<br>
+          • 上車前請準備好 QR Code<br>
+          • 冰川列車需提前到站
+        </div>
+      `;
+    }
 
     // Itinerary
     function renderItinerary() {
@@ -880,15 +994,16 @@
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-      ['itinerary', 'hotel', 'budget', 'packing', 'files'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
+      ['itinerary', 'ticket', 'hotel', 'budget', 'packing', 'files'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
       if (tabId === 'files') renderFiles();
       if (tabId === 'hotel') renderHotels();
+      if (tabId === 'ticket') renderTickets();
     }
 
     document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => switchTab(tab.dataset.tab)));
     document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-    renderItinerary(); renderHotels(); renderBudget(); renderPacking(); renderFiles();
+    renderItinerary(); renderHotels(); renderBudget(); renderPacking(); renderFiles(); renderTickets();
   </script>
 </body>
 </html>
