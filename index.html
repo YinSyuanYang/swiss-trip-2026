@@ -30,6 +30,7 @@
     .day-date { font-size: 0.75rem; color: #6b7280; }
     .day-title { font-weight: 600; color: #1f2937; }
     .day-loc { font-size: 0.75rem; color: #dc2626; }
+    .day-hotel { font-size: 0.7rem; color: #7c3aed; margin-top: 2px; }
     .day-right { display: flex; align-items: center; gap: 8px; }
     .badge { font-size: 0.625rem; padding: 2px 8px; border-radius: 20px; }
     .badge-family { background: #fde68a; color: #92400e; }
@@ -38,7 +39,6 @@
     .arrow { color: #9ca3af; font-size: 0.875rem; }
     .day-content { padding: 0 16px 16px; border-top: 1px solid #f3f4f6; display: none; }
     .day-content.open { display: block; }
-    .hotel-box { margin-top: 12px; padding: 12px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.875rem; }
     .schedule { margin-top: 12px; }
     .schedule-item { display: flex; gap: 12px; padding: 8px 0; font-size: 0.875rem; }
     .schedule-time { width: 48px; color: #dc2626; font-family: monospace; font-weight: 500; flex-shrink: 0; }
@@ -46,18 +46,11 @@
     .schedule-duration { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; }
     .map-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: #16a34a; color: #fff; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 16px; text-decoration: none; }
     .map-btn:hover { background: #15803d; }
-    .section-title { font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    .route-item { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 0.875rem; }
-    .route-dot { width: 12px; height: 12px; background: #ef4444; border-radius: 50%; }
     .info-box { background: #eff6ff; padding: 16px; border-radius: 12px; font-size: 0.875rem; color: #1e40af; margin-top: 16px; }
     .add-btn { width: 100%; padding: 14px; background: #3b82f6; color: #fff; border: none; border-radius: 12px; font-size: 0.875rem; font-weight: 500; cursor: pointer; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
     .add-btn:hover { background: #2563eb; }
     .add-btn.purple { background: #8b5cf6; }
     .add-btn.purple:hover { background: #7c3aed; }
-    .add-btn.pink { background: #ec4899; }
-    .add-btn.pink:hover { background: #db2777; }
-    .add-btn.amber { background: #f59e0b; }
-    .add-btn.amber:hover { background: #d97706; }
     .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
     .modal.hidden { display: none; }
     .modal-content { background: #fff; border-radius: 16px; padding: 20px; width: 100%; max-width: 400px; max-height: 90vh; overflow-y: auto; }
@@ -80,7 +73,6 @@
     .packing-count { font-size: 1.125rem; font-weight: 700; }
     .packing-count.done { color: #16a34a; }
     .packing-count.pending { color: #dc2626; }
-    .packing-subtitle { font-size: 0.75rem; color: #6b7280; }
     .progress-bar { height: 12px; background: #e5e7eb; border-radius: 6px; margin-top: 12px; overflow: hidden; }
     .progress-fill { height: 100%; background: #22c55e; transition: width 0.3s; }
     .packing-btns { display: flex; gap: 8px; margin-bottom: 16px; }
@@ -129,6 +121,18 @@
     .booking-info { background: #dbeafe; padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 0.8rem; }
     .booking-info div { margin-bottom: 4px; }
     .booking-info strong { color: #1e40af; }
+    .flight-info { background: #fef3c7; padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 0.8rem; }
+    .flight-info div { margin-bottom: 4px; }
+    .flight-info strong { color: #92400e; }
+    .hotel-info { background: #f3e8ff; padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 0.8rem; }
+    .hotel-info div { margin-bottom: 6px; }
+    .hotel-info strong { color: #7c3aed; }
+    .hotel-info a { color: #7c3aed; text-decoration: none; }
+    .hotel-info a:hover { text-decoration: underline; }
+    .hotel-btns { display: flex; gap: 8px; margin-top: 10px; }
+    .hotel-btn { flex: 1; padding: 8px; border-radius: 6px; text-align: center; font-size: 0.75rem; font-weight: 500; text-decoration: none; }
+    .hotel-btn.map { background: #16a34a; color: #fff; }
+    .hotel-btn.book { background: #7c3aed; color: #fff; }
     .lock-screen { text-align: center; padding: 60px 20px; }
     .lock-icon { font-size: 4rem; margin-bottom: 16px; }
     .lock-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
@@ -155,53 +159,32 @@
     .upload-icon { font-size: 2.5rem; margin-bottom: 8px; }
     .upload-text { color: #6b7280; font-size: 0.875rem; }
     .upload-hint { color: #9ca3af; font-size: 0.75rem; margin-top: 4px; }
-    /* Hotel tab */
     .hotel-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
     .hotel-card-header { padding: 16px; background: linear-gradient(to right, #7c3aed, #6d28d9); color: #fff; }
-    .hotel-location { font-size: 1rem; font-weight: 600; }
-    .hotel-location-en { font-size: 0.75rem; opacity: 0.9; }
+    .hotel-location { font-size: 1.125rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
     .hotel-dates { font-size: 0.875rem; opacity: 0.9; margin-top: 4px; }
     .hotel-nights { display: inline-block; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 8px; }
     .hotel-card-body { padding: 16px; }
-    .hotel-section { margin-bottom: 16px; }
-    .hotel-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #e5e7eb; }
-    .hotel-section-title { font-weight: 600; font-size: 0.875rem; display: flex; align-items: center; gap: 6px; }
-    .hotel-section-title.airbnb { color: #ec4899; }
-    .hotel-section-title.hotel { color: #f59e0b; }
-    .airbnb-list-link { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 8px; margin-bottom: 8px; }
-    .airbnb-list-link a { color: #ec4899; font-size: 0.8rem; flex: 1; word-break: break-all; }
-    .hotel-option { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
-    .hotel-option:hover { border-color: #7c3aed; background: #faf5ff; }
-    .hotel-option.selected { border-color: #7c3aed; background: #f3e8ff; }
-    .hotel-option.airbnb { border-left: 3px solid #ec4899; }
-    .hotel-option.hotel-type { border-left: 3px solid #f59e0b; }
-    .option-number { width: 24px; height: 24px; background: #7c3aed; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.75rem; flex-shrink: 0; }
-    .option-number.airbnb { background: #ec4899; }
-    .option-number.hotel-type { background: #f59e0b; }
-    .option-info { flex: 1; min-width: 0; }
-    .option-name { font-weight: 500; font-size: 0.875rem; word-break: break-word; }
-    .option-price { font-size: 0.75rem; color: #6b7280; margin-top: 4px; }
-    .option-price-detail { font-size: 0.7rem; color: #9ca3af; }
-    .option-link { color: #7c3aed; text-decoration: none; font-size: 0.75rem; display: inline-block; margin-top: 4px; }
-    .option-link:hover { text-decoration: underline; }
-    .option-actions { display: flex; flex-direction: column; gap: 4px; }
-    .no-options { text-align: center; padding: 16px; color: #9ca3af; font-size: 0.875rem; }
-    .add-option-btn { width: 100%; padding: 8px; background: #f3e8ff; color: #7c3aed; border: 1px dashed #7c3aed; border-radius: 8px; font-size: 0.8rem; cursor: pointer; margin-top: 8px; }
-    .add-option-btn:hover { background: #ede9fe; }
-    .add-option-btn.airbnb { background: #fdf2f8; color: #ec4899; border-color: #ec4899; }
-    .add-option-btn.airbnb:hover { background: #fce7f3; }
-    .add-option-btn.hotel-type { background: #fffbeb; color: #f59e0b; border-color: #f59e0b; }
-    .add-option-btn.hotel-type:hover { background: #fef3c7; }
+    .hotel-address { font-size: 0.875rem; color: #4b5563; margin-bottom: 12px; padding: 12px; background: #f9fafb; border-radius: 8px; }
+    .hotel-address-label { font-size: 0.7rem; color: #9ca3af; margin-bottom: 4px; }
+    .hotel-checkin { font-size: 0.8rem; color: #16a34a; margin-top: 8px; font-weight: 500; }
+    .hotel-card-btns { display: flex; gap: 8px; }
+    .hotel-card-btn { flex: 1; padding: 10px; border-radius: 8px; text-align: center; font-size: 0.8rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .hotel-card-btn.map { background: #dcfce7; color: #16a34a; }
+    .hotel-card-btn.map:hover { background: #bbf7d0; }
+    .hotel-card-btn.book { background: #f3e8ff; color: #7c3aed; }
+    .hotel-card-btn.book:hover { background: #ede9fe; }
+    .confirmed-badge { display: inline-block; background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 8px; }
     @media (max-width: 400px) {
       .budget-twd { display: none; }
-      .budget-actions, .check-actions, .file-actions, .option-actions { opacity: 1; }
+      .budget-actions, .check-actions, .file-actions { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <div class="header">
     <h1><span>🇨🇭</span> 瑞士之旅 2026</h1>
-    <p>2/7 - 2/20 ｜14天｜5人</p>
+    <p>2/8 - 2/20 ｜13天｜5人</p>
     <div class="tags">
       <span class="tag">冰川列車 🚂</span>
       <span class="tag">馬特洪峰</span>
@@ -238,99 +221,265 @@
   <div class="footer">🇨🇭 瑞士之旅 2026 ｜❤️</div>
 
   <script>
+    const CONFIRMED_HOTELS = [
+      {
+        id: 1,
+        location: '蘇黎世 Zürich',
+        checkIn: '2/8',
+        checkOut: '2/11',
+        nights: 3,
+        address: 'Weinbergstrasse 23, Zürich, 8001, Switzerland',
+        checkinTime: '16:00',
+        checkoutTime: '11:00',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Weinbergstrasse+23+Zurich+8001+Switzerland',
+        bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HM2F5SBWF8',
+        platform: 'Airbnb',
+        note: '全員會合'
+      },
+      {
+        id: 2,
+        location: '薩梅丹 Samedan',
+        checkIn: '2/11',
+        checkOut: '2/12',
+        nights: 1,
+        address: '25 San Bastiaun, 7503 Samedan, Switzerland',
+        checkinTime: '15:00',
+        checkoutTime: '10:00',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=25+San+Bastiaun+7503+Samedan+Switzerland',
+        bookingUrl: 'https://secure.booking.com/confirmation.en-gb.html?bn=5914442990',
+        platform: 'Booking.com',
+        note: '冰川列車前一晚（近聖莫里茲）'
+      },
+      {
+        id: 3,
+        location: '采爾馬特 Zermatt',
+        checkIn: '2/12',
+        checkOut: '2/15',
+        nights: 3,
+        address: 'Untere Wiestistrasse 4, 3. Stock, Zermatt, 3920, Switzerland',
+        checkinTime: '16:00',
+        checkoutTime: '10:00',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Untere+Wiestistrasse+4+Zermatt+3920+Switzerland',
+        bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HM2WDR4D9F',
+        platform: 'Airbnb',
+        note: '含情人節❤️'
+      },
+      {
+        id: 4,
+        location: '因特拉肯 Interlaken',
+        checkIn: '2/15',
+        checkOut: '2/17',
+        nights: 2,
+        address: 'Brienzstrasse 8, Interlaken, 3800, Switzerland',
+        checkinTime: '16:00',
+        checkoutTime: '11:00',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Brienzstrasse+8+Interlaken+3800+Switzerland',
+        bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMDA2JPYX4',
+        platform: 'Airbnb',
+        note: '少女峰'
+      },
+      {
+        id: 5,
+        location: '日內瓦 Geneva',
+        checkIn: '2/17',
+        checkOut: '2/18',
+        nights: 1,
+        address: 'Rue de Berne 26, 1201 Genève, Switzerland',
+        checkinTime: '14:00',
+        checkoutTime: '12:00',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Rue+de+Berne+26+1201+Geneve+Switzerland',
+        bookingUrl: 'https://all.accor.com',
+        platform: 'Accor',
+        note: '家人獨自'
+      },
+      {
+        id: 6,
+        location: '蘇黎世 Zürich',
+        checkIn: '2/18',
+        checkOut: '2/20',
+        nights: 2,
+        address: 'Militärstrasse 24, 8004 Zürich, Switzerland',
+        checkinTime: '15:00',
+        checkoutTime: '10:00',
+        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Militarstrasse+24+8004+Zurich+Switzerland',
+        bookingUrl: 'https://visionapartments.com/en',
+        platform: 'Vision Apartments',
+        note: '回程前+德國購物'
+      }
+    ];
+
     const DEFAULT_DATA = {
       itinerary: [
-        { date: '2/7 (六)', title: 'Eva抵達蘇黎世', icon: '✈️', loc: '蘇黎世', hotel: '蘇黎世 Zurich HB', schedule: [
-          { t: '15:00', a: '抵達蘇黎世機場', d: '-' }, { t: '16:00', a: '入住酒店', d: '1h' },
-          { t: '17:00', a: '班霍夫大街購物', d: '1.5h' }, { t: '20:00', a: '老城晚餐', d: '1.5h' }
-        ], map: ['Zurich Airport', 'Zurich HB'], route: '英國 ✈️ → 蘇黎世' },
-        { date: '2/8 (日)', title: '家人抵達・會合！', icon: '👨‍👩‍👧', loc: '蘇黎世', hotel: '蘇黎世 Zurich HB', hl: true, schedule: [
-          { t: '07:30', a: '🛬 家人抵達', d: '-' }, { t: '10:30', a: '酒店休息', d: '2h' },
-          { t: '13:00', a: '午餐 Zeughauskeller', d: '1h' }, { t: '14:30', a: '蘇黎世湖畔', d: '1.5h' }
-        ], map: ['Zurich Airport', 'Lake Zurich'], route: '台灣 ✈️ → 蘇黎世' },
-        { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', hotel: '蘇黎世 Zurich HB', schedule: [
-          { t: '08:30', a: '🚂 蘇黎世出發', d: '1.5h' }, { t: '10:30', a: '護照蓋章', d: '30m' },
-          { t: '11:00', a: '瓦杜茲城堡', d: '1h' }, { t: '17:00', a: '返回蘇黎世', d: '1.5h' }
-        ], map: ['Zurich HB', 'Vaduz'], route: '蘇黎世 🚂 → 瓦杜茲 → 蘇黎世' },
-        { date: '2/10 (二)', title: '琉森', icon: '🦁', loc: '琉森', hotel: '蘇黎世 Zurich HB', schedule: [
-          { t: '09:00', a: '🚂 蘇黎世→琉森', d: '45m' }, { t: '10:00', a: '獅子紀念碑', d: '30m' },
-          { t: '13:30', a: '卡貝爾橋', d: '30m' }, { t: '18:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Luzern Station', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂 → 琉森 → 蘇黎世' },
-        { date: '2/11 (三)', title: '前往聖莫里茲', icon: '🎿', loc: '聖莫里茲', hotel: '聖莫里茲 St. Moritz', schedule: [
-          { t: '09:00', a: '🚂 蘇黎世→聖莫里茲', d: '3h' }, { t: '13:00', a: '午餐', d: '1h' },
-          { t: '14:30', a: '聖莫里茲湖散步', d: '1.5h' }, { t: '20:30', a: '早睡', d: '-' }
-        ], map: ['St Moritz'], route: '蘇黎世 🚂 → 聖莫里茲（3小時）' },
-        { date: '2/12 (四)', title: '🚂 冰川列車', icon: '🚂', loc: '采爾馬特', hotel: '采爾馬特 Zermatt', hl: true, first: true, schedule: [
-          { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' }, { t: '12:00', a: '車上午餐', d: '1.5h' },
-          { t: '17:07', a: '抵達采爾馬特', d: '-' }, { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['St Moritz Station', 'Zermatt'], route: '聖莫里茲 🚂 → 采爾馬特',
-        booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐x5' } },
-        { date: '2/13 (五)', title: '馬特洪峰', icon: '🏔️', loc: '采爾馬特', hotel: '采爾馬特 Zermatt', schedule: [
-          { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' }, { t: '10:00', a: '馬特洪峰觀景', d: '2h' },
-          { t: '12:00', a: '山頂午餐', d: '1h' }, { t: '17:00', a: '小鎮購物', d: '2h' }
-        ], map: ['Zermatt', 'Gornergrat'], route: '采爾馬特 🚂 → Gornergrat' },
-        { date: '2/14 (六)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hotel: '采爾馬特 Zermatt', hl: true, schedule: [
-          { t: '09:00', a: '睡到自然醒', d: '2h' }, { t: '11:00', a: 'Sunnegga 纜車', d: '3m' },
-          { t: '17:00', a: 'Spa / 休息', d: '2h' }, { t: '19:30', a: '❤️ 情人節晚餐', d: '2.5h' }
-        ], map: ['Zermatt', 'Sunnegga'], route: '采爾馬特悠閒日' },
-        { date: '2/15 (日)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', hotel: '因特拉肯 Interlaken Ost', schedule: [
-          { t: '09:15', a: '🚂 采爾馬特→因特拉肯', d: '2h30m' }, { t: '13:00', a: '午餐', d: '1h' },
-          { t: '14:30', a: '小鎮漫步', d: '2h' }, { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Interlaken Ost'], route: '采爾馬特 🚂 → 因特拉肯' },
-        { date: '2/16 (一)', title: '⭐ 少女峰', icon: '🗻', loc: '少女峰', hotel: '因特拉肯 Interlaken Ost', hl: true, schedule: [
-          { t: '08:30', a: '🚡 Eiger Express', d: '15m' }, { t: '09:30', a: '少女峰站 3,454m', d: '-' },
-          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' }, { t: '15:30', a: '下山', d: '1h' }
-        ], map: ['Jungfraujoch'], route: '因特拉肯 → 少女峰' },
-        { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', hotel: '日內瓦 Geneva Cornavin', schedule: [
-          { t: '08:30', a: '🚂 因特拉肯→日內瓦', d: '2h45m' }, { t: '12:00', a: 'Eva前往機場', d: '20m' },
-          { t: '14:00', a: '大噴泉', d: '30m' }, { t: '19:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Geneva'], route: '因特拉肯 🚂 → 日內瓦' },
-        { date: '2/18 (三)', title: '日內瓦觀光', icon: '⛲', loc: '日內瓦', hotel: '日內瓦 Geneva Cornavin', fam: true, schedule: [
-          { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' }, { t: '15:00', a: '紅十字會博物館', d: '2h' },
+        { date: '2/8 (日)', title: '全員集合蘇黎世！', icon: '✈️', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[0], hl: true, schedule: [
+          { t: '07:30', a: '🛬 家人抵達蘇黎世 (CX383)', d: '-' },
+          { t: '11:30', a: '🛬 Eva抵達蘇黎世 (EZY8471)', d: '-' },
+          { t: '12:00', a: '會合・午餐', d: '1.5h' },
+          { t: '16:00', a: '🏨 入住 Airbnb', d: '1h' },
+          { t: '17:00', a: '班霍夫大街購物', d: '1.5h' },
+          { t: '18:30', a: '老城晚餐', d: '2h' }
+        ], map: ['Zurich Airport', 'Bahnhofstrasse Zurich'], route: '台灣🛬/英國🛬 → 蘇黎世',
+        flight: { eva: 'EZY8471 LGW 08:45→ZRH 11:30', family: 'CX383 HKG 00:45→ZRH 07:30' } },
+        
+        { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', hotel: CONFIRMED_HOTELS[0], schedule: [
+          { t: '08:30', a: '🚂 蘇黎世出發', d: '1.5h' },
+          { t: '10:00', a: '抵達瓦杜茲', d: '-' },
+          { t: '10:30', a: '護照蓋紀念章 CHF3', d: '30m' },
+          { t: '11:00', a: '瓦杜茲城堡(外觀)', d: '1h' },
+          { t: '12:00', a: '午餐', d: '1h' },
+          { t: '14:00', a: '藝術博物館/品酒', d: '2h' },
+          { t: '17:00', a: '🚂 返回蘇黎世', d: '1.5h' }
+        ], map: ['Zurich HB', 'Vaduz Liechtenstein'], route: '蘇黎世 🚂 → Sargans 🚌 → 瓦杜茲 → 蘇黎世' },
+        
+        { date: '2/10 (二)', title: '琉森', icon: '🦁', loc: '琉森', hotel: CONFIRMED_HOTELS[0], schedule: [
+          { t: '09:00', a: '🚂 蘇黎世→琉森', d: '45m' },
+          { t: '10:00', a: '獅子紀念碑', d: '30m' },
+          { t: '10:45', a: '冰河公園', d: '1h' },
+          { t: '12:00', a: '午餐', d: '1h' },
+          { t: '13:30', a: '卡貝爾橋', d: '30m' },
+          { t: '14:00', a: '老城漫步', d: '2h' },
+          { t: '16:00', a: '天鵝廣場購物', d: '1.5h' },
+          { t: '18:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂 → 琉森 → 蘇黎世' },
+        
+        { date: '2/11 (三)', title: '前往薩梅丹', icon: '🎿', loc: '薩梅丹', hotel: CONFIRMED_HOTELS[1], schedule: [
+          { t: '08:00', a: '早餐', d: '1h' },
+          { t: '09:00', a: '🚂 蘇黎世→薩梅丹', d: '3h' },
+          { t: '11:00', a: '🏨 退房蘇黎世', d: '-' },
+          { t: '12:00', a: '抵達薩梅丹', d: '-' },
+          { t: '13:00', a: '午餐', d: '1h' },
+          { t: '14:30', a: '聖莫里茲湖散步', d: '1.5h' },
+          { t: '15:00', a: '🏨 入住 Booking.com', d: '30m' },
+          { t: '16:00', a: '小鎮購物', d: '1.5h' },
+          { t: '18:00', a: '瑞士傳統晚餐', d: '2h' },
+          { t: '20:30', a: '早睡（明天冰川列車）', d: '-' }
+        ], map: ['Samedan Station', 'St Moritz'], route: '蘇黎世 🚂 → Chur → 薩梅丹（3小時）' },
+        
+        { date: '2/12 (四)', title: '🚂 冰川列車', icon: '🚂', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, first: true, schedule: [
+          { t: '07:00', a: '早餐', d: '1h' },
+          { t: '08:00', a: '🏨 退房 (10:00前)', d: '-' },
+          { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' },
+          { t: '10:00', a: '📸 蘭德瓦瑟高架橋', d: '-' },
+          { t: '12:00', a: '🍽️ 車上2道式午餐', d: '1.5h' },
+          { t: '14:00', a: '⛰️ 上阿爾卑斯山口 2,033m', d: '-' },
+          { t: '17:07', a: '抵達采爾馬特', d: '-' },
+          { t: '17:30', a: '🏨 入住 Airbnb (16:00後)', d: '30m' },
+          { t: '18:00', a: '小鎮漫步', d: '1h' },
           { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Lake Geneva'], route: '日內瓦市區' },
-        { date: '2/19 (四)', title: '🇩🇪德國購物', icon: '🛍️', loc: '蘇黎世', hotel: '蘇黎世 Zurich HB', fam: true, hl: true, schedule: [
-          { t: '09:30', a: '🚂 日內瓦→蘇黎世', d: '2h45m' }, { t: '14:00', a: '🚂 蘇黎世→康斯坦茨', d: '1h15m' },
-          { t: '15:15', a: 'dm 藥妝店', d: '1h' }, { t: '18:00', a: '返回蘇黎世', d: '1h15m' }
-        ], map: ['Konstanz'], route: '日內瓦 🚂 → 蘇黎世 🚂 → 康斯坦茨🇩🇪' },
-        { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', hotel: '', fam: true, schedule: [
-          { t: '08:00', a: '前往機場', d: '15m' }, { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
-          { t: '+1日', a: '06:15 抵達香港', d: '-' }
-        ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港' }
-      ],
-      hotels: [
-        { id: 1, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/7 (六)', checkOut: '2/11 (三)', nights: 4, note: 'Eva 2/7先到', airbnbListUrl: 'https://www.airbnb.co.uk/wishlists/invite/3dddc27c-72a6-4c48-97b3-f0149aecb5e6?s=67&unique_share_id=22e5018b-633a-4ea7-b067-594c3d4abaad', airbnbs: [], hotels: [] },
-        { id: 2, location: '聖莫里茲', locationEn: 'St. Moritz Dorf / Station', checkIn: '2/11 (三)', checkOut: '2/12 (四)', nights: 1, note: '冰川列車前一晚', airbnbListUrl: '', airbnbs: [], hotels: [
-          { name: 'Hotel Schweizerhof St. Moritz', pricePerNight: 1190, url: 'https://www.simplebooking.it/ibe2/hotel/4942?lang=EN&cur=CHF', selected: false },
-          { name: 'HOTEL STEFFANI', pricePerNight: 1172, url: 'https://steffani.ch/', selected: false }
-        ] },
-        { id: 3, location: '采爾馬特', locationEn: 'Zermatt Station / Bahnhofstrasse', checkIn: '2/12 (四)', checkOut: '2/15 (日)', nights: 3, note: '含情人節❤️', airbnbListUrl: '', airbnbs: [], hotels: [
-          { name: 'Schweizerhof Zermatt', pricePerNight: 607.5, url: 'https://www.schweizerhofzermatt.ch/en/', selected: false },
-          { name: 'Vrony Apartments by Hotel Walliserhof', pricePerNight: 865, url: 'https://www.booking.com/hotel/ch/the-rooftop-by-walliserhof-zermatt.en-gb.html', selected: false },
-          { name: 'Hotel Ambassador Zermatt', pricePerNight: 1464, url: 'https://www.booking.com/hotel/ch/ambassador-zermatt.en-gb.html', selected: false }
-        ] },
-        { id: 4, location: '因特拉肯', locationEn: 'Interlaken Ost (東站)', checkIn: '2/15 (日)', checkOut: '2/17 (二)', nights: 2, note: '少女峰出發站', airbnbListUrl: '', airbnbs: [
-          { name: 'River-Kissed Retreat with Jungfraujoch View', pricePerNight: 467, url: 'https://www.airbnb.co.uk/rooms/1434225833129440565?adults=5&check_in=2026-02-15&check_out=2026-02-17', selected: false },
-          { name: 'Swiss Hotel Apartments - Two Bedroom', pricePerNight: 876.26, url: 'https://www.airbnb.co.uk/rooms/45729237?adults=5&check_in=2026-02-15&check_out=2026-02-17', selected: false }
-        ], hotels: [
-          { name: 'Stay Switzerland Apartments', pricePerNight: 597, url: 'https://www.booking.com/hotel/ch/mountain-view-apartment-interlaken.en-gb.html', selected: false },
-          { name: 'Modern City Apartments', pricePerNight: 625, url: 'https://www.booking.com/hotel/ch/modern-city-apartment.en-gb.html', selected: false },
-          { name: 'Downtown Family&Friends', pricePerNight: 236, url: 'https://www.booking.com/hotel/ch/downtown-family-rooms-interlaken.en-gb.html', selected: false }
-        ] },
-        { id: 5, location: '日內瓦', locationEn: 'Geneva Cornavin', checkIn: '2/17 (二)', checkOut: '2/19 (四)', nights: 2, note: '家人獨自', airbnbListUrl: '', airbnbs: [], hotels: [
-          { name: 'Hotel Cristal Design', pricePerNight: 366, url: 'https://www.booking.com/hotel/ch/christal.en-gb.html', selected: false },
-          { name: 'Hotel International & Terminus', pricePerNight: 403, url: 'https://www.booking.com/hotel/ch/international-terminus.en-gb.html', selected: false },
-          { name: 'ibis Geneve Centre Lac', pricePerNight: 325, url: 'https://www.booking.com/hotel/ch/ibis-geneve-centre-lac.html', selected: false }
-        ] },
-        { id: 6, location: '蘇黎世', locationEn: 'Zurich HB / Hauptbahnhof', checkIn: '2/19 (四)', checkOut: '2/20 (五)', nights: 1, note: '回程前一晚', airbnbListUrl: '', airbnbs: [], hotels: [
-          { name: 'Hotel Bristol Zurich', pricePerNight: 284, url: 'https://www.booking.com/hotel/ch/bristol.en-gb.html', selected: false },
-          { name: 'Aparthotel Adagio Zurich City Center', pricePerNight: 322, url: 'https://www.booking.com/hotel/ch/aparthotel-adagio-zurich-center.en-gb.html', selected: false },
-          { name: 'Townhouse Boutique Hotel', pricePerNight: 482, url: 'https://www.booking.com/hotel/ch/townhouse-boutique.en-gb.html', selected: false }
-        ] }
+        ], map: ['St Moritz Station', 'Zermatt'], route: '薩梅丹 🚂 → 采爾馬特（冰川列車 8h30m）',
+        booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐x5' } },
+        
+        { date: '2/13 (五)', title: '馬特洪峰', icon: '🏔️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], schedule: [
+          { t: '08:00', a: '早餐', d: '1h' },
+          { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' },
+          { t: '09:45', a: '抵達 Gornergrat 3,089m', d: '-' },
+          { t: '10:00', a: '馬特洪峰觀景・拍照', d: '2h' },
+          { t: '12:00', a: '山頂午餐', d: '1h' },
+          { t: '13:30', a: '下山・中途站健行', d: '2h' },
+          { t: '16:00', a: '返回采爾馬特', d: '-' },
+          { t: '17:00', a: '小鎮購物', d: '2h' },
+          { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['Zermatt', 'Gornergrat'], route: '采爾馬特 🚂 → Gornergrat → 采爾馬特' },
+        
+        { date: '2/14 (六)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, schedule: [
+          { t: '09:00', a: '睡到自然醒・早午餐', d: '2h' },
+          { t: '11:00', a: 'Sunnegga 纜車', d: '3m' },
+          { t: '11:30', a: '馬特洪峰拍照點', d: '1.5h' },
+          { t: '13:00', a: '山上午餐', d: '1h' },
+          { t: '14:30', a: '下山', d: '-' },
+          { t: '15:00', a: '采爾馬特小鎮漫步', d: '2h' },
+          { t: '17:00', a: 'Spa / 休息', d: '2h' },
+          { t: '19:30', a: '❤️ 情人節晚餐', d: '2.5h' }
+        ], map: ['Zermatt', 'Sunnegga Zermatt'], route: '采爾馬特悠閒日' },
+        
+        { date: '2/15 (日)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', hotel: CONFIRMED_HOTELS[3], schedule: [
+          { t: '08:00', a: '早餐', d: '1h' },
+          { t: '09:00', a: '🏨 退房 (10:00前)', d: '-' },
+          { t: '09:15', a: '🚂 采爾馬特→因特拉肯', d: '2h30m' },
+          { t: '11:45', a: '抵達因特拉肯', d: '-' },
+          { t: '12:00', a: '寄放行李', d: '-' },
+          { t: '13:00', a: '午餐', d: '1h' },
+          { t: '14:30', a: '因特拉肯小鎮漫步', d: '1.5h' },
+          { t: '16:00', a: '🏨 入住 Airbnb', d: '30m' },
+          { t: '16:30', a: 'Höheweg 大道', d: '1h' },
+          { t: '18:00', a: '湖畔散步', d: '1h' },
+          { t: '19:30', a: '晚餐', d: '2h' }
+        ], map: ['Interlaken Ost'], route: '采爾馬特 🚂 → Visp → Spiez → 因特拉肯（2.5小時）' },
+        
+        { date: '2/16 (一)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hotel: CONFIRMED_HOTELS[3], hl: true, schedule: [
+          { t: '07:30', a: '早餐', d: '30m' },
+          { t: '08:30', a: '🚡 Eiger Express 纜車', d: '15m' },
+          { t: '09:00', a: '🚂 少女峰鐵路', d: '30m' },
+          { t: '09:30', a: '抵達少女峰站 3,454m', d: '-' },
+          { t: '10:00', a: '斯芬克斯觀景台', d: '1h' },
+          { t: '11:00', a: '冰宮 Ice Palace', d: '45m' },
+          { t: '12:00', a: '山頂午餐', d: '1h' },
+          { t: '13:00', a: '雪地活動/拍照', d: '2h' },
+          { t: '15:30', a: '下山返回因特拉肯', d: '1h' },
+          { t: '17:00', a: '休息・準備明天', d: '-' }
+        ], map: ['Jungfraujoch'], route: '因特拉肯 🚂 → Grindelwald 🚡 → 少女峰' },
+        
+        { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', hotel: CONFIRMED_HOTELS[4], schedule: [
+          { t: '07:30', a: '早餐', d: '30m' },
+          { t: '08:30', a: '🏨 退房 (11:00前)', d: '-' },
+          { t: '08:30', a: '🚂 因特拉肯→日內瓦', d: '2h45m' },
+          { t: '11:15', a: '抵達日內瓦', d: '-' },
+          { t: '11:30', a: '行李寄存・告別', d: '30m' },
+          { t: '12:00', a: '✈️ Eva前往機場', d: '20m' },
+          { t: '---', a: '─── Eva航班 ───', d: '-' },
+          { t: '20:35', a: '✈️ EZY8498 GVA→LGW', d: '1h40m' },
+          { t: '---', a: '─── 家人行程 ───', d: '-' },
+          { t: '12:00', a: '午餐', d: '1h' },
+          { t: '14:00', a: '🏨 入住 Accor', d: '30m' },
+          { t: '14:30', a: '大噴泉 Jet d\'Eau', d: '30m' },
+          { t: '15:30', a: '花鐘・老城', d: '2h' },
+          { t: '17:30', a: '聯合國萬國宮', d: '1h' },
+          { t: '19:00', a: '湖畔晚餐', d: '2h' }
+        ], map: ['Geneva Cornavin', 'Jet dEau Geneva'], route: '因特拉肯 🚂 → 日內瓦 | Eva ✈️ → 英國',
+        flight: { eva: 'EZY8498 GVA 20:35→LGW 21:15' } },
+        
+        { date: '2/18 (三)', title: '日內瓦→蘇黎世', icon: '⛲', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[5], fam: true, schedule: [
+          { t: '09:00', a: '早餐', d: '1h' },
+          { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' },
+          { t: '12:00', a: '🏨 退房 (12:00前)', d: '-' },
+          { t: '12:00', a: '午餐', d: '1h' },
+          { t: '13:30', a: '聖彼得大教堂', d: '1h' },
+          { t: '15:00', a: '購物・準備離開', d: '1h' },
+          { t: '16:30', a: '🚂 日內瓦→蘇黎世', d: '2h45m' },
+          { t: '19:15', a: '抵達蘇黎世', d: '-' },
+          { t: '19:30', a: '🏨 入住 Vision Apartments (15:00後)', d: '30m' },
+          { t: '20:00', a: '晚餐', d: '1.5h' }
+        ], map: ['Lake Geneva', 'Zurich HB'], route: '日內瓦 🚂 → 蘇黎世（2h45m）' },
+        
+        { date: '2/19 (四)', title: '🇩🇪 德國購物', icon: '🛍️', loc: '康斯坦茨', hotel: CONFIRMED_HOTELS[5], fam: true, hl: true, schedule: [
+          { t: '09:00', a: '早餐', d: '1h' },
+          { t: '10:00', a: '🚂 蘇黎世→康斯坦茨', d: '1h15m' },
+          { t: '11:15', a: '抵達康斯坦茨', d: '-' },
+          { t: '11:30', a: '🛍️ dm 藥妝店', d: '1h' },
+          { t: '12:30', a: '午餐', d: '1h' },
+          { t: '13:30', a: '🛍️ Rossmann', d: '45m' },
+          { t: '14:15', a: '🛍️ Müller 百貨', d: '45m' },
+          { t: '15:00', a: '老城逛逛', d: '1h' },
+          { t: '16:30', a: '🚂 返回蘇黎世', d: '1h15m' },
+          { t: '18:00', a: '蘇黎世最後購物', d: '1.5h' },
+          { t: '19:30', a: '最後晚餐', d: '2h' }
+        ], map: ['Zurich HB', 'Konstanz Station'], route: '蘇黎世 🚂 → 康斯坦茨🇩🇪 → 蘇黎世' },
+        
+        { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', hotel: null, fam: true, schedule: [
+          { t: '06:30', a: '起床・最後整理', d: '30m' },
+          { t: '07:00', a: '早餐', d: '45m' },
+          { t: '08:00', a: '🏨 退房 (10:00前)', d: '-' },
+          { t: '08:15', a: '🚂 前往蘇黎世機場', d: '15m' },
+          { t: '08:30', a: 'Check-in', d: '1h' },
+          { t: '09:30', a: '機場免稅店', d: '1.5h' },
+          { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
+          { t: '+1日', a: '06:15 抵達香港', d: '-' },
+          { t: '08:55', a: '🛬 CX452 抵達高雄', d: '-' }
+        ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港 → 高雄',
+        flight: { family: 'CX382 ZRH 11:55→HKG 06:15+1 | CX452 HKG 08:55→KHH 10:25' } }
       ],
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
-          { n: 'Eva 英國↔瑞士機票', c: 180, note: '' },
+          { n: 'Eva 英國⇄瑞士機票', c: 180, note: 'easyJet' },
           { n: 'Swiss Travel Pass 8天 x5', c: 2245, note: 'CHF 449/人' },
           { n: '冰川列車訂位費 x5（頭等）', c: 345, note: 'CHF 69/人' },
           { n: '冰川列車午餐 x5', c: 210, note: '' },
@@ -338,12 +487,12 @@
           { n: 'Gornergrat 鐵路 x5', c: 450, note: '' }
         ]},
         { cat: 'hotel', label: '🏨 住宿', items: [
-          { n: '蘇黎世 4晚', c: 800, note: '' },
-          { n: '聖莫里茲 1晚', c: 300, note: '' },
-          { n: '采爾馬特 3晚', c: 750, note: '' },
-          { n: '因特拉肯 2晚', c: 400, note: '' },
-          { n: '日內瓦 2晚', c: 360, note: '' },
-          { n: '蘇黎世 1晚', c: 200, note: '' }
+          { n: '蘇黎世 3晚 (2/8-11)', c: 600, note: 'Airbnb' },
+          { n: '薩梅丹 1晚 (2/11-12)', c: 300, note: 'Booking.com' },
+          { n: '采爾馬特 3晚 (2/12-15)', c: 750, note: 'Airbnb' },
+          { n: '因特拉肯 2晚 (2/15-17)', c: 400, note: 'Airbnb' },
+          { n: '日內瓦 1晚 (2/17-18)', c: 180, note: 'Accor 家人' },
+          { n: '蘇黎世 2晚 (2/18-20)', c: 400, note: 'Vision Apartments 家人' }
         ]},
         { cat: 'activity', label: '🎫 活動', items: [
           { n: '列支敦士登', c: 75, note: '' }
@@ -359,60 +508,32 @@
     };
 
     const FILE_PASSWORD = '558894';
-    // 使用 DEFAULT_DATA 作為基礎，合併用戶的 selected 狀態
-    function loadHotels() {
-      const saved = JSON.parse(localStorage.getItem('swissHotelsSelected')) || {};
-      return DEFAULT_DATA.hotels.map(h => ({
-        ...h,
-        airbnbs: h.airbnbs.map((a, i) => ({ ...a, selected: saved[`${h.id}-a-${i}`] || false })),
-        hotels: h.hotels.map((hotel, i) => ({ ...hotel, selected: saved[`${h.id}-h-${i}`] || false }))
-      }));
-    }
-
     let state = {
       rate: 36,
-      budget: JSON.parse(localStorage.getItem('swissBudget5')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
-      packing: JSON.parse(localStorage.getItem('swissPacking5')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
-      checked: JSON.parse(localStorage.getItem('swissChecked5')) || {},
-      files: JSON.parse(localStorage.getItem('swissFiles3')) || [],
-      fileCategories: JSON.parse(localStorage.getItem('swissFileCats3')) || [...DEFAULT_DATA.fileCategories],
-      hotels: loadHotels(),
+      budget: JSON.parse(localStorage.getItem('swissBudget6')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
+      packing: JSON.parse(localStorage.getItem('swissPacking6')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
+      checked: JSON.parse(localStorage.getItem('swissChecked6')) || {},
+      files: JSON.parse(localStorage.getItem('swissFiles4')) || [],
+      fileCategories: JSON.parse(localStorage.getItem('swissFileCats4')) || [...DEFAULT_DATA.fileCategories],
       filesUnlocked: false,
       openDays: {}
     };
 
     function save() {
-      localStorage.setItem('swissBudget5', JSON.stringify(state.budget));
-      localStorage.setItem('swissPacking5', JSON.stringify(state.packing));
-      localStorage.setItem('swissChecked5', JSON.stringify(state.checked));
-      localStorage.setItem('swissFiles3', JSON.stringify(state.files));
-      localStorage.setItem('swissFileCats3', JSON.stringify(state.fileCategories));
-      localStorage.setItem('swissRate5', state.rate);
-      // 只儲存 selected 狀態
-      const selectedMap = {};
-      state.hotels.forEach(h => {
-        h.airbnbs.forEach((a, i) => { if (a.selected) selectedMap[`${h.id}-a-${i}`] = true; });
-        h.hotels.forEach((hotel, i) => { if (hotel.selected) selectedMap[`${h.id}-h-${i}`] = true; });
-      });
-      localStorage.setItem('swissHotelsSelected', JSON.stringify(selectedMap));
+      localStorage.setItem('swissBudget6', JSON.stringify(state.budget));
+      localStorage.setItem('swissPacking6', JSON.stringify(state.packing));
+      localStorage.setItem('swissChecked6', JSON.stringify(state.checked));
+      localStorage.setItem('swissFiles4', JSON.stringify(state.files));
+      localStorage.setItem('swissFileCats4', JSON.stringify(state.fileCategories));
+      localStorage.setItem('swissRate6', state.rate);
     }
 
-    const savedRate = localStorage.getItem('swissRate5');
+    const savedRate = localStorage.getItem('swissRate6');
     if (savedRate) state.rate = parseFloat(savedRate);
 
     function genMapUrl(points) {
       if (!points?.length) return '';
       return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(points[0])}`;
-    }
-
-    function formatPrice(chf, nights) {
-      const total = chf * nights;
-      const twdPerNight = Math.round(chf * state.rate);
-      const twdTotal = Math.round(total * state.rate);
-      return {
-        perNight: `CHF ${chf}/晚 (NT$${twdPerNight.toLocaleString()})`,
-        total: `總計 CHF ${total} (NT$${twdTotal.toLocaleString()})`
-      };
     }
 
     function openModal(title, bodyHtml) {
@@ -433,7 +554,7 @@
                 <div class="day-date">${day.date}</div>
                 <div class="day-title">${day.title}</div>
                 <div class="day-loc">📍 ${day.loc}</div>
-                ${day.hotel ? `<div class="day-loc" style="color:#7c3aed;">🏨 ${day.hotel}</div>` : ''}
+                ${day.hotel ? `<div class="day-hotel">🏨 ${day.hotel.location.split(' ')[0]}</div>` : ''}
               </div>
             </div>
             <div class="day-right">
@@ -445,7 +566,18 @@
           </button>
           <div class="day-content" id="content-${i}">
             ${day.route ? `<div class="route-section"><h4>🚂 交通</h4><div>${day.route}</div></div>` : ''}
-            ${day.booking ? `<div class="booking-info"><strong>🎫 訂位</strong><br>車廂${day.booking.car} 座位${day.booking.seats}<br>${day.booking.class} ${day.booking.meal}</div>` : ''}
+            ${day.flight ? `<div class="flight-info"><strong>✈️ 航班資訊</strong><br>${day.flight.eva ? `Eva: ${day.flight.eva}<br>` : ''}${day.flight.family ? `家人: ${day.flight.family}` : ''}</div>` : ''}
+            ${day.booking ? `<div class="booking-info"><strong>🎫 冰川列車訂位</strong><br>車廂${day.booking.car} 座位${day.booking.seats}<br>${day.booking.class} ${day.booking.meal}</div>` : ''}
+            ${day.hotel ? `<div class="hotel-info">
+              <strong>🏨 今晚住宿</strong><span class="confirmed-badge">✓ 已確認</span>
+              <div style="margin-top:8px;"><strong>${day.hotel.location}</strong></div>
+              <div style="color:#4b5563;">${day.hotel.address}</div>
+              <div style="color:#16a34a;">⏰ 入住 ${day.hotel.checkinTime} | 退房 ${day.hotel.checkoutTime}</div>
+              <div class="hotel-btns">
+                <a href="${day.hotel.mapUrl}" target="_blank" class="hotel-btn map">📍 導航</a>
+                <a href="${day.hotel.bookingUrl}" target="_blank" class="hotel-btn book">🔗 ${day.hotel.platform}</a>
+              </div>
+            </div>` : ''}
             <div class="schedule">${day.schedule.map(s => `
               <div class="schedule-item">
                 <span class="schedule-time">${s.t}</span>
@@ -466,200 +598,37 @@
 
     // Hotels
     function renderHotels() {
+      const totalNights = CONFIRMED_HOTELS.reduce((sum, h) => sum + h.nights, 0);
       document.getElementById('hotel-tab').innerHTML = `
-        <div class="info-box" style="margin-bottom:16px;">
-          💡 匯率：1 CHF = ${state.rate} TWD <span onclick="editRate()" style="cursor:pointer;text-decoration:underline;margin-left:8px;">修改</span>
+        <div class="card" style="padding:16px;margin-bottom:16px;background:linear-gradient(to right,#dcfce7,#d1fae5);">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:2rem;">✅</span>
+            <div>
+              <div style="font-weight:600;color:#16a34a;">全部住宿已確認！</div>
+              <div style="font-size:0.875rem;color:#15803d;">共 ${totalNights} 晚 · 6 間住宿</div>
+            </div>
+          </div>
         </div>
-        ${state.hotels.map((h, hi) => `
+        ${CONFIRMED_HOTELS.map(h => `
           <div class="hotel-card">
             <div class="hotel-card-header">
               <div class="hotel-location">📍 ${h.location}<span class="hotel-nights">${h.nights}晚</span></div>
-              <div class="hotel-location-en">${h.locationEn}</div>
-              <div class="hotel-dates">📅 入住 ${h.checkIn} → 退房 ${h.checkOut}</div>
-              <div class="hotel-dates" style="opacity:0.8;">${h.note ? `💬 ${h.note}` : ''}</div>
+              <div class="hotel-dates">入住 ${h.checkIn} → 退房 ${h.checkOut} ${h.note ? `・${h.note}` : ''}</div>
             </div>
             <div class="hotel-card-body">
-              <!-- Airbnb Section -->
-              <div class="hotel-section">
-                <div class="hotel-section-header">
-                  <span class="hotel-section-title airbnb">🏠 Airbnb</span>
-                </div>
-                ${h.airbnbListUrl ? `
-                  <div class="airbnb-list-link">
-                    <span>📋</span>
-                    <a href="${h.airbnbListUrl}" target="_blank">${h.airbnbListUrl}</a>
-                    <button class="btn-icon edit" onclick="editAirbnbListUrl(${hi})">✏️</button>
-                    <button class="btn-icon delete" onclick="deleteAirbnbListUrl(${hi})">🗑️</button>
-                  </div>
-                ` : `
-                  <button class="add-option-btn airbnb" onclick="addAirbnbListUrl(${hi})" style="margin-bottom:8px;">🔗 設定 Airbnb 清單連結</button>
-                `}
-                ${h.airbnbs?.length ? h.airbnbs.map((opt, oi) => {
-                  const price = formatPrice(opt.pricePerNight, h.nights);
-                  return `
-                  <div class="hotel-option airbnb ${opt.selected ? 'selected' : ''}">
-                    <div class="option-number airbnb">${oi + 1}</div>
-                    <div class="option-info">
-                      <div class="option-name">${opt.name}</div>
-                      <div class="option-price">${price.perNight}</div>
-                      <div class="option-price-detail">${price.total}</div>
-                      ${opt.url ? `<a href="${opt.url}" target="_blank" class="option-link">🔗 查看</a>` : ''}
-                    </div>
-                    <div class="option-actions">
-                      <button class="btn-icon" onclick="toggleSelect(${hi}, 'airbnbs', ${oi})">${opt.selected ? '✅' : '⭕'}</button>
-                      <button class="btn-icon edit" onclick="editOption(${hi}, 'airbnbs', ${oi})">✏️</button>
-                      <button class="btn-icon delete" onclick="deleteOption(${hi}, 'airbnbs', ${oi})">🗑️</button>
-                    </div>
-                  </div>
-                `}).join('') : ''}
-                <button class="add-option-btn airbnb" onclick="addOption(${hi}, 'airbnbs')">➕ 添加 Airbnb</button>
+              <div class="hotel-address">
+                <div class="hotel-address-label">📍 地址</div>
+                <div>${h.address}</div>
+                <div class="hotel-checkin">⏰ 入住 ${h.checkinTime} | 退房 ${h.checkoutTime}</div>
               </div>
-
-              <!-- Hotel Section -->
-              <div class="hotel-section">
-                <div class="hotel-section-header">
-                  <span class="hotel-section-title hotel">🏨 飯店</span>
-                </div>
-                ${h.hotels?.length ? h.hotels.map((opt, oi) => {
-                  const price = formatPrice(opt.pricePerNight, h.nights);
-                  return `
-                  <div class="hotel-option hotel-type ${opt.selected ? 'selected' : ''}">
-                    <div class="option-number hotel-type">${oi + 1}</div>
-                    <div class="option-info">
-                      <div class="option-name">${opt.name}</div>
-                      <div class="option-price">${price.perNight}</div>
-                      <div class="option-price-detail">${price.total}</div>
-                      ${opt.url ? `<a href="${opt.url}" target="_blank" class="option-link">🔗 查看</a>` : ''}
-                    </div>
-                    <div class="option-actions">
-                      <button class="btn-icon" onclick="toggleSelect(${hi}, 'hotels', ${oi})">${opt.selected ? '✅' : '⭕'}</button>
-                      <button class="btn-icon edit" onclick="editOption(${hi}, 'hotels', ${oi})">✏️</button>
-                      <button class="btn-icon delete" onclick="deleteOption(${hi}, 'hotels', ${oi})">🗑️</button>
-                    </div>
-                  </div>
-                `}).join('') : ''}
-                <button class="add-option-btn hotel-type" onclick="addOption(${hi}, 'hotels')">➕ 添加飯店</button>
+              <div class="hotel-card-btns">
+                <a href="${h.mapUrl}" target="_blank" class="hotel-card-btn map">📍 Google Maps 導航</a>
+                <a href="${h.bookingUrl}" target="_blank" class="hotel-card-btn book">🔗 ${h.platform}</a>
               </div>
             </div>
           </div>
         `).join('')}
       `;
-    }
-
-    function addAirbnbListUrl(hi) {
-      openModal('🔗 Airbnb 清單連結', `
-        <div class="form-group">
-          <label class="form-label">Airbnb Wishlist 連結</label>
-          <input type="url" id="airbnb-list-url" class="form-input" placeholder="https://www.airbnb.com/wishlists/...">
-          <div class="form-hint">貼上你在 Airbnb 建立的清單連結</div>
-        </div>
-        <button class="form-btn primary" onclick="saveAirbnbListUrl(${hi})">儲存</button>
-      `);
-    }
-
-    function saveAirbnbListUrl(hi) {
-      state.hotels[hi].airbnbListUrl = document.getElementById('airbnb-list-url').value.trim();
-      save(); renderHotels(); closeModal();
-    }
-
-    function editAirbnbListUrl(hi) {
-      openModal('🔗 編輯連結', `
-        <div class="form-group">
-          <label class="form-label">Airbnb Wishlist 連結</label>
-          <input type="url" id="airbnb-list-url" class="form-input" value="${state.hotels[hi].airbnbListUrl || ''}">
-        </div>
-        <button class="form-btn primary" onclick="saveAirbnbListUrl(${hi})">儲存</button>
-      `);
-    }
-
-    function deleteAirbnbListUrl(hi) {
-      if (confirm('刪除連結？')) {
-        state.hotels[hi].airbnbListUrl = '';
-        save(); renderHotels();
-      }
-    }
-
-    function addOption(hi, type) {
-      const label = type === 'airbnbs' ? 'Airbnb' : '飯店';
-      const nights = state.hotels[hi].nights;
-      openModal(`➕ 添加${label}`, `
-        <div class="form-group">
-          <label class="form-label">名稱</label>
-          <input type="text" id="opt-name" class="form-input" placeholder="${label}名稱">
-        </div>
-        <div class="form-group">
-          <label class="form-label">每晚價格 (CHF)</label>
-          <input type="number" id="opt-price" class="form-input" placeholder="150" oninput="calcTotal(${nights})">
-          <div class="form-hint" id="price-calc"></div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">連結</label>
-          <input type="url" id="opt-url" class="form-input" placeholder="https://...">
-        </div>
-        <button class="form-btn primary" onclick="saveOption(${hi}, '${type}')">確認</button>
-      `);
-    }
-
-    function calcTotal(nights) {
-      const price = parseFloat(document.getElementById('opt-price').value) || 0;
-      const total = price * nights;
-      const twdPerNight = Math.round(price * state.rate);
-      const twdTotal = Math.round(total * state.rate);
-      document.getElementById('price-calc').innerHTML = price ? 
-        `每晚 NT$${twdPerNight.toLocaleString()} ｜ ${nights}晚總計 CHF ${total} (NT$${twdTotal.toLocaleString()})` : '';
-    }
-
-    function saveOption(hi, type) {
-      const name = document.getElementById('opt-name').value.trim();
-      const pricePerNight = parseFloat(document.getElementById('opt-price').value) || 0;
-      const url = document.getElementById('opt-url').value.trim();
-      if (!name) return alert('請填寫名稱');
-      if (!state.hotels[hi][type]) state.hotels[hi][type] = [];
-      state.hotels[hi][type].push({ name, pricePerNight, url, selected: false });
-      save(); renderHotels(); closeModal();
-    }
-
-    function editOption(hi, type, oi) {
-      const opt = state.hotels[hi][type][oi];
-      const label = type === 'airbnbs' ? 'Airbnb' : '飯店';
-      const nights = state.hotels[hi].nights;
-      openModal(`✏️ 編輯${label}`, `
-        <div class="form-group">
-          <label class="form-label">名稱</label>
-          <input type="text" id="opt-name" class="form-input" value="${opt.name}">
-        </div>
-        <div class="form-group">
-          <label class="form-label">每晚價格 (CHF)</label>
-          <input type="number" id="opt-price" class="form-input" value="${opt.pricePerNight || ''}" oninput="calcTotal(${nights})">
-          <div class="form-hint" id="price-calc">${opt.pricePerNight ? `每晚 NT$${Math.round(opt.pricePerNight * state.rate).toLocaleString()} ｜ ${nights}晚總計 CHF ${opt.pricePerNight * nights} (NT$${Math.round(opt.pricePerNight * nights * state.rate).toLocaleString()})` : ''}</div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">連結</label>
-          <input type="url" id="opt-url" class="form-input" value="${opt.url || ''}">
-        </div>
-        <button class="form-btn primary" onclick="updateOption(${hi}, '${type}', ${oi})">儲存</button>
-      `);
-    }
-
-    function updateOption(hi, type, oi) {
-      const name = document.getElementById('opt-name').value.trim();
-      const pricePerNight = parseFloat(document.getElementById('opt-price').value) || 0;
-      const url = document.getElementById('opt-url').value.trim();
-      if (!name) return alert('請填寫名稱');
-      state.hotels[hi][type][oi] = { ...state.hotels[hi][type][oi], name, pricePerNight, url };
-      save(); renderHotels(); closeModal();
-    }
-
-    function deleteOption(hi, type, oi) {
-      if (confirm('刪除？')) {
-        state.hotels[hi][type].splice(oi, 1);
-        save(); renderHotels();
-      }
-    }
-
-    function toggleSelect(hi, type, oi) {
-      state.hotels[hi][type][oi].selected = !state.hotels[hi][type][oi].selected;
-      save(); renderHotels();
     }
 
     // Budget
@@ -700,7 +669,7 @@
         <button class="form-btn primary" onclick="saveRate()">儲存</button>
       `);
     }
-    function saveRate() { const val = parseFloat(document.getElementById('rate-input').value); if (val > 0) { state.rate = val; save(); renderBudget(); renderHotels(); closeModal(); } }
+    function saveRate() { const val = parseFloat(document.getElementById('rate-input').value); if (val > 0) { state.rate = val; save(); renderBudget(); closeModal(); } }
 
     function addBudgetItem() {
       openModal('➕ 新增', `
@@ -755,8 +724,8 @@
         ${Object.entries(state.packing).map(([cat, items]) => {
           const catDone = items.filter(i => state.checked[i]).length;
           return `<div class="card" style="padding:16px;">
-            <div class="cat-header"><span class="cat-title">${cat}</span><div class="cat-actions"><span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span><button class="btn-icon delete" onclick="deletePackingCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button></div></div>
-            ${items.map((item, idx) => `<div class="check-item ${state.checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\'")}')"><div class="checkbox">${state.checked[item] ? '✓' : ''}</div><span class="check-label">${item}</span><div class="check-actions" onclick="event.stopPropagation()"><button class="btn-icon edit" onclick="editPackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">✏️</button><button class="btn-icon delete" onclick="deletePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">🗑️</button></div></div>`).join('')}
+            <div class="cat-header"><span class="cat-title">${cat}</span><div class="cat-actions"><span class="cat-count ${catDone === items.length && items.length ? 'done' : ''}">${catDone}/${items.length}</span><button class="btn-icon delete" onclick="deletePackingCategory('${cat.replace(/'/g, "\\\\'")}')" >🗑️</button></div></div>
+            ${items.map((item, idx) => `<div class="check-item ${state.checked[item] ? 'checked' : ''}" onclick="toggleCheck('${item.replace(/'/g, "\\\\'")}')"><div class="checkbox">${state.checked[item] ? '✓' : ''}</div><span class="check-label">${item}</span><div class="check-actions" onclick="event.stopPropagation()"><button class="btn-icon edit" onclick="editPackingItem('${cat.replace(/'/g, "\\\\'")}', ${idx})">✏️</button><button class="btn-icon delete" onclick="deletePackingItem('${cat.replace(/'/g, "\\\\'")}', ${idx})">🗑️</button></div></div>`).join('')}
           </div>`;
         }).join('')}
         <button class="reset-btn" onclick="resetChecked()">🔄 重置</button>
@@ -783,7 +752,7 @@
     function editPackingItem(cat, idx) {
       openModal('✏️ 編輯', `
         <div class="form-group"><label class="form-label">物品</label><input type="text" id="packing-name" class="form-input" value="${state.packing[cat][idx]}"></div>
-        <button class="form-btn primary" onclick="updatePackingItem('${cat.replace(/'/g, "\\'")}', ${idx})">儲存</button>
+        <button class="form-btn primary" onclick="updatePackingItem('${cat.replace(/'/g, "\\\\'")}', ${idx})">儲存</button>
       `);
     }
 
@@ -836,8 +805,8 @@
         </div>
         ${state.fileCategories.map(cat => `
           <div class="file-category">
-            <div class="file-cat-header"><span class="file-cat-name">📁 ${cat}</span><div class="cat-actions"><span class="file-cat-count">${grouped[cat]?.length || 0}</span><button class="btn-icon delete" onclick="deleteFileCategory('${cat.replace(/'/g, "\\'")}')">🗑️</button></div></div>
-            ${grouped[cat]?.length ? grouped[cat].map((f, idx) => `<div class="file-item"><span class="file-icon">${f.type === 'application/pdf' ? '📄' : '🖼️'}</span><div class="file-info"><div class="file-name">${f.name}</div><div class="file-meta">${f.uploadDate}</div></div><div class="file-actions"><button class="btn-icon" onclick="viewFile(${state.files.indexOf(f)})">👁️</button><button class="btn-icon edit" onclick="editFile(${state.files.indexOf(f)})">✏️</button><button class="btn-icon delete" onclick="deleteFile(${state.files.indexOf(f)})">🗑️</button></div></div>`).join('') : '<div class="no-options">無檔案</div>'}
+            <div class="file-cat-header"><span class="file-cat-name">📁 ${cat}</span><div class="cat-actions"><span class="file-cat-count">${grouped[cat]?.length || 0}</span><button class="btn-icon delete" onclick="deleteFileCategory('${cat.replace(/'/g, "\\\\'")}')" >🗑️</button></div></div>
+            ${grouped[cat]?.length ? grouped[cat].map((f, idx) => `<div class="file-item"><span class="file-icon">${f.type === 'application/pdf' ? '📄' : '🖼️'}</span><div class="file-info"><div class="file-name">${f.name}</div><div class="file-meta">${f.uploadDate}</div></div><div class="file-actions"><button class="btn-icon" onclick="viewFile(${state.files.indexOf(f)})">👁️</button><button class="btn-icon edit" onclick="editFile(${state.files.indexOf(f)})">✏️</button><button class="btn-icon delete" onclick="deleteFile(${state.files.indexOf(f)})">🗑️</button></div></div>`).join('') : '<div style="text-align:center;padding:20px;color:#9ca3af;font-size:0.875rem;">無檔案</div>'}
           </div>
         `).join('')}
       `;
@@ -859,7 +828,7 @@
           openModal('📤 上傳', `
             <div class="form-group"><label class="form-label">名稱</label><input type="text" id="file-name" class="form-input" value="${file.name}"></div>
             <div class="form-group"><label class="form-label">分類</label><select id="file-category" class="form-select">${state.fileCategories.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
-            <button class="form-btn primary" onclick="saveFile('${e.target.result.replace(/'/g, "\\'")}', '${file.type}', ${file.size})">上傳</button>
+            <button class="form-btn primary" onclick="saveFile('${e.target.result.replace(/'/g, "\\\\'")}', '${file.type}', ${file.size})">上傳</button>
           `);
         };
         reader.readAsDataURL(file);
