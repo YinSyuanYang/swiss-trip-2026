@@ -568,6 +568,13 @@
             ${day.route ? `<div class="route-section"><h4>🚂 交通</h4><div>${day.route}</div></div>` : ''}
             ${day.flight ? `<div class="flight-info"><strong>✈️ 航班資訊</strong><br>${day.flight.eva ? `Eva: ${day.flight.eva}<br>` : ''}${day.flight.family ? `家人: ${day.flight.family}` : ''}</div>` : ''}
             ${day.booking ? `<div class="booking-info"><strong>🎫 冰川列車訂位</strong><br>車廂${day.booking.car} 座位${day.booking.seats}<br>${day.booking.class} ${day.booking.meal}</div>` : ''}
+            <div class="schedule">${day.schedule.map(s => `
+              <div class="schedule-item">
+                <span class="schedule-time">${s.t}</span>
+                <div><div class="schedule-activity">${s.a}</div>${s.d !== '-' ? `<div class="schedule-duration">⏱ ${s.d}</div>` : ''}</div>
+              </div>`).join('')}
+            </div>
+            ${day.map?.length ? `<a class="map-btn" href="${genMapUrl(day.map)}" target="_blank">🗺️ Google Maps</a>` : ''}
             ${day.hotel ? `<div class="hotel-info">
               <strong>🏨 今晚住宿</strong><span class="confirmed-badge">✓ 已確認</span>
               <div style="margin-top:8px;"><strong>${day.hotel.location}</strong></div>
@@ -578,13 +585,6 @@
                 <a href="${day.hotel.bookingUrl}" target="_blank" class="hotel-btn book">🔗 ${day.hotel.platform}</a>
               </div>
             </div>` : ''}
-            <div class="schedule">${day.schedule.map(s => `
-              <div class="schedule-item">
-                <span class="schedule-time">${s.t}</span>
-                <div><div class="schedule-activity">${s.a}</div>${s.d !== '-' ? `<div class="schedule-duration">⏱ ${s.d}</div>` : ''}</div>
-              </div>`).join('')}
-            </div>
-            ${day.map?.length ? `<a class="map-btn" href="${genMapUrl(day.map)}" target="_blank">🗺️ Google Maps</a>` : ''}
           </div>
         </div>
       `).join('');
