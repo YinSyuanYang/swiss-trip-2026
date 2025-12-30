@@ -221,20 +221,18 @@
 
   <div class="tabs">
     <button class="tab active" data-tab="itinerary"><span class="tab-icon">📅</span>行程</button>
-    <button class="tab" data-tab="ticket"><span class="tab-icon">🎫</span>票券</button>
     <button class="tab" data-tab="hotel"><span class="tab-icon">🏨</span>住宿</button>
     <button class="tab" data-tab="budget"><span class="tab-icon">💰</span>預算</button>
     <button class="tab" data-tab="packing"><span class="tab-icon">🧳</span>打包</button>
-    <button class="tab" data-tab="files"><span class="tab-icon">📁</span>文件</button>
+    <button class="tab" data-tab="ticket"><span class="tab-icon">🎫</span>票券</button>
   </div>
 
   <div class="content">
     <div id="itinerary-tab"></div>
-    <div id="ticket-tab" class="hidden"></div>
     <div id="hotel-tab" class="hidden"></div>
     <div id="budget-tab" class="hidden"></div>
     <div id="packing-tab" class="hidden"></div>
-    <div id="files-tab" class="hidden"></div>
+    <div id="ticket-tab" class="hidden"></div>
   </div>
 
   <div id="modal" class="modal hidden">
@@ -556,15 +554,13 @@
       fileCategories: ['Swiss Pass', '冰川列車', '酒店確認', '機票', '其他']
     };
 
-    const FILE_PASSWORD = '558894';
+    const TICKET_PASSWORD = '558894';
     let state = {
       rate: 36,
       budget: JSON.parse(localStorage.getItem('swissBudget7')) || JSON.parse(JSON.stringify(DEFAULT_DATA.budget)),
       packing: JSON.parse(localStorage.getItem('swissPacking6')) || JSON.parse(JSON.stringify(DEFAULT_DATA.packing)),
       checked: JSON.parse(localStorage.getItem('swissChecked6')) || {},
-      files: JSON.parse(localStorage.getItem('swissFiles4')) || [],
-      fileCategories: JSON.parse(localStorage.getItem('swissFileCats4')) || [...DEFAULT_DATA.fileCategories],
-      filesUnlocked: false,
+      ticketsUnlocked: false,
       openDays: {}
     };
 
@@ -572,8 +568,6 @@
       localStorage.setItem('swissBudget7', JSON.stringify(state.budget));
       localStorage.setItem('swissPacking6', JSON.stringify(state.packing));
       localStorage.setItem('swissChecked6', JSON.stringify(state.checked));
-      localStorage.setItem('swissFiles4', JSON.stringify(state.files));
-      localStorage.setItem('swissFileCats4', JSON.stringify(state.fileCategories));
       localStorage.setItem('swissRate6', state.rate);
     }
 
@@ -600,8 +594,18 @@
 
     // Tickets
     function renderTickets() {
+      const el = document.getElementById('ticket-tab');
+      if (!state.ticketsUnlocked) {
+        el.innerHTML = `<div class="lock-screen"><div class="lock-icon">🔒</div><div class="lock-title">票券已加密</div><div class="lock-desc">請輸入密碼查看票券</div><input type="password" id="ticket-password" class="password-input" maxlength="6"><br><button class="unlock-btn" onclick="unlockTickets()">🔓 解鎖</button><div id="password-error" class="error-msg hidden"></div></div>`;
+        setTimeout(() => { const input = document.getElementById('ticket-password'); if (input) input.addEventListener('keypress', e => { if (e.key === 'Enter') unlockTickets(); }); }, 100);
+        return;
+      }
+
       const passTotal = SWISS_PASSES.reduce((sum, p) => sum + p.price, 0);
-      document.getElementById('ticket-tab').innerHTML = `
+      el.innerHTML = `
+        <div class="packing-btns" style="margin-bottom:16px;">
+          <button class="add-btn" style="background:#ef4444;" onclick="lockTickets()">🔒 鎖定票券</button>
+        </div>
         <div class="ticket-card">
           <div class="ticket-header">
             <div class="ticket-title">🚂 Swiss Travel Pass</div>
@@ -656,6 +660,14 @@
         </div>
       `;
     }
+
+    function unlockTickets() {
+      const input = document.getElementById('ticket-password'), error = document.getElementById('password-error');
+      if (input.value === TICKET_PASSWORD) { state.ticketsUnlocked = true; renderTickets(); }
+      else { error.textContent = '密碼錯誤'; error.classList.remove('hidden'); input.value = ''; }
+    }
+
+    function lockTickets() { state.ticketsUnlocked = false; renderTickets(); }
 
     // Itinerary
     function renderItinerary() {
@@ -896,106 +908,11 @@
 
     function deletePackingCategory(cat) { if (confirm(`刪除「${cat}」？`)) { state.packing[cat].forEach(item => delete state.checked[item]); delete state.packing[cat]; save(); renderPacking(); } }
 
-    // Files
-    function renderFiles() {
-      const el = document.getElementById('files-tab');
-      if (!state.filesUnlocked) {
-        el.innerHTML = `<div class="lock-screen"><div class="lock-icon">🔒</div><div class="lock-title">文件已加密</div><div class="lock-desc">請輸入密碼</div><input type="password" id="file-password" class="password-input" maxlength="6"><br><button class="unlock-btn" onclick="unlockFiles()">🔓 解鎖</button><div id="password-error" class="error-msg hidden"></div></div>`;
-        setTimeout(() => { const input = document.getElementById('file-password'); if (input) input.addEventListener('keypress', e => { if (e.key === 'Enter') unlockFiles(); }); }, 100);
-        return;
-      }
-
-      const grouped = {}; state.fileCategories.forEach(cat => grouped[cat] = []);
-      state.files.forEach(f => { if (!grouped[f.category]) grouped[f.category] = []; grouped[f.category].push(f); });
-
-      el.innerHTML = `
-        <div class="upload-zone" onclick="document.getElementById('file-input').click()">
-          <div class="upload-icon">📤</div><div class="upload-text">點擊上傳</div><div class="upload-hint">PDF, JPG, PNG (max 5MB)</div>
-          <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" multiple style="display:none" onchange="handleFileUpload(event)">
-        </div>
-        <div class="packing-btns">
-          <button class="add-btn purple" onclick="addFileCategory()">📁 分類</button>
-          <button class="add-btn" style="background:#ef4444;" onclick="lockFiles()">🔒 鎖定</button>
-        </div>
-        ${state.fileCategories.map(cat => `
-          <div class="file-category">
-            <div class="file-cat-header"><span class="file-cat-name">📁 ${cat}</span><div class="cat-actions"><span class="file-cat-count">${grouped[cat]?.length || 0}</span><button class="btn-icon delete" onclick="deleteFileCategory('${cat.replace(/'/g, "\\\\'")}')" >🗑️</button></div></div>
-            ${grouped[cat]?.length ? grouped[cat].map((f, idx) => `<div class="file-item"><span class="file-icon">${f.type === 'application/pdf' ? '📄' : '🖼️'}</span><div class="file-info"><div class="file-name">${f.name}</div><div class="file-meta">${f.uploadDate}</div></div><div class="file-actions"><button class="btn-icon" onclick="viewFile(${state.files.indexOf(f)})">👁️</button><button class="btn-icon edit" onclick="editFile(${state.files.indexOf(f)})">✏️</button><button class="btn-icon delete" onclick="deleteFile(${state.files.indexOf(f)})">🗑️</button></div></div>`).join('') : '<div style="text-align:center;padding:20px;color:#9ca3af;font-size:0.875rem;">無檔案</div>'}
-          </div>
-        `).join('')}
-      `;
-    }
-
-    function unlockFiles() {
-      const input = document.getElementById('file-password'), error = document.getElementById('password-error');
-      if (input.value === FILE_PASSWORD) { state.filesUnlocked = true; renderFiles(); }
-      else { error.textContent = '密碼錯誤'; error.classList.remove('hidden'); input.value = ''; }
-    }
-
-    function lockFiles() { state.filesUnlocked = false; renderFiles(); }
-
-    function handleFileUpload(event) {
-      Array.from(event.target.files).forEach(file => {
-        if (file.size > 5 * 1024 * 1024) { alert('超過5MB'); return; }
-        const reader = new FileReader();
-        reader.onload = e => {
-          openModal('📤 上傳', `
-            <div class="form-group"><label class="form-label">名稱</label><input type="text" id="file-name" class="form-input" value="${file.name}"></div>
-            <div class="form-group"><label class="form-label">分類</label><select id="file-category" class="form-select">${state.fileCategories.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
-            <button class="form-btn primary" onclick="saveFile('${e.target.result.replace(/'/g, "\\\\'")}', '${file.type}', ${file.size})">上傳</button>
-          `);
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    function saveFile(data, type, size) {
-      const name = document.getElementById('file-name').value.trim();
-      if (!name) return alert('請填寫');
-      state.files.push({ name, category: document.getElementById('file-category').value, type, size, data, uploadDate: new Date().toLocaleDateString('zh-TW') });
-      save(); renderFiles(); closeModal();
-    }
-
-    function viewFile(idx) {
-      const f = state.files[idx], win = window.open();
-      win.document.write(f.type === 'application/pdf' ? `<iframe src="${f.data}" style="width:100%;height:100%;border:none;"></iframe>` : `<img src="${f.data}" style="max-width:100%;">`);
-    }
-
-    function editFile(idx) {
-      const f = state.files[idx];
-      openModal('✏️ 編輯', `
-        <div class="form-group"><label class="form-label">名稱</label><input type="text" id="file-name" class="form-input" value="${f.name}"></div>
-        <div class="form-group"><label class="form-label">分類</label><select id="file-category" class="form-select">${state.fileCategories.map(c => `<option value="${c}" ${c === f.category ? 'selected' : ''}>${c}</option>`).join('')}</select></div>
-        <button class="form-btn primary" onclick="updateFile(${idx})">儲存</button>
-      `);
-    }
-
-    function updateFile(idx) { state.files[idx].name = document.getElementById('file-name').value.trim(); state.files[idx].category = document.getElementById('file-category').value; save(); renderFiles(); closeModal(); }
-    function deleteFile(idx) { if (confirm('刪除？')) { state.files.splice(idx, 1); save(); renderFiles(); } }
-
-    function addFileCategory() {
-      openModal('📁 新增', `<div class="form-group"><label class="form-label">名稱</label><input type="text" id="cat-name" class="form-input"></div><button class="form-btn primary" onclick="saveFileCategory()">確認</button>`);
-    }
-
-    function saveFileCategory() {
-      const name = document.getElementById('cat-name').value.trim();
-      if (!name || state.fileCategories.includes(name)) return alert('無效');
-      state.fileCategories.push(name); save(); renderFiles(); closeModal();
-    }
-
-    function deleteFileCategory(cat) {
-      if (state.files.some(f => f.category === cat) && !confirm('有檔案會移至其他？')) return;
-      state.files.forEach(f => { if (f.category === cat) f.category = '其他'; });
-      state.fileCategories = state.fileCategories.filter(c => c !== cat);
-      save(); renderFiles();
-    }
-
     // Tabs
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-      ['itinerary', 'ticket', 'hotel', 'budget', 'packing', 'files'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
-      if (tabId === 'files') renderFiles();
+      ['itinerary', 'hotel', 'budget', 'packing', 'ticket'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
       if (tabId === 'hotel') renderHotels();
       if (tabId === 'ticket') renderTickets();
     }
@@ -1003,7 +920,7 @@
     document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => switchTab(tab.dataset.tab)));
     document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-    renderItinerary(); renderHotels(); renderBudget(); renderPacking(); renderFiles(); renderTickets();
+    renderItinerary(); renderHotels(); renderBudget(); renderPacking(); renderTickets();
   </script>
 </body>
 </html>
