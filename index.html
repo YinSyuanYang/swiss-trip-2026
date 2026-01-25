@@ -16,7 +16,7 @@
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .tag { background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; }
     .tabs { display: flex; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; overflow-x: auto; }
-    .tab { flex: 1; padding: 10px 2px; border: none; background: none; cursor: pointer; font-size: 0.6rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all 0.2s; min-width: 60px; }
+    .tab { flex: 1; padding: 10px 2px; border: none; background: none; cursor: pointer; font-size: 0.6rem; color: #6b7280; display: flex; flex-direction: column; align-items: center; gap: 2px; transition: all 0.2s; min-width: 50px; }
     .tab.active { color: #dc2626; border-bottom: 2px solid #dc2626; }
     .tab-icon { font-size: 1rem; }
     .content { padding: 16px; padding-bottom: 80px; max-width: 500px; margin: 0 auto; }
@@ -36,6 +36,7 @@
     .badge-family { background: #fde68a; color: #92400e; }
     .badge-highlight { background: #fee2e2; color: #dc2626; }
     .badge-first { background: #dbeafe; color: #1e40af; }
+    .badge-mustgo { background: #fef3c7; color: #d97706; }
     .arrow { color: #9ca3af; font-size: 0.875rem; }
     .day-content { padding: 0 16px 16px; border-top: 1px solid #f3f4f6; display: none; }
     .day-content.open { display: block; }
@@ -143,23 +144,6 @@
     .unlock-btn { margin-top: 16px; padding: 12px 32px; background: #3b82f6; color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 500; cursor: pointer; }
     .unlock-btn:hover { background: #2563eb; }
     .error-msg { color: #dc2626; font-size: 0.875rem; margin-top: 12px; }
-    .file-category { margin-bottom: 20px; }
-    .file-cat-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f3f4f6; border-radius: 8px; margin-bottom: 8px; }
-    .file-cat-name { font-weight: 600; }
-    .file-cat-count { font-size: 0.75rem; color: #6b7280; }
-    .file-item { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; }
-    .file-item:hover { background: #f9fafb; }
-    .file-icon { font-size: 1.5rem; }
-    .file-info { flex: 1; min-width: 0; }
-    .file-name { font-weight: 500; font-size: 0.875rem; word-break: break-word; }
-    .file-meta { font-size: 0.75rem; color: #9ca3af; }
-    .file-actions { display: flex; gap: 4px; }
-    .upload-zone { border: 2px dashed #d1d5db; border-radius: 12px; padding: 32px; text-align: center; cursor: pointer; margin-bottom: 16px; }
-    .upload-zone:hover { border-color: #3b82f6; background: #eff6ff; }
-    .upload-zone.dragover { border-color: #3b82f6; background: #dbeafe; }
-    .upload-icon { font-size: 2.5rem; margin-bottom: 8px; }
-    .upload-text { color: #6b7280; font-size: 0.875rem; }
-    .upload-hint { color: #9ca3af; font-size: 0.75rem; margin-top: 4px; }
     .hotel-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
     .hotel-card-header { padding: 16px; background: linear-gradient(to right, #7c3aed, #6d28d9); color: #fff; }
     .hotel-location { font-size: 1.125rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
@@ -176,6 +160,27 @@
     .hotel-card-btn.book { background: #f3e8ff; color: #7c3aed; }
     .hotel-card-btn.book:hover { background: #ede9fe; }
     .confirmed-badge { display: inline-block; background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; margin-left: 8px; }
+    
+    /* Transport styles */
+    .transport-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 12px; overflow: hidden; }
+    .transport-header { padding: 14px 16px; background: linear-gradient(to right, #dc2626, #b91c1c); color: #fff; display: flex; justify-content: space-between; align-items: center; }
+    .transport-header.glacier { background: linear-gradient(to right, #2563eb, #1d4ed8); }
+    .transport-header.bus { background: linear-gradient(to right, #16a34a, #15803d); }
+    .transport-date { font-weight: 600; }
+    .transport-route { font-size: 0.8rem; opacity: 0.9; }
+    .transport-body { padding: 16px; }
+    .transport-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+    .transport-row:last-child { border-bottom: none; }
+    .transport-icon { font-size: 1.25rem; width: 32px; }
+    .transport-info { flex: 1; }
+    .transport-main { font-weight: 500; font-size: 0.9rem; }
+    .transport-sub { font-size: 0.75rem; color: #6b7280; margin-top: 2px; }
+    .transport-time { font-family: monospace; font-weight: 600; color: #dc2626; font-size: 0.9rem; text-align: right; }
+    .transport-time.glacier { color: #2563eb; }
+    .transport-note { background: #fef3c7; padding: 10px 12px; border-radius: 8px; font-size: 0.8rem; color: #92400e; margin-top: 12px; }
+    .transport-note.blue { background: #dbeafe; color: #1e40af; }
+    .sbb-link { display: block; text-align: center; padding: 12px; background: #dc2626; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 500; margin-top: 16px; }
+    .sbb-link:hover { background: #b91c1c; }
     
     /* Ticket styles */
     .ticket-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; }
@@ -202,9 +207,12 @@
     .ticket-total-price.glacier { color: #2563eb; }
     .pdf-frame { width: 100%; height: calc(90vh - 80px); border: none; border-radius: 8px; }
     
+    /* Must-go badge */
+    .mustgo { display: inline-block; background: #fef3c7; color: #d97706; padding: 1px 6px; border-radius: 4px; font-size: 0.7rem; margin-left: 4px; font-weight: 500; }
+    
     @media (max-width: 400px) {
       .budget-twd { display: none; }
-      .budget-actions, .check-actions, .file-actions { opacity: 1; }
+      .budget-actions, .check-actions { opacity: 1; }
     }
   </style>
 </head>
@@ -221,6 +229,7 @@
 
   <div class="tabs">
     <button class="tab active" data-tab="itinerary"><span class="tab-icon">📅</span>行程</button>
+    <button class="tab" data-tab="transport"><span class="tab-icon">🚂</span>交通</button>
     <button class="tab" data-tab="hotel"><span class="tab-icon">🏨</span>住宿</button>
     <button class="tab" data-tab="budget"><span class="tab-icon">💰</span>預算</button>
     <button class="tab" data-tab="packing"><span class="tab-icon">🧳</span>打包</button>
@@ -229,6 +238,7 @@
 
   <div class="content">
     <div id="itinerary-tab"></div>
+    <div id="transport-tab" class="hidden"></div>
     <div id="hotel-tab" class="hidden"></div>
     <div id="budget-tab" class="hidden"></div>
     <div id="packing-tab" class="hidden"></div>
@@ -269,142 +279,111 @@
     };
 
     const CONFIRMED_HOTELS = [
-      {
-        id: 1,
-        location: '蘇黎世 Zürich',
-        checkIn: '2/8',
-        checkOut: '2/11',
-        nights: 3,
-        address: 'Weinbergstrasse 23, Zürich, 8001, Switzerland',
-        checkinTime: '16:00',
-        checkoutTime: '11:00',
-        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Weinbergstrasse+23+Zurich+8001+Switzerland',
-        bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HM2F5SBWF8',
-        platform: 'Airbnb',
-        note: '全員會合'
-      },
-      {
-        id: 2,
-        location: '薩梅丹 Samedan',
-        checkIn: '2/11',
-        checkOut: '2/12',
-        nights: 1,
-        address: '25 San Bastiaun, 7503 Samedan, Switzerland',
-        checkinTime: '15:00',
-        checkoutTime: '10:00',
-        mapUrl: 'https://www.google.com/maps/search/?api=1&query=25+San+Bastiaun+7503+Samedan+Switzerland',
-        bookingUrl: 'https://secure.booking.com/confirmation.en-gb.html?bn=5914442990',
-        platform: 'Booking.com',
-        note: '冰川列車前一晚（近聖莫里茲）'
-      },
-      {
-        id: 3,
-        location: '采爾馬特 Zermatt',
-        checkIn: '2/12',
-        checkOut: '2/15',
-        nights: 3,
-        address: 'Untere Wiestistrasse 4, 3. Stock, Zermatt, 3920, Switzerland',
-        checkinTime: '16:00',
-        checkoutTime: '10:00',
-        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Untere+Wiestistrasse+4+Zermatt+3920+Switzerland',
-        bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HM2WDR4D9F',
-        platform: 'Airbnb',
-        note: '含情人節❤️'
-      },
-      {
-        id: 4,
-        location: '因特拉肯 Interlaken',
-        checkIn: '2/15',
-        checkOut: '2/17',
-        nights: 2,
-        address: 'Brienzstrasse 8, Interlaken, 3800, Switzerland',
-        checkinTime: '16:00',
-        checkoutTime: '11:00',
-        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Brienzstrasse+8+Interlaken+3800+Switzerland',
-        bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMDA2JPYX4',
-        platform: 'Airbnb',
-        note: '少女峰'
-      },
-      {
-        id: 5,
-        location: '日內瓦 Geneva',
-        checkIn: '2/17',
-        checkOut: '2/18',
-        nights: 1,
-        address: 'Rue de Berne 26, 1201 Genève, Switzerland',
-        checkinTime: '14:00',
-        checkoutTime: '12:00',
-        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Rue+de+Berne+26+1201+Geneve+Switzerland',
-        bookingUrl: 'https://all.accor.com',
-        platform: 'Accor',
-        note: '家人獨自'
-      },
-      {
-        id: 6,
-        location: '蘇黎世 Zürich',
-        checkIn: '2/18',
-        checkOut: '2/20',
-        nights: 2,
-        address: 'Militärstrasse 24, 8004 Zürich, Switzerland',
-        checkinTime: '15:00',
-        checkoutTime: '10:00',
-        mapUrl: 'https://www.google.com/maps/search/?api=1&query=Militarstrasse+24+8004+Zurich+Switzerland',
-        bookingUrl: 'https://visionapartments.com/en',
-        platform: 'Vision Apartments',
-        note: '回程前+德國購物'
-      }
+      { id: 1, location: '蘇黎世 Zürich', checkIn: '2/8', checkOut: '2/11', nights: 3, address: 'Weinbergstrasse 23, Zürich, 8001, Switzerland', checkinTime: '16:00', checkoutTime: '11:00', mapUrl: 'https://www.google.com/maps/search/?api=1&query=Weinbergstrasse+23+Zurich+8001+Switzerland', bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HM2F5SBWF8', platform: 'Airbnb', note: '全員會合' },
+      { id: 2, location: '薩梅丹 Samedan', checkIn: '2/11', checkOut: '2/12', nights: 1, address: '25 San Bastiaun, 7503 Samedan, Switzerland', checkinTime: '15:00', checkoutTime: '10:00', mapUrl: 'https://www.google.com/maps/search/?api=1&query=25+San+Bastiaun+7503+Samedan+Switzerland', bookingUrl: 'https://secure.booking.com/confirmation.en-gb.html?bn=5914442990', platform: 'Booking.com', note: '冰川列車前一晚' },
+      { id: 3, location: '采爾馬特 Zermatt', checkIn: '2/12', checkOut: '2/15', nights: 3, address: 'Untere Wiestistrasse 4, 3. Stock, Zermatt, 3920, Switzerland', checkinTime: '16:00', checkoutTime: '10:00', mapUrl: 'https://www.google.com/maps/search/?api=1&query=Untere+Wiestistrasse+4+Zermatt+3920+Switzerland', bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HM2WDR4D9F', platform: 'Airbnb', note: '含情人節❤️' },
+      { id: 4, location: '因特拉肯 Interlaken', checkIn: '2/15', checkOut: '2/17', nights: 2, address: 'Brienzstrasse 8, Interlaken, 3800, Switzerland', checkinTime: '16:00', checkoutTime: '11:00', mapUrl: 'https://www.google.com/maps/search/?api=1&query=Brienzstrasse+8+Interlaken+3800+Switzerland', bookingUrl: 'https://www.airbnb.co.uk/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMDA2JPYX4', platform: 'Airbnb', note: '少女峰' },
+      { id: 5, location: '日內瓦 Geneva', checkIn: '2/17', checkOut: '2/18', nights: 1, address: 'Rue de Berne 26, 1201 Genève, Switzerland', checkinTime: '14:00', checkoutTime: '12:00', mapUrl: 'https://www.google.com/maps/search/?api=1&query=Rue+de+Berne+26+1201+Geneve+Switzerland', bookingUrl: 'https://all.accor.com', platform: 'Accor', note: '家人獨自' },
+      { id: 6, location: '蘇黎世 Zürich', checkIn: '2/18', checkOut: '2/20', nights: 2, address: 'Militärstrasse 24, 8004 Zürich, Switzerland', checkinTime: '15:00', checkoutTime: '10:00', mapUrl: 'https://www.google.com/maps/search/?api=1&query=Militarstrasse+24+8004+Zurich+Switzerland', bookingUrl: 'https://visionapartments.com/en', platform: 'Vision Apartments', note: '回程前+德國購物' }
+    ];
+
+    // Train timetables data
+    const TRAIN_TIMETABLES = [
+      { date: '2/8 (六)', title: '機場 → 蘇黎世', routes: [
+        { icon: '✈️', from: 'Zurich Airport', to: 'Zurich HB', duration: '10-12分', freq: '每5-10分鐘', type: 'S-Bahn', note: '下飛機後跟指標走' }
+      ]},
+      { date: '2/9 (日)', title: '蘇黎世 ↔ 列支敦士登', routes: [
+        { icon: '🚂', from: 'Zurich HB', to: 'Sargans', duration: '55-67分', freq: '每20分鐘', type: '直達 IC/IR', note: '首班 00:23｜末班 23:40' },
+        { icon: '🚌', from: 'Sargans Bahnhof', to: 'Vaduz Post', duration: '32分', freq: '每30分鐘', type: '巴士 11', note: 'CHF 7.60（Swiss Pass 不適用）' }
+      ], return: true },
+      { date: '2/10 (一)', title: '蘇黎世 → 琉森', routes: [
+        { icon: '🚂', from: 'Zurich HB', to: 'Lucerne', duration: '41-52分', freq: '每小時2-3班', type: '直達 IR', note: '首班 00:39｜末班 23:35' }
+      ], dayTrip: true },
+      { date: '2/11 (二)', title: '蘇黎世 → 薩梅丹', routes: [
+        { icon: '🚂', from: 'Zurich HB', to: 'Chur', duration: '1h 15m', freq: '每小時', type: 'IC 直達', note: '第一段' },
+        { icon: '🚂', from: 'Chur', to: 'Samedan', duration: '1h 45m', freq: '每小時', type: 'Rhätische Bahn', note: '🏔️ 景觀鐵路！' }
+      ], total: '3h 10m', transfers: 1 },
+      { date: '2/12 (三)', title: '🚂 冰川列車', glacier: true, routes: [
+        { icon: '🚂', from: 'Samedan', to: 'St. Moritz', duration: '10分', freq: '-', type: 'RhB', note: '提早出發轉車' },
+        { icon: '🚂', from: 'St. Moritz', to: 'Zermatt', duration: '8h 30m', freq: '已預訂', type: '冰川列車 903', note: '🎫 頭等艙 車廂24 座位21-22,24-26' }
+      ], booked: true },
+      { date: '2/13-14', title: '策馬特登山鐵路', routes: [
+        { icon: '🚂', from: 'Zermatt', to: 'Gornergrat', duration: '33分', freq: '每24分鐘', type: 'Gornergrat Bahn', note: '首班 07:00｜海拔 3,089m' },
+        { icon: '🚡', from: 'Zermatt', to: 'Sunnegga', duration: '3分', freq: '持續運行', type: '纜車', note: '最佳馬特洪峰拍照點' }
+      ]},
+      { date: '2/15 (六)', title: '策馬特 → 因特拉肯', routes: [
+        { icon: '🚂', from: 'Zermatt', to: 'Visp', duration: '1h 5m', freq: '每小時', type: 'Matterhorn Gotthard', note: '首班 05:37' },
+        { icon: '🚂', from: 'Visp', to: 'Interlaken Ost', duration: '55分', freq: '每小時', type: 'BLS', note: '末班 22:06' }
+      ], total: '1h 47m - 2h 15m', transfers: 1 },
+      { date: '2/16 (日)', title: '少女峰鐵路', routes: [
+        { icon: '🚂', from: 'Interlaken Ost', to: 'Grindelwald Terminal', duration: '30分', freq: '每30分鐘', type: 'BOB', note: '少女峰專線' },
+        { icon: '🚡', from: 'Grindelwald', to: 'Eigergletscher', duration: '15分', freq: '持續運行', type: 'Eiger Express', note: '⭐ 2020新纜車！' },
+        { icon: '🚂', from: 'Eigergletscher', to: 'Jungfraujoch', duration: '30分', freq: '每30分鐘', type: '登山火車', note: '🏔️ 歐洲之巔 3,454m' }
+      ]},
+      { date: '2/17 (一)', title: '因特拉肯 → 日內瓦', routes: [
+        { icon: '🚂', from: 'Interlaken Ost', to: 'Bern', duration: '55分', freq: '每小時', type: 'IC', note: '首班 04:56' },
+        { icon: '🚂', from: 'Bern', to: 'Geneva', duration: '1h 56m', freq: '每小時', type: 'IC 直達', note: '末班 23:00' }
+      ], total: '2h 41m - 2h 55m', transfers: 1, alt: '直達選項：IR 2524（2h 50m 無換乘）' },
+      { date: '2/18 (二)', title: '日內瓦 → 蘇黎世', routes: [
+        { icon: '🚂', from: 'Geneva', to: 'Zurich HB', duration: '2h 51m', freq: '每小時', type: 'IC 直達', note: '首班 00:27｜末班 23:21' }
+      ]},
+      { date: '2/19 (三)', title: '蘇黎世 ↔ 康斯坦茨 🇩🇪', routes: [
+        { icon: '🚂', from: 'Zurich HB', to: 'Konstanz', duration: '1h 12m - 1h 40m', freq: '每小時', type: '直達 IC', note: '首班 00:08｜Swiss Pass 有效' }
+      ], return: true },
+      { date: '2/20 (四)', title: '蘇黎世 → 機場', routes: [
+        { icon: '🚂', from: 'Zurich HB', to: 'Zurich Airport', duration: '10-12分', freq: '每5-10分鐘', type: 'S-Bahn', note: '建議提早3小時' }
+      ]}
     ];
 
     const DEFAULT_DATA = {
       itinerary: [
-        { date: '2/8 (日)', title: '全員集合蘇黎世！', icon: '✈️', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[0], hl: true, schedule: [
+        { date: '2/8 (六)', title: '全員集合蘇黎世！', icon: '✈️', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[0], hl: true, schedule: [
           { t: '07:30', a: '🛬 家人抵達蘇黎世 (CX383)', d: '-' },
           { t: '11:30', a: '🛬 Eva抵達蘇黎世 (EZY8471)', d: '-' },
           { t: '12:00', a: '會合・午餐', d: '1.5h' },
           { t: '16:00', a: '🏨 入住 Airbnb', d: '1h' },
-          { t: '17:00', a: '班霍夫大街購物', d: '1.5h' },
-          { t: '18:30', a: '老城晚餐', d: '2h' }
-        ], map: ['Zurich Airport', 'Bahnhofstrasse Zurich'], route: '台灣🛬/英國🛬 → 蘇黎世',
-        flight: { eva: 'EZY8471 LGW 08:45→ZRH 11:30', family: 'CX383 HKG 00:45→ZRH 07:30' } },
+          { t: '17:00', a: '⭐ 班霍夫大街購物 <span class="mustgo">必去</span>', d: '1.5h' },
+          { t: '18:30', a: '⭐ 蘇黎世老城晚餐 <span class="mustgo">必去</span>', d: '2h' }
+        ], map: ['Zurich Airport', 'Bahnhofstrasse Zurich'], route: '台灣🛬/英國🛬 → 蘇黎世', flight: { eva: 'EZY8471 LGW 08:45→ZRH 11:30', family: 'CX383 HKG 00:45→ZRH 07:30' } },
         
-        { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', hotel: CONFIRMED_HOTELS[0], schedule: [
-          { t: '08:30', a: '🚂 蘇黎世出發', d: '1.5h' },
+        { date: '2/9 (日)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', hotel: CONFIRMED_HOTELS[0], schedule: [
+          { t: '08:30', a: '🚂 蘇黎世出發（55分直達Sargans）', d: '1.5h' },
           { t: '10:00', a: '抵達瓦杜茲', d: '-' },
           { t: '10:30', a: '護照蓋紀念章 CHF3', d: '30m' },
           { t: '11:00', a: '瓦杜茲城堡(外觀)', d: '1h' },
           { t: '12:00', a: '午餐', d: '1h' },
           { t: '14:00', a: '藝術博物館/品酒', d: '2h' },
           { t: '17:00', a: '🚂 返回蘇黎世', d: '1.5h' }
-        ], map: ['Zurich HB', 'Vaduz Liechtenstein'], route: '蘇黎世 🚂 → Sargans 🚌 → 瓦杜茲 → 蘇黎世' },
+        ], map: ['Zurich HB', 'Vaduz Liechtenstein'], route: '蘇黎世 🚂55m → Sargans 🚌32m → 瓦杜茲' },
         
-        { date: '2/10 (二)', title: '琉森', icon: '🦁', loc: '琉森', hotel: CONFIRMED_HOTELS[0], schedule: [
-          { t: '09:00', a: '🚂 蘇黎世→琉森', d: '45m' },
-          { t: '10:00', a: '獅子紀念碑', d: '30m' },
+        { date: '2/10 (一)', title: '琉森一日遊', icon: '🦁', loc: '琉森', hotel: CONFIRMED_HOTELS[0], schedule: [
+          { t: '09:00', a: '🚂 蘇黎世→琉森（41分直達）', d: '45m' },
+          { t: '10:00', a: '⭐ 獅子紀念碑 <span class="mustgo">必去</span>', d: '30m' },
           { t: '10:45', a: '冰河公園', d: '1h' },
           { t: '12:00', a: '午餐', d: '1h' },
-          { t: '13:30', a: '卡貝爾橋', d: '30m' },
+          { t: '13:30', a: '⭐ 卡貝爾橋 <span class="mustgo">必去</span>', d: '30m' },
           { t: '14:00', a: '老城漫步', d: '2h' },
           { t: '16:00', a: '天鵝廣場購物', d: '1.5h' },
           { t: '18:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂 → 琉森 → 蘇黎世' },
+        ], map: ['Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂41m → 琉森 → 蘇黎世' },
         
-        { date: '2/11 (三)', title: '前往薩梅丹', icon: '🎿', loc: '薩梅丹', hotel: CONFIRMED_HOTELS[1], schedule: [
+        { date: '2/11 (二)', title: '前往薩梅丹', icon: '🎿', loc: '薩梅丹', hotel: CONFIRMED_HOTELS[1], schedule: [
           { t: '08:00', a: '早餐', d: '1h' },
           { t: '09:00', a: '🚂 蘇黎世→薩梅丹', d: '3h' },
           { t: '11:00', a: '🏨 退房蘇黎世', d: '-' },
           { t: '12:00', a: '抵達薩梅丹', d: '-' },
           { t: '13:00', a: '午餐', d: '1h' },
-          { t: '14:30', a: '聖莫里茲湖散步', d: '1.5h' },
+          { t: '14:30', a: '⭐ 聖莫里茲湖散步 <span class="mustgo">必去</span>', d: '1.5h' },
           { t: '15:00', a: '🏨 入住 Booking.com', d: '30m' },
           { t: '16:00', a: '小鎮購物', d: '1.5h' },
           { t: '18:00', a: '瑞士傳統晚餐', d: '2h' },
           { t: '20:30', a: '早睡（明天冰川列車）', d: '-' }
-        ], map: ['Samedan Station', 'St Moritz'], route: '蘇黎世 🚂 → Chur → 薩梅丹（3小時）' },
+        ], map: ['Samedan Station', 'St Moritz Lake'], route: '蘇黎世 🚂1h15m → Chur 🚂1h45m → 薩梅丹' },
         
-        { date: '2/12 (四)', title: '🚂 冰川列車', icon: '🚂', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, first: true, schedule: [
+        { date: '2/12 (三)', title: '🚂 冰川列車', icon: '🚂', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, first: true, schedule: [
           { t: '07:00', a: '早餐', d: '1h' },
           { t: '08:00', a: '🏨 退房 (10:00前)', d: '-' },
-          { t: '08:38', a: '🚂 冰川列車出發！', d: '8h30m' },
+          { t: '08:38', a: '⭐ 冰川列車出發！<span class="mustgo">Top 3</span>', d: '8h30m' },
           { t: '10:00', a: '📸 蘭德瓦瑟高架橋', d: '-' },
           { t: '12:00', a: '🍽️ 車上2道式午餐', d: '1.5h' },
           { t: '14:00', a: '⛰️ 上阿爾卑斯山口 2,033m', d: '-' },
@@ -412,25 +391,24 @@
           { t: '17:30', a: '🏨 入住 Airbnb (16:00後)', d: '30m' },
           { t: '18:00', a: '小鎮漫步', d: '1h' },
           { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['St Moritz Station', 'Zermatt'], route: '薩梅丹 🚂 → 采爾馬特（冰川列車 8h30m）',
-        booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐x5' } },
+        ], map: ['St Moritz Station', 'Zermatt'], route: '薩梅丹 🚂10m → St. Moritz 🚂8h30m → 采爾馬特', booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐x5' } },
         
-        { date: '2/13 (五)', title: '馬特洪峰', icon: '🏔️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], schedule: [
+        { date: '2/13 (四)', title: '⭐ 馬特洪峰', icon: '🏔️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, mustgo: true, schedule: [
           { t: '08:00', a: '早餐', d: '1h' },
-          { t: '09:00', a: '🚂 Gornergrat 登山鐵路', d: '33m' },
-          { t: '09:45', a: '抵達 Gornergrat 3,089m', d: '-' },
+          { t: '09:00', a: '🚂 Gornergrat 登山鐵路（33分）', d: '33m' },
+          { t: '09:45', a: '⭐ Gornergrat 3,089m <span class="mustgo">Top 2</span>', d: '-' },
           { t: '10:00', a: '馬特洪峰觀景・拍照', d: '2h' },
           { t: '12:00', a: '山頂午餐', d: '1h' },
           { t: '13:30', a: '下山・中途站健行', d: '2h' },
           { t: '16:00', a: '返回采爾馬特', d: '-' },
           { t: '17:00', a: '小鎮購物', d: '2h' },
           { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Zermatt', 'Gornergrat'], route: '采爾馬特 🚂 → Gornergrat → 采爾馬特' },
+        ], map: ['Zermatt', 'Gornergrat'], route: '采爾馬特 🚂33m → Gornergrat 3,089m' },
         
-        { date: '2/14 (六)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, schedule: [
+        { date: '2/14 (五)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, schedule: [
           { t: '09:00', a: '睡到自然醒・早午餐', d: '2h' },
-          { t: '11:00', a: 'Sunnegga 纜車', d: '3m' },
-          { t: '11:30', a: '馬特洪峰拍照點', d: '1.5h' },
+          { t: '11:00', a: '🚡 Sunnegga 纜車（3分）', d: '3m' },
+          { t: '11:30', a: '⭐ 馬特洪峰最佳拍照點 <span class="mustgo">必去</span>', d: '1.5h' },
           { t: '13:00', a: '山上午餐', d: '1h' },
           { t: '14:30', a: '下山', d: '-' },
           { t: '15:00', a: '采爾馬特小鎮漫步', d: '2h' },
@@ -438,10 +416,10 @@
           { t: '19:30', a: '❤️ 情人節晚餐', d: '2.5h' }
         ], map: ['Zermatt', 'Sunnegga Zermatt'], route: '采爾馬特悠閒日' },
         
-        { date: '2/15 (日)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', hotel: CONFIRMED_HOTELS[3], schedule: [
+        { date: '2/15 (六)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', hotel: CONFIRMED_HOTELS[3], schedule: [
           { t: '08:00', a: '早餐', d: '1h' },
           { t: '09:00', a: '🏨 退房 (10:00前)', d: '-' },
-          { t: '09:15', a: '🚂 采爾馬特→因特拉肯', d: '2h30m' },
+          { t: '09:15', a: '🚂 采爾馬特→因特拉肯（換1次）', d: '2h' },
           { t: '11:45', a: '抵達因特拉肯', d: '-' },
           { t: '12:00', a: '寄放行李', d: '-' },
           { t: '13:00', a: '午餐', d: '1h' },
@@ -450,25 +428,25 @@
           { t: '16:30', a: 'Höheweg 大道', d: '1h' },
           { t: '18:00', a: '湖畔散步', d: '1h' },
           { t: '19:30', a: '晚餐', d: '2h' }
-        ], map: ['Interlaken Ost'], route: '采爾馬特 🚂 → Visp → Spiez → 因特拉肯（2.5小時）' },
+        ], map: ['Interlaken Ost'], route: '采爾馬特 🚂1h5m → Visp 🚂55m → 因特拉肯' },
         
-        { date: '2/16 (一)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hotel: CONFIRMED_HOTELS[3], hl: true, schedule: [
+        { date: '2/16 (日)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hotel: CONFIRMED_HOTELS[3], hl: true, mustgo: true, schedule: [
           { t: '07:30', a: '早餐', d: '30m' },
-          { t: '08:30', a: '🚡 Eiger Express 纜車', d: '15m' },
-          { t: '09:00', a: '🚂 少女峰鐵路', d: '30m' },
-          { t: '09:30', a: '抵達少女峰站 3,454m', d: '-' },
+          { t: '08:30', a: '🚡 Eiger Express 纜車（15分）', d: '15m' },
+          { t: '09:00', a: '🚂 少女峰鐵路（30分）', d: '30m' },
+          { t: '09:30', a: '⭐ 少女峰站 3,454m <span class="mustgo">Top 1</span>', d: '-' },
           { t: '10:00', a: '斯芬克斯觀景台', d: '1h' },
           { t: '11:00', a: '冰宮 Ice Palace', d: '45m' },
           { t: '12:00', a: '山頂午餐', d: '1h' },
           { t: '13:00', a: '雪地活動/拍照', d: '2h' },
           { t: '15:30', a: '下山返回因特拉肯', d: '1h' },
           { t: '17:00', a: '休息・準備明天', d: '-' }
-        ], map: ['Jungfraujoch'], route: '因特拉肯 🚂 → Grindelwald 🚡 → 少女峰' },
+        ], map: ['Jungfraujoch'], route: '因特拉肯 🚂30m → Grindelwald 🚡15m → Eigergletscher 🚂30m → 少女峰' },
         
-        { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', hotel: CONFIRMED_HOTELS[4], schedule: [
+        { date: '2/17 (一)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', hotel: CONFIRMED_HOTELS[4], schedule: [
           { t: '07:30', a: '早餐', d: '30m' },
           { t: '08:30', a: '🏨 退房 (11:00前)', d: '-' },
-          { t: '08:30', a: '🚂 因特拉肯→日內瓦', d: '2h45m' },
+          { t: '08:30', a: '🚂 因特拉肯→日內瓦（換1次Bern）', d: '2h45m' },
           { t: '11:15', a: '抵達日內瓦', d: '-' },
           { t: '11:30', a: '行李寄存・告別', d: '30m' },
           { t: '12:00', a: '✈️ Eva前往機場', d: '20m' },
@@ -477,29 +455,28 @@
           { t: '---', a: '─── 家人行程 ───', d: '-' },
           { t: '12:00', a: '午餐', d: '1h' },
           { t: '14:00', a: '🏨 入住 Accor', d: '30m' },
-          { t: '14:30', a: '大噴泉 Jet d\'Eau', d: '30m' },
+          { t: '14:30', a: '⭐ 大噴泉 Jet d\'Eau <span class="mustgo">必去</span>', d: '30m' },
           { t: '15:30', a: '花鐘・老城', d: '2h' },
           { t: '17:30', a: '聯合國萬國宮', d: '1h' },
-          { t: '19:00', a: '湖畔晚餐', d: '2h' }
-        ], map: ['Geneva Cornavin', 'Jet dEau Geneva'], route: '因特拉肯 🚂 → 日內瓦 | Eva ✈️ → 英國',
-        flight: { eva: 'EZY8498 GVA 20:35→LGW 21:15' } },
+          { t: '19:00', a: '⭐ 日內瓦湖畔晚餐 <span class="mustgo">必去</span>', d: '2h' }
+        ], map: ['Geneva Cornavin', 'Jet dEau Geneva'], route: '因特拉肯 🚂55m → Bern 🚂1h56m → 日內瓦', flight: { eva: 'EZY8498 GVA 20:35→LGW 21:15' } },
         
-        { date: '2/18 (三)', title: '日內瓦→蘇黎世', icon: '⛲', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[5], fam: true, schedule: [
+        { date: '2/18 (二)', title: '日內瓦→蘇黎世', icon: '⛲', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[5], fam: true, schedule: [
           { t: '09:00', a: '早餐', d: '1h' },
           { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' },
           { t: '12:00', a: '🏨 退房 (12:00前)', d: '-' },
           { t: '12:00', a: '午餐', d: '1h' },
           { t: '13:30', a: '聖彼得大教堂', d: '1h' },
           { t: '15:00', a: '購物・準備離開', d: '1h' },
-          { t: '16:30', a: '🚂 日內瓦→蘇黎世', d: '2h45m' },
+          { t: '16:30', a: '🚂 日內瓦→蘇黎世（2h51m直達）', d: '2h45m' },
           { t: '19:15', a: '抵達蘇黎世', d: '-' },
-          { t: '19:30', a: '🏨 入住 Vision Apartments (15:00後)', d: '30m' },
+          { t: '19:30', a: '🏨 入住 Vision Apartments', d: '30m' },
           { t: '20:00', a: '晚餐', d: '1.5h' }
-        ], map: ['Lake Geneva', 'Zurich HB'], route: '日內瓦 🚂 → 蘇黎世（2h45m）' },
+        ], map: ['Lake Geneva', 'Zurich HB'], route: '日內瓦 🚂2h51m直達 → 蘇黎世' },
         
-        { date: '2/19 (四)', title: '🇩🇪 德國購物', icon: '🛍️', loc: '康斯坦茨', hotel: CONFIRMED_HOTELS[5], fam: true, hl: true, schedule: [
+        { date: '2/19 (三)', title: '🇩🇪 德國購物', icon: '🛍️', loc: '康斯坦茨', hotel: CONFIRMED_HOTELS[5], fam: true, hl: true, schedule: [
           { t: '09:00', a: '早餐', d: '1h' },
-          { t: '10:00', a: '🚂 蘇黎世→康斯坦茨', d: '1h15m' },
+          { t: '10:00', a: '🚂 蘇黎世→康斯坦茨（1h12m直達）', d: '1h15m' },
           { t: '11:15', a: '抵達康斯坦茨', d: '-' },
           { t: '11:30', a: '🛍️ dm 藥妝店', d: '1h' },
           { t: '12:30', a: '午餐', d: '1h' },
@@ -509,20 +486,19 @@
           { t: '16:30', a: '🚂 返回蘇黎世', d: '1h15m' },
           { t: '18:00', a: '蘇黎世最後購物', d: '1.5h' },
           { t: '19:30', a: '最後晚餐', d: '2h' }
-        ], map: ['Zurich HB', 'Konstanz Station'], route: '蘇黎世 🚂 → 康斯坦茨🇩🇪 → 蘇黎世' },
+        ], map: ['Zurich HB', 'Konstanz Station'], route: '蘇黎世 🚂1h12m直達 → 康斯坦茨🇩🇪 → 蘇黎世' },
         
-        { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', hotel: null, fam: true, schedule: [
+        { date: '2/20 (四)', title: '家人返程', icon: '✈️', loc: '香港', hotel: null, fam: true, schedule: [
           { t: '06:30', a: '起床・最後整理', d: '30m' },
           { t: '07:00', a: '早餐', d: '45m' },
           { t: '08:00', a: '🏨 退房 (10:00前)', d: '-' },
-          { t: '08:15', a: '🚂 前往蘇黎世機場', d: '15m' },
+          { t: '08:15', a: '🚂 前往蘇黎世機場（10-12分）', d: '15m' },
           { t: '08:30', a: 'Check-in', d: '1h' },
           { t: '09:30', a: '機場免稅店', d: '1.5h' },
           { t: '11:55', a: '✈️ CX382 起飛', d: '11h20m' },
           { t: '+1日', a: '06:15 抵達香港', d: '-' },
           { t: '08:55', a: '🛬 CX452 抵達高雄', d: '-' }
-        ], map: ['Zurich Airport'], route: '蘇黎世 ✈️ → 香港 → 高雄',
-        flight: { family: 'CX382 ZRH 11:55→HKG 06:15+1 | CX452 HKG 08:55→KHH 10:25' } }
+        ], map: ['Zurich Airport'], route: '蘇黎世 🚂10-12m → 機場 ✈️ → 香港 → 高雄', flight: { family: 'CX382 ZRH 11:55→HKG 06:15+1 | CX452 HKG 08:55→KHH 10:25' } }
       ],
       budget: [
         { cat: 'transport', label: '🚂 交通', items: [
@@ -550,8 +526,7 @@
         '🧥 衣物': ['羽絨外套', '防水外套', '毛衣 x3', '發熱衣 x4', '圍巾', '毛帽', '手套'],
         '🧴 盥洗': ['牙刷牙膏', '保濕乳液', '護唇膏', '防曬乳'],
         '📱 電子': ['手機+充電線', '行動電源', '歐規轉接頭']
-      },
-      fileCategories: ['Swiss Pass', '冰川列車', '酒店確認', '機票', '其他']
+      }
     };
 
     const TICKET_PASSWORD = '558894';
@@ -590,6 +565,60 @@
     function viewPdf(fileId, title) {
       const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
       openModal(title, `<iframe class="pdf-frame" src="${embedUrl}" allow="autoplay"></iframe>`, true);
+    }
+
+    // Transport Tab
+    function renderTransport() {
+      document.getElementById('transport-tab').innerHTML = `
+        <div class="card" style="padding:16px;margin-bottom:16px;background:linear-gradient(to right,#fee2e2,#fef2f2);">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:2rem;">🎫</span>
+            <div>
+              <div style="font-weight:600;color:#dc2626;">Swiss Travel Pass 15天</div>
+              <div style="font-size:0.875rem;color:#991b1b;">全程火車、巴士、遊船免費搭乘</div>
+            </div>
+          </div>
+        </div>
+        
+        ${TRAIN_TIMETABLES.map(day => `
+          <div class="transport-card">
+            <div class="transport-header ${day.glacier ? 'glacier' : ''}">
+              <div>
+                <div class="transport-date">${day.date}</div>
+                <div class="transport-route">${day.title}</div>
+              </div>
+              ${day.return ? '<span style="font-size:0.7rem;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:12px;">來回</span>' : ''}
+              ${day.dayTrip ? '<span style="font-size:0.7rem;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:12px;">一日遊</span>' : ''}
+              ${day.booked ? '<span style="font-size:0.7rem;background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:12px;">已預訂</span>' : ''}
+            </div>
+            <div class="transport-body">
+              ${day.routes.map(r => `
+                <div class="transport-row">
+                  <span class="transport-icon">${r.icon}</span>
+                  <div class="transport-info">
+                    <div class="transport-main">${r.from} → ${r.to}</div>
+                    <div class="transport-sub">${r.type}｜${r.freq}</div>
+                  </div>
+                  <div class="transport-time ${day.glacier ? 'glacier' : ''}">${r.duration}</div>
+                </div>
+                ${r.note ? `<div style="font-size:0.75rem;color:#6b7280;padding-left:44px;margin-top:-6px;margin-bottom:8px;">💡 ${r.note}</div>` : ''}
+              `).join('')}
+              ${day.total ? `<div class="transport-note blue">📍 總車程：${day.total}${day.transfers ? `｜換乘 ${day.transfers} 次` : ''}</div>` : ''}
+              ${day.alt ? `<div class="transport-note">💡 ${day.alt}</div>` : ''}
+            </div>
+          </div>
+        `).join('')}
+        
+        <a href="https://www.sbb.ch/en" target="_blank" class="sbb-link">🔗 SBB 瑞士鐵路官網查詢</a>
+        
+        <div class="info-box" style="margin-top:16px;">
+          <strong>📌 搭車須知</strong><br>
+          • Swiss Pass 需搭配護照使用<br>
+          • 建議提前 10 分鐘到月台<br>
+          • 冰川列車需另購訂位費<br>
+          • 列支敦士登巴士需另付費
+        </div>
+      `;
     }
 
     // Tickets
@@ -684,9 +713,10 @@
               </div>
             </div>
             <div class="day-right">
+              ${day.mustgo ? '<span class="badge badge-mustgo">⭐必去</span>' : ''}
               ${day.first ? '<span class="badge badge-first">頭等艙</span>' : ''}
               ${day.fam ? '<span class="badge badge-family">家人</span>' : ''}
-              ${day.hl ? '<span class="badge badge-highlight">重點</span>' : ''}
+              ${day.hl && !day.mustgo ? '<span class="badge badge-highlight">重點</span>' : ''}
               <span class="arrow" id="arrow-${i}">▼</span>
             </div>
           </button>
@@ -912,7 +942,8 @@
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-      ['itinerary', 'hotel', 'budget', 'packing', 'ticket'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
+      ['itinerary', 'transport', 'hotel', 'budget', 'packing', 'ticket'].forEach(id => document.getElementById(`${id}-tab`).classList.toggle('hidden', id !== tabId));
+      if (tabId === 'transport') renderTransport();
       if (tabId === 'hotel') renderHotels();
       if (tabId === 'ticket') renderTickets();
     }
@@ -920,7 +951,7 @@
     document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => switchTab(tab.dataset.tab)));
     document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-    renderItinerary(); renderHotels(); renderBudget(); renderPacking(); renderTickets();
+    renderItinerary(); renderTransport(); renderHotels(); renderBudget(); renderPacking(); renderTickets();
   </script>
 </body>
 </html>
