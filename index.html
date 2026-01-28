@@ -289,17 +289,17 @@
 
     // Train timetables data
     const TRAIN_TIMETABLES = [
-      { date: '2/8 (六)', title: '機場 → 蘇黎世', routes: [
+      { date: '2/8 (日)', title: '機場 → 蘇黎世', routes: [
         { icon: '✈️', from: 'Zurich Airport', to: 'Zurich HB', duration: '10-12分', freq: '每5-10分鐘', type: 'S-Bahn', note: '下飛機後跟指標走' }
       ]},
-      { date: '2/9 (日)', title: '蘇黎世 ↔ 列支敦士登', routes: [
+      { date: '2/9 (一)', title: '蘇黎世 ↔ 列支敦士登', routes: [
         { icon: '🚂', from: 'Zurich HB', to: 'Sargans', duration: '55-67分', freq: '每20分鐘', type: '直達 IC/IR', note: '首班 00:23｜末班 23:40' },
         { icon: '🚌', from: 'Sargans Bahnhof', to: 'Vaduz Post', duration: '32分', freq: '每30分鐘', type: '巴士 11', note: 'CHF 7.60（Swiss Pass 不適用）' }
       ], return: true },
-      { date: '2/10 (一)', title: '蘇黎世 → 琉森', routes: [
+      { date: '2/10 (二)', title: '蘇黎世 → 琉森', routes: [
         { icon: '🚂', from: 'Zurich HB', to: 'Lucerne', duration: '41-52分', freq: '每小時2-3班', type: '直達 IR', note: '首班 00:39｜末班 23:35' }
       ], dayTrip: true },
-      { date: '2/11 (二)', title: '蘇黎世 → 薩梅丹', routes: [
+      { date: '2/11 (三)', title: '蘇黎世 → 薩梅丹', routes: [
         { icon: '🚂', from: 'Zurich HB', to: 'Chur', duration: '1h 15m', freq: '每小時', type: 'IC 直達', note: '第一段' },
         { icon: '🚂', from: 'Chur', to: 'Samedan', duration: '1h 45m', freq: '每小時', type: 'Rhätische Bahn', note: '🏔️ 景觀鐵路！' }
       ], total: '3h 10m', transfers: 1 },
@@ -311,33 +311,33 @@
         { icon: '🚂', from: 'Zermatt', to: 'Gornergrat', duration: '33分', freq: '每24分鐘', type: 'Gornergrat Bahn', note: '首班 07:00｜海拔 3,089m' },
         { icon: '🚡', from: 'Zermatt', to: 'Sunnegga', duration: '3分', freq: '持續運行', type: '纜車', note: '最佳馬特洪峰拍照點' }
       ]},
-      { date: '2/15 (六)', title: '策馬特 → 因特拉肯', routes: [
+      { date: '2/15 (日)', title: '策馬特 → 因特拉肯', routes: [
         { icon: '🚂', from: 'Zermatt', to: 'Visp', duration: '1h 5m', freq: '每小時', type: 'Matterhorn Gotthard', note: '首班 05:37' },
         { icon: '🚂', from: 'Visp', to: 'Interlaken Ost', duration: '55分', freq: '每小時', type: 'BLS', note: '末班 22:06' }
       ], total: '1h 47m - 2h 15m', transfers: 1 },
-      { date: '2/16 (日)', title: '少女峰鐵路', routes: [
+      { date: '2/16 (一)', title: '少女峰鐵路', routes: [
         { icon: '🚂', from: 'Interlaken Ost', to: 'Grindelwald Terminal', duration: '30分', freq: '每30分鐘', type: 'BOB', note: '少女峰專線' },
         { icon: '🚡', from: 'Grindelwald', to: 'Eigergletscher', duration: '15分', freq: '持續運行', type: 'Eiger Express', note: '⭐ 2020新纜車！' },
         { icon: '🚂', from: 'Eigergletscher', to: 'Jungfraujoch', duration: '30分', freq: '每30分鐘', type: '登山火車', note: '🏔️ 歐洲之巔 3,454m' }
       ]},
-      { date: '2/17 (一)', title: '因特拉肯 → 日內瓦', routes: [
+      { date: '2/17 (二)', title: '因特拉肯 → 日內瓦', routes: [
         { icon: '🚂', from: 'Interlaken Ost', to: 'Bern', duration: '55分', freq: '每小時', type: 'IC', note: '首班 04:56' },
         { icon: '🚂', from: 'Bern', to: 'Geneva', duration: '1h 56m', freq: '每小時', type: 'IC 直達', note: '末班 23:00' }
       ], total: '2h 41m - 2h 55m', transfers: 1, alt: '直達選項：IR 2524（2h 50m 無換乘）' },
-      { date: '2/18 (二)', title: '日內瓦 → 蘇黎世', routes: [
+      { date: '2/18 (三)', title: '日內瓦 → 蘇黎世', routes: [
         { icon: '🚂', from: 'Geneva', to: 'Zurich HB', duration: '2h 51m', freq: '每小時', type: 'IC 直達', note: '首班 00:27｜末班 23:21' }
       ]},
-      { date: '2/19 (三)', title: '蘇黎世 ↔ 康斯坦茨 🇩🇪', routes: [
+      { date: '2/19 (四)', title: '蘇黎世 ↔ 康斯坦茨 🇩🇪', routes: [
         { icon: '🚂', from: 'Zurich HB', to: 'Konstanz', duration: '1h 12m - 1h 40m', freq: '每小時', type: '直達 IC', note: '首班 00:08｜Swiss Pass 有效' }
       ], return: true },
-      { date: '2/20 (四)', title: '蘇黎世 → 機場', routes: [
+      { date: '2/20 (五)', title: '蘇黎世 → 機場', routes: [
         { icon: '🚂', from: 'Zurich HB', to: 'Zurich Airport', duration: '10-12分', freq: '每5-10分鐘', type: 'S-Bahn', note: '建議提早3小時' }
       ]}
     ];
 
     const DEFAULT_DATA = {
       itinerary: [
-        { date: '2/8 (六)', title: '全員集合蘇黎世！', icon: '✈️', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[0], hl: true, schedule: [
+        { date: '2/8 (日)', title: '全員集合蘇黎世！', icon: '✈️', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[0], hl: true, schedule: [
           { t: '07:30', a: '🛬 家人抵達蘇黎世 (CX383)', d: '-' },
           { t: '11:30', a: '🛬 Eva抵達蘇黎世 (EZY8471)', d: '-' },
           { t: '12:00', a: '會合・午餐', d: '1.5h' },
@@ -346,7 +346,7 @@
           { t: '18:30', a: '⭐ 蘇黎世老城晚餐 <span class="mustgo">必去</span>', d: '2h' }
         ], map: ['Zurich Airport', 'Bahnhofstrasse Zurich'], route: '台灣🛬/英國🛬 → 蘇黎世', flight: { eva: 'EZY8471 LGW 08:45→ZRH 11:30', family: 'CX383 HKG 00:45→ZRH 07:30' } },
         
-        { date: '2/9 (日)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', hotel: CONFIRMED_HOTELS[0], schedule: [
+        { date: '2/9 (一)', title: '🇱🇮 列支敦士登', icon: '🏰', loc: '瓦杜茲', hotel: CONFIRMED_HOTELS[0], schedule: [
           { t: '08:30', a: '🚂 蘇黎世出發（55分直達Sargans）', d: '1.5h' },
           { t: '10:00', a: '抵達瓦杜茲', d: '-' },
           { t: '10:30', a: '護照蓋紀念章 CHF3', d: '30m' },
@@ -356,7 +356,7 @@
           { t: '17:00', a: '🚂 返回蘇黎世', d: '1.5h' }
         ], map: ['Zurich HB', 'Vaduz Liechtenstein'], route: '蘇黎世 🚂55m → Sargans 🚌32m → 瓦杜茲' },
         
-        { date: '2/10 (一)', title: '琉森一日遊', icon: '🦁', loc: '琉森', hotel: CONFIRMED_HOTELS[0], schedule: [
+        { date: '2/10 (二)', title: '琉森一日遊', icon: '🦁', loc: '琉森', hotel: CONFIRMED_HOTELS[0], schedule: [
           { t: '09:00', a: '🚂 蘇黎世→琉森（41分直達）', d: '45m' },
           { t: '10:00', a: '⭐ 獅子紀念碑 <span class="mustgo">必去</span>', d: '30m' },
           { t: '10:45', a: '冰河公園', d: '1h' },
@@ -367,7 +367,7 @@
           { t: '18:00', a: '湖畔晚餐', d: '2h' }
         ], map: ['Luzern Station', 'Lion Monument Luzern', 'Chapel Bridge Luzern'], route: '蘇黎世 🚂41m → 琉森 → 蘇黎世' },
         
-        { date: '2/11 (二)', title: '前往薩梅丹', icon: '🎿', loc: '薩梅丹', hotel: CONFIRMED_HOTELS[1], schedule: [
+        { date: '2/11 (三)', title: '前往薩梅丹', icon: '🎿', loc: '薩梅丹', hotel: CONFIRMED_HOTELS[1], schedule: [
           { t: '08:00', a: '早餐', d: '1h' },
           { t: '09:00', a: '🚂 蘇黎世→薩梅丹', d: '3h' },
           { t: '11:00', a: '🏨 退房蘇黎世', d: '-' },
@@ -393,7 +393,7 @@
           { t: '19:30', a: '晚餐', d: '2h' }
         ], map: ['St Moritz Station', 'Zermatt'], route: '薩梅丹 🚂10m → St. Moritz 🚂8h30m → 采爾馬特', booking: { train: '903', car: '24', seats: '21-22, 24-26', class: '頭等艙', meal: '2道式午餐x5' } },
         
-        { date: '2/13 (四)', title: '⭐ 馬特洪峰', icon: '🏔️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, mustgo: true, schedule: [
+        { date: '2/13 (五)', title: '⭐ 馬特洪峰', icon: '🏔️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, mustgo: true, schedule: [
           { t: '08:00', a: '早餐', d: '1h' },
           { t: '09:00', a: '🚂 Gornergrat 登山鐵路（33分）', d: '33m' },
           { t: '09:45', a: '⭐ Gornergrat 3,089m <span class="mustgo">Top 2</span>', d: '-' },
@@ -405,7 +405,7 @@
           { t: '19:30', a: '晚餐', d: '2h' }
         ], map: ['Zermatt', 'Gornergrat'], route: '采爾馬特 🚂33m → Gornergrat 3,089m' },
         
-        { date: '2/14 (五)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, schedule: [
+        { date: '2/14 (六)', title: '❤️ 情人節', icon: '❤️', loc: '采爾馬特', hotel: CONFIRMED_HOTELS[2], hl: true, schedule: [
           { t: '09:00', a: '睡到自然醒・早午餐', d: '2h' },
           { t: '11:00', a: '🚡 Sunnegga 纜車（3分）', d: '3m' },
           { t: '11:30', a: '⭐ 馬特洪峰最佳拍照點 <span class="mustgo">必去</span>', d: '1.5h' },
@@ -416,7 +416,7 @@
           { t: '19:30', a: '❤️ 情人節晚餐', d: '2.5h' }
         ], map: ['Zermatt', 'Sunnegga Zermatt'], route: '采爾馬特悠閒日' },
         
-        { date: '2/15 (六)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', hotel: CONFIRMED_HOTELS[3], schedule: [
+        { date: '2/15 (日)', title: '前往因特拉肯', icon: '🏔️', loc: '因特拉肯', hotel: CONFIRMED_HOTELS[3], schedule: [
           { t: '08:00', a: '早餐', d: '1h' },
           { t: '09:00', a: '🏨 退房 (10:00前)', d: '-' },
           { t: '09:15', a: '🚂 采爾馬特→因特拉肯（換1次）', d: '2h' },
@@ -430,7 +430,7 @@
           { t: '19:30', a: '晚餐', d: '2h' }
         ], map: ['Interlaken Ost'], route: '采爾馬特 🚂1h5m → Visp 🚂55m → 因特拉肯' },
         
-        { date: '2/16 (日)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hotel: CONFIRMED_HOTELS[3], hl: true, mustgo: true, schedule: [
+        { date: '2/16 (一)', title: '⭐ 少女峰 Top of Europe', icon: '🗻', loc: '少女峰', hotel: CONFIRMED_HOTELS[3], hl: true, mustgo: true, schedule: [
           { t: '07:30', a: '早餐', d: '30m' },
           { t: '08:30', a: '🚡 Eiger Express 纜車（15分）', d: '15m' },
           { t: '09:00', a: '🚂 少女峰鐵路（30分）', d: '30m' },
@@ -443,7 +443,7 @@
           { t: '17:00', a: '休息・準備明天', d: '-' }
         ], map: ['Jungfraujoch'], route: '因特拉肯 🚂30m → Grindelwald 🚡15m → Eigergletscher 🚂30m → 少女峰' },
         
-        { date: '2/17 (一)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', hotel: CONFIRMED_HOTELS[4], schedule: [
+        { date: '2/17 (二)', title: 'Eva返回英國', icon: '✈️', loc: '日內瓦', hotel: CONFIRMED_HOTELS[4], schedule: [
           { t: '07:30', a: '早餐', d: '30m' },
           { t: '08:30', a: '🏨 退房 (11:00前)', d: '-' },
           { t: '08:30', a: '🚂 因特拉肯→日內瓦（換1次Bern）', d: '2h45m' },
@@ -461,7 +461,7 @@
           { t: '19:00', a: '⭐ 日內瓦湖畔晚餐 <span class="mustgo">必去</span>', d: '2h' }
         ], map: ['Geneva Cornavin', 'Jet dEau Geneva'], route: '因特拉肯 🚂55m → Bern 🚂1h56m → 日內瓦', flight: { eva: 'EZY8498 GVA 20:35→LGW 21:15' } },
         
-        { date: '2/18 (二)', title: '日內瓦→蘇黎世', icon: '⛲', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[5], fam: true, schedule: [
+        { date: '2/18 (三)', title: '日內瓦→蘇黎世', icon: '⛲', loc: '蘇黎世', hotel: CONFIRMED_HOTELS[5], fam: true, schedule: [
           { t: '09:00', a: '早餐', d: '1h' },
           { t: '10:00', a: '日內瓦湖遊船', d: '1.5h' },
           { t: '12:00', a: '🏨 退房 (12:00前)', d: '-' },
@@ -474,7 +474,7 @@
           { t: '20:00', a: '晚餐', d: '1.5h' }
         ], map: ['Lake Geneva', 'Zurich HB'], route: '日內瓦 🚂2h51m直達 → 蘇黎世' },
         
-        { date: '2/19 (三)', title: '🇩🇪 德國購物', icon: '🛍️', loc: '康斯坦茨', hotel: CONFIRMED_HOTELS[5], fam: true, hl: true, schedule: [
+        { date: '2/19 (四)', title: '🇩🇪 德國購物', icon: '🛍️', loc: '康斯坦茨', hotel: CONFIRMED_HOTELS[5], fam: true, hl: true, schedule: [
           { t: '09:00', a: '早餐', d: '1h' },
           { t: '10:00', a: '🚂 蘇黎世→康斯坦茨（1h12m直達）', d: '1h15m' },
           { t: '11:15', a: '抵達康斯坦茨', d: '-' },
@@ -488,7 +488,7 @@
           { t: '19:30', a: '最後晚餐', d: '2h' }
         ], map: ['Zurich HB', 'Konstanz Station'], route: '蘇黎世 🚂1h12m直達 → 康斯坦茨🇩🇪 → 蘇黎世' },
         
-        { date: '2/20 (四)', title: '家人返程', icon: '✈️', loc: '香港', hotel: null, fam: true, schedule: [
+        { date: '2/20 (五)', title: '家人返程', icon: '✈️', loc: '香港', hotel: null, fam: true, schedule: [
           { t: '06:30', a: '起床・最後整理', d: '30m' },
           { t: '07:00', a: '早餐', d: '45m' },
           { t: '08:00', a: '🏨 退房 (10:00前)', d: '-' },
